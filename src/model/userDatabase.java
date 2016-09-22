@@ -1,10 +1,10 @@
 package model;
 import java.util.ArrayList;
 
-public class userDatabase {
+public class UserDatabase {
 	private ArrayList<User> usersList = new ArrayList<>();
 
-	public userDatabase() {
+	public UserDatabase() {
 		usersList.add(new User());
 	}
 	public ArrayList getUsers() {

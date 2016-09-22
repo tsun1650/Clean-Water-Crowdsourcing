@@ -26,10 +26,10 @@ public class User {
 		username = s;
 	}
 	public void setPass(String s) {
-		pass = s;
+		password = s;
 	}
 	public boolean equals(User s) {
-		if (this.username.equals(s.getUser) && this.password.equals(s.getPass) ) {
+		if (this.username.equals(s.getUser()) && this.password.equals(s.getPass()) ) {
 			return true;
 		}
 		return false;
