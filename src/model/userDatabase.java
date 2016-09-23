@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 public class UserDatabase {
 	private ArrayList<User> usersList = new ArrayList<>();
-
+	private User activeUser;
 	public UserDatabase() {
 		usersList.add(new User());
 	}
@@ -17,5 +17,13 @@ public class UserDatabase {
 			}
 		}
 		return false;
+	}
+	public User whoIsLoggedIn () {
+		for (User i : usersList) {
+			if (i.isLoggedIn()) {
+				return i;
+			}
+		}
+		return null;
 	}
 }
