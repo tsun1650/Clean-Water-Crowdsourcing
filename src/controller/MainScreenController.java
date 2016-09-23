@@ -17,7 +17,9 @@ public class MainScreenController {
             stage.setScene(new Scene(root1));
             stage.show();
         } catch(Exception e) {
+
             e.printStackTrace();
+
         }
     }
 }

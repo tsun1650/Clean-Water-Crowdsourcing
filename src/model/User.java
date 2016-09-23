@@ -40,6 +40,7 @@ public class User {
 	public void logout() {
 		isLoggedIn = false;
 	}
+	public boolean isLoggedIn() { return this.isLoggedIn;}
 	public String toString() {
 		return username + " : " + password;
 	}

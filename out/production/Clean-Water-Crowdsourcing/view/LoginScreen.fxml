@@ -35,8 +35,8 @@
                   <Font size="15.0" />
                </font>
             </Text>
-            <TextField layoutX="254.0" layoutY="140.0" prefHeight="25.0" prefWidth="259.0" />
-            <TextField layoutX="254.0" layoutY="196.0" prefHeight="25.0" prefWidth="259.0" />
+            <TextField fx:id = "userField" layoutX="254.0" layoutY="140.0" prefHeight="25.0" prefWidth="259.0" />
+            <TextField fx:id = "passField" layoutX="254.0" layoutY="196.0" prefHeight="25.0" prefWidth="259.0" />
             <Button layoutX="397.0" layoutY="248.0" mnemonicParsing="false" onMouseClicked="#backToMain" text="Cancel" />
             <Button layoutX="461.0" layoutY="248.0" mnemonicParsing="false" onMouseClicked="#verifyUser" text="Login" />
          </children>
