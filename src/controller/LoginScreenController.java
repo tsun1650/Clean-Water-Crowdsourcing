@@ -10,13 +10,13 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import model.User;
-import model.UserDatabase;
+import model.userDatabase;
 
 public class LoginScreenController {
     private String username = "user";
     private String password = "pass";
     private MainFXApplication mainApplication;
-    private UserDatabase database = new UserDatabase();
+    private userDatabase database = new userDatabase();
 
     @FXML
     private TextField userField;
