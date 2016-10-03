@@ -3,6 +3,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -27,6 +28,9 @@
                <font>
                   <Font name="Segoe UI Light" size="35.0" />
                </font>
+               <effect>
+                  <DropShadow color="#00c3ff" height="3.21" radius="1.7824999999999998" width="5.92" />
+               </effect>
             </Text>
          </children>
       </AnchorPane>

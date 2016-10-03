@@ -24,7 +24,7 @@
    <children>
       <AnchorPane prefHeight="200.0" prefWidth="200.0">
          <children>
-            <Text fill="#1804f2" layoutX="240.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Register">
+            <Text fill="#1804f2" layoutX="240.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Register">
                <font>
                   <Font name="Segoe UI Light" size="35.0" />
                </font>
@@ -37,32 +37,36 @@
       <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
          <children>
             <Text layoutX="71.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account Type:" />
-            <ComboBox layoutX="151.0" layoutY="42.0" prefWidth="150.0" />
-            <Text layoutX="91.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:" />
+            <ComboBox fx:id="accountTypeComboBox" layoutX="151.0" layoutY="42.0" prefWidth="150.0" />
+            <Text layoutX="78.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name:" />
             <TextField layoutX="151.0" layoutY="94.0" />
          </children>
       </AnchorPane>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <children>
-            <Text layoutX="44.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" />
+            <Text layoutX="24.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username/ID:" />
             <TextField layoutX="106.0" layoutY="94.0" />
             <TextField layoutX="106.0" layoutY="42.0" />
-            <Text layoutX="24.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username/ID:" />
+            <Text layoutX="24.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email Address:" />
          </children>
       </AnchorPane>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
          <children>
-            <Text layoutX="-79.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please complete the following" />
+            <Text layoutX="-79.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please complete the following" />
          </children>
       </AnchorPane>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
          <children>
-            <Button layoutX="234.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#cancelClicked" text="Cancel" />
+            <Button layoutX="234.0" layoutY="67.0" mnemonicParsing="false" onMouseClicked="#cancelClicked" text="Cancel" />
+            <Text layoutX="80.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name:" />
+            <TextField layoutX="150.0" layoutY="10.0" />
          </children>
       </AnchorPane>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
          <children>
-            <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#submitClicked" text="Submit" />
+            <Button layoutX="15.0" layoutY="67.0" mnemonicParsing="false" onMouseClicked="#submitClicked" text="Submit" />
+            <TextField layoutX="106.0" layoutY="11.0" />
+            <Text layoutX="42.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" />
          </children>
       </AnchorPane>
    </children>
