@@ -4,6 +4,7 @@ package model;
  * Created by tonys on 10/5/2016.
  */
 public class Account {
+    //private AccountType type;
     private String username;
     private String password;
     private String first;
@@ -78,11 +79,8 @@ public class Account {
     public void setPass(String s) {
         password = s;
     }
-    public boolean equals(User s) {
-        if (this.username.equals(s.getUser()) && this.password.equals(s.getPass()) ) {
-            return true;
-        }
-        return false;
+    public boolean equals(Account s) {
+        return username.equals(s.getUser()) && password.equals(s.getPass());
     }
     public void login() {
         isLoggedIn = true;

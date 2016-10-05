@@ -2,31 +2,38 @@ package model;
 import java.util.ArrayList;
 
 public class accountDatabase {
-	private ArrayList<Account> accountList = new ArrayList<>();
-	private Account activeAccount;
+	private ArrayList<Account> accountList;
+    private Account active;
 	public accountDatabase() {
-		accountList.add(new Account());
+        accountList = new ArrayList<>();
 	}
+
 	public void add(Account a) {
 	    accountList.add(a);
     }
+
 	public ArrayList getAccounts() {
 		return accountList;
 	}
-	public boolean contains(Account u) {
+
+	public Account getActiveAccount() {
+	    return active;
+	}
+
+	public boolean login(Account u) {
 		for (Account i : accountList) {
 			if (i.equals(u)) {
+			    u.login();
+                active = u;
 				return true;
 			}
 		}
 		return false;
+
 	}
-	public Account whoIsLoggedIn () {
-		for (Account i : accountList) {
-			if (i.isLoggedIn()) {
-				return i;
-			}
-		}
-		return null;
-	}
+	public void logOut(Account a) {
+	    active = null;
+	    a.logout();
+    }
+
 }

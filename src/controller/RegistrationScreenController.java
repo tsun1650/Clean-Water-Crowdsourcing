@@ -34,17 +34,17 @@ public class RegistrationScreenController {
     //private ComboBox<AccountType> accountTypeComboBox;
 
     public void submitClicked() {
-        //same as login
-        /*
+
         String first = firstField.getText().trim();
         String last = lastField.getText().trim();
         String user = userField.getText().trim();
         String pass = passField.getText().trim();
         String email = emailField.getText().trim();
         Account a = new Account(user, pass, first, last, email);
+        //database.add(a);
         //a.login();
         //verifyUser();
-        */
+
     }
     public void cancelClicked() {
         try {
