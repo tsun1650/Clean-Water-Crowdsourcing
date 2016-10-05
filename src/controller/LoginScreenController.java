@@ -10,14 +10,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import model.User;
-import model.userDatabase;
+import model.Account;
+import model.accountDatabase;
 
 public class LoginScreenController {
     private String username = "user";
     private String password = "pass";
     private MainFXApplication mainApplication;
-    private userDatabase database = new userDatabase();
+    private accountDatabase database = new accountDatabase();
 
     @FXML
     private TextField userField;
@@ -41,14 +41,13 @@ public class LoginScreenController {
         // if the username & password are right, go to application screen
         // should be similar to the try catch in the mainscreen controller but with
         // an if statement checking if what's passed equals the variables -David
-        User u = new User(userField.getText().trim(), passField.getText().trim());
+        Account u = new Account(userField.getText().trim(), passField.getText().trim());
+        database.add(u);
         if (database.contains(u)) {
             u.login();
 
             try {
-                //FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/ApplicationScreen.fxml"));
-                //root1 = fxmlLoader.load();
-                //root1 = FXMLLoader.load(getClass().getResource("../view/ApplicationScreen.fxml"));
+
                 root1 = FXMLLoader.load(getClass().getResource("../view/ApplicationScreen.fxml"));
                 Stage stage = (Stage) loginButton.getScene().getWindow();
                 stage.setScene(new Scene(root1));
