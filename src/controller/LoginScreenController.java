@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -24,7 +25,18 @@ public class LoginScreenController {
     @FXML
     private TextField passField;
 
+    @FXML
+    private Button cancelButton;
+
+    @FXML
+    private Button loginButton;
+
+
+
+
     public void verifyUser() {
+        Parent root1;
+
         // TO DO implement this (can be hard coded) so that
         // if the username & password are right, go to application screen
         // should be similar to the try catch in the mainscreen controller but with
@@ -34,9 +46,11 @@ public class LoginScreenController {
             u.login();
 
             try {
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/ApplicationScreen.fxml"));
-                Parent root1 = (Parent) fxmlLoader.load();
-                Stage stage = new Stage();
+                //FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/ApplicationScreen.fxml"));
+                //root1 = fxmlLoader.load();
+                //root1 = FXMLLoader.load(getClass().getResource("../view/ApplicationScreen.fxml"));
+                root1 = FXMLLoader.load(getClass().getResource("../view/ApplicationScreen.fxml"));
+                Stage stage = (Stage) loginButton.getScene().getWindow();
                 stage.setScene(new Scene(root1));
                 stage.show();
             } catch(Exception e) {
@@ -51,13 +65,13 @@ public class LoginScreenController {
     }
 
     public void backToMain() {
+        Parent root1;
         // TO DO: implement this so that when cancel is pressed,
         // go back to the main screen -idk if you can do it the same window 
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/MainScreen.fxml"));
-            Parent mainScreen = (Parent) fxmlLoader.load();
-            Stage stage = new Stage();
-            stage.setScene(new Scene(mainScreen));
+            root1 = FXMLLoader.load(getClass().getResource("../view/MainScreen.fxml"));
+            Stage stage = (Stage) cancelButton.getScene().getWindow();
+            stage.setScene(new Scene(root1));
             stage.show();
         } catch(Exception e) {
             e.printStackTrace();

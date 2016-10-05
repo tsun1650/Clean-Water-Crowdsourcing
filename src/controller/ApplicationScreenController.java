@@ -19,7 +19,7 @@ public class ApplicationScreenController {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/MainScreen.fxml"));
             Parent mainScreen = (Parent) fxmlLoader.load();
-            Stage stage = new Stage();
+            Stage stage = (Stage) logoutButton.getScene().getWindow();
             stage.setScene(new Scene(mainScreen));
             stage.show();
         } catch(Exception e) {

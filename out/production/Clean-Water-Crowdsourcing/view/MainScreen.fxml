@@ -26,7 +26,7 @@
                </children></HBox>
             <HBox layoutX="300.0" layoutY="215.0" prefHeight="42.0" prefWidth="94.0">
                <children>
-            <Button mnemonicParsing="false" onMouseClicked="#registerClicked" prefHeight="15.0" prefWidth="75.0" text="Register" />
+            <Button fx:id="registerButton" mnemonicParsing="false" onMouseClicked="#registerClicked" prefHeight="15.0" prefWidth="75.0" text="Register" />
                </children></HBox>
       </children></AnchorPane>
   </center>

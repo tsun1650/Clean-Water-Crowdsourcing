@@ -1,19 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ApplicationScreenController">
-   <center>
-      <Text fill="#0d00ff" strokeType="OUTSIDE" strokeWidth="0.0" text="Login Successful. Welcome!" BorderPane.alignment="CENTER">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ApplicationScreenController">
+   <children>
+      <Text fill="#0813e1" layoutX="136.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login Successful, Welcome!">
          <font>
-            <Font size="41.0" />
+            <Font size="27.0" />
          </font>
+         <effect>
+            <DropShadow color="#0b71d0" height="9.02" radius="3.9800000000000004" width="8.9" />
+         </effect>
       </Text>
-   </center>
-   <bottom>
-      <Button fx:id = "logoutButton" mnemonicParsing="false" onMouseClicked = "#logout" text="Logout"  BorderPane.alignment="CENTER" />
-   </bottom>
-</BorderPane>
+      <Button fx:id="logoutButton" layoutX="355.0" layoutY="303.0" mnemonicParsing="false" onMouseClicked="#logout" text="Logout" />
+      <Button layoutX="178.0" layoutY="303.0" mnemonicParsing="false" text="Edit Profile" />
+   </children>
+</AnchorPane>

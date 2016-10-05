@@ -57,14 +57,14 @@
       </AnchorPane>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
          <children>
-            <Button layoutX="234.0" layoutY="67.0" mnemonicParsing="false" onMouseClicked="#cancelClicked" text="Cancel" />
+            <Button fx:id="cancelButton" layoutX="234.0" layoutY="67.0" mnemonicParsing="false" onMouseClicked="#cancelClicked" text="Cancel" />
             <Text layoutX="80.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name:" />
             <TextField layoutX="150.0" layoutY="10.0" />
          </children>
       </AnchorPane>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
          <children>
-            <Button layoutX="15.0" layoutY="67.0" mnemonicParsing="false" onMouseClicked="#submitClicked" text="Submit" />
+            <Button fx:id="submitButton" layoutX="15.0" layoutY="67.0" mnemonicParsing="false" onMouseClicked="#submitClicked" text="Submit" />
             <TextField layoutX="106.0" layoutY="11.0" />
             <Text layoutX="42.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" />
          </children>
