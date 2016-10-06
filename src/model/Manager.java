@@ -1,7 +1,7 @@
 package model;
 
 /**
- * Created by tonys on 10/6/2016.
+ * Manager is an extension of Worker
  */
 public class Manager extends Worker {
 }

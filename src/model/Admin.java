@@ -1,7 +1,7 @@
 package model;
 
 /**
- * Created by tonys on 10/1/2016.
+ * Admin is an extension of Manager
  */
 public class Admin extends Manager {
 }

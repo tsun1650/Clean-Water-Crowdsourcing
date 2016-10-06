@@ -17,6 +17,9 @@ import model.UserDatabase;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * create the main application
+ */
 public class MainFXApplication extends Application {
     private User activeUser;
     private Stage stage;
@@ -27,13 +30,27 @@ public class MainFXApplication extends Application {
     private Scene registrationScene;
     private ApplicationScreenController applicationController;
 
+    /**
+     * get the logged in user
+     * @return activeUser user logged in
+     */
     public User getActiveUser() {
 
         return activeUser;
     }
+
+    /**
+     * set the logged in user
+     * @param u user to login
+     */
     public void setActiveUser(User u) {
         database.setActiveUser(u);
     }
+
+    /**
+     * get the database
+     * @return database the userlist
+     */
     public UserDatabase getUsers() {
         return database;
     }
@@ -55,39 +72,47 @@ public class MainFXApplication extends Application {
     /**
      * Set scene to logout controls
      */
-    public void setApplicationScene() {
-        applicationController.showProfile();
+    public void setApplicationScene(User u) {
+        applicationController.showProfile(u);
         setScene(applicationScene);
     }
 
     /**
-     * Set scene to login controls
+     * set scene to login
      */
     public void setLoginScene() {
         setScene(loginScene);
     }
 
     /**
-     * Set scene to registration controls
+     * set scene to registration
      */
     public void setRegistrationScene() {
         setScene(registrationScene);
     }
 
     /**
-     * Set scene to profile controls
+     * set scene to main
      */
     public void setMainScene() {
 
         setScene(mainScene);
     }
 
+    /**
+     * set scene
+     * @param s scene to set it to
+     */
     private void setScene(Scene s) {
         stage.hide();
         stage.setScene(s);
         stage.show();
     }
 
+    /**
+     * set the layout
+     * @param mainScreen screen to set it to
+     */
     private void setLayout(Stage mainScreen) {
         stage = mainScreen;
         try {

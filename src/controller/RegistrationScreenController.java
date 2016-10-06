@@ -14,8 +14,11 @@ import javafx.stage.Stage;
 import model.User;
 import model.UserDatabase;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 /**
- * Created by David on 9/27/2016.
+ * controller for registration screen
  */
 public class RegistrationScreenController {
     private MainFXApplication mainApplication;
@@ -32,7 +35,7 @@ public class RegistrationScreenController {
     @FXML
     private TextField passField;
     @FXML
-    private ComboBox<String> accountTypeComboBox;
+    private TextField typeField;
 
     private UserDatabase database;
     private User u;
@@ -44,22 +47,27 @@ public class RegistrationScreenController {
 
         mainApplication = main;
         database = mainApplication.getUsers();
-        accountTypeComboBox= new ComboBox<>();
-        accountTypeComboBox.getItems().addAll("Worker", "Manager", "Admin");
+
+
     }
+
+    /**
+     * register new user
+     */
     public void submitClicked() {
+        u = new User(typeField.getText(), userField.getText(), passField.getText(), firstField.getText(), lastField.getText(), emailField.getText(), "address", "Mr.");
 
-
-        //needs to be able to add type (set up combobox) and also title.
-        //make room for those fields in fxml
-        //everything else should probably work - tony
-        u = new User(accountTypeComboBox.getValue(), userField.getText(), passField.getText(), firstField.getText(), lastField.getText(), emailField.getText(), "address", "Mr.");
         database.add(u);
-        mainApplication.setActiveUser(u);
-        mainApplication.setApplicationScene();
+        database.login(u);
+
+        mainApplication.setApplicationScene(u);
 
 
     }
+
+    /**
+     * set scene to main
+     */
     public void cancelClicked() {
         mainApplication.setMainScene();
     }

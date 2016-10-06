@@ -8,6 +8,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
+/**
+ * controller for main screen
+ */
 public class MainScreenController {
     private MainFXApplication mainApplication;
     @FXML
@@ -24,10 +27,16 @@ public class MainScreenController {
         mainApplication = main;
     }
 
+    /**
+     * set scene to login scene
+     */
     public void loginClicked() {
         mainApplication.setLoginScene();
     }
 
+    /**
+     * set scene to register scene
+     */
     public void registerClicked() {
        mainApplication.setRegistrationScene();
     }

@@ -1,7 +1,7 @@
 package model;
 
 /**
- * Created by tonys on 10/6/2016.
+ * worker is an extension of user
  */
 public class Worker extends User {
 }

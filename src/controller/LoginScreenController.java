@@ -13,6 +13,9 @@ import javafx.stage.Stage;
 import model.User;
 import model.UserDatabase;
 
+/**
+ * controller for login screen
+ */
 public class LoginScreenController {
     private String username = "user";
     private String password = "pass";
@@ -41,23 +44,38 @@ public class LoginScreenController {
         database = mainApplication.getUsers();
     }
 
+    /**
+     * try to log in user
+     */
     public void verifyUser() {
-
-        u = new User(userField.getText().trim(), passField.getText().trim());
-        //u = new User();
-
-        database.add(u);
-        if (database.login(u)) {
+        String user = userField.getText().trim();
+        String pass = passField.getText().trim();
+        //u = new User(userField.getText().trim(), passField.getText().trim());
+        u = database.getCredentials(user, pass);
+        if (u != null) {
+            database.login(u);
             mainApplication.setActiveUser(u);
-            mainApplication.setApplicationScene();
+            mainApplication.setApplicationScene(u);
+        } else {
+            Alert alert = new Alert(Alert.AlertType.WARNING, "This is an incorrect login!", ButtonType.OK);
+            alert.showAndWait();
+        }
+        /*
+        if (database.login(userField.getText().trim(), passField.getText().trim())) {
+            u = mainApplication.getActiveUser();
+            mainApplication.setActiveUser(u);
+            mainApplication.setApplicationScene(u);
 
         } else {
             Alert alert = new Alert(Alert.AlertType.WARNING, "This is an incorrect login!", ButtonType.OK);
             alert.showAndWait();
 
-        }
+        }*/
     }
 
+    /**
+     * after cancel, go home
+     */
     public void backToMain() {
         mainApplication.setMainScene();
     }

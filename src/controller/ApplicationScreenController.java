@@ -10,6 +10,9 @@ import model.UserDatabase;
 
 import java.util.ArrayList;
 
+/**
+ * Controller class for application screen
+ */
 public class ApplicationScreenController {
     private MainFXApplication mainApplication;
     private User u;
@@ -37,14 +40,23 @@ public class ApplicationScreenController {
         database = mainApplication.getUsers();
 
     }
-    public void showProfile() {
-        u = database.getActiveUser();
+
+    /**
+     * shows the profile info
+     * @param u user
+     */
+    public void showProfile(User u) {
+
         firstNameField.setText(u.getFirstName());
         lastnameField.setText(u.getLastName());
         emailField.setText(u.getEmail());
         addressField.setText(u.getAddress());
         titleField.setText(u.getTitle());
     }
+
+    /**
+     * edit the profile attributes
+     */
     public void editProfile() {
         u = database.getActiveUser();
         //create pup up dialog
@@ -98,10 +110,15 @@ public class ApplicationScreenController {
             }
         });
         dialog.showAndWait();
-        showProfile();
+        showProfile(u);
 
     }
+
+    /**
+     * log out the user
+     */
     public void logout() {
+        u = database.getActiveUser();
         database.logOut(u);
         mainApplication.setMainScene();
     }
