@@ -20,7 +20,8 @@ public class User {
 		this("User", "user", "pass", "Jon", "Snow", "jsnow@gatech.edu", "1 Techwood Dr Atlanta, Ga 30313", "Mr.");
 	}
 	public User(String type, String user, String pass, String first, String last, String email, String add,String t) {
-		this(user,pass);
+		this.username = user;
+        this.password = pass;
 		this.first = first;
 		this.last = last;
 		this.email = email;
@@ -30,9 +31,8 @@ public class User {
 		isLoggedIn = false;
 	}
 	public User(String u, String p) {
-
-	    this.username = u;
-		this.password = p;
+        username = u;
+        password = p;
 
 		isLoggedIn = false;
 	}

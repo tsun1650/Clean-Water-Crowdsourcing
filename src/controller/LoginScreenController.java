@@ -43,12 +43,12 @@ public class LoginScreenController {
 
     public void verifyUser() {
 
-        //u = new User(userField.getText().trim(), passField.getText().trim());
-        u = new User();
-        mainApplication.setActiveUser(u);
+        u = new User(userField.getText().trim(), passField.getText().trim());
+        //u = new User();
+
         database.add(u);
         if (database.login(u)) {
-            //mainApplication.setActiveUser(u);
+            mainApplication.setActiveUser(u);
             mainApplication.setApplicationScene();
 
         } else {
@@ -60,6 +60,5 @@ public class LoginScreenController {
 
     public void backToMain() {
         mainApplication.setMainScene();
-        database.logOut(u);
     }
 }
