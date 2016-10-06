@@ -1,29 +1,41 @@
 package model;
 import java.util.ArrayList;
 
-public class userDatabase {
-	private ArrayList<User> usersList = new ArrayList<>();
-	private User activeUser;
-	public userDatabase() {
-		usersList.add(new User());
+public class UserDatabase {
+	private ArrayList<User> userList;
+	private User active;
+	public UserDatabase() {
+		userList = new ArrayList<>();
 	}
+
+	public void add(User a) {
+		userList.add(a);
+	}
+
 	public ArrayList getUsers() {
-		return usersList;
+		return userList;
 	}
-	public boolean contains(User u) {
-		for (User i : usersList) {
+
+	public User getActiveUser() {
+		return active;
+	}
+
+	public void setActiveUser(User u) { active = u; }
+
+	public boolean login(User u) {
+		for (User i : userList) {
 			if (i.equals(u)) {
+				u.login();
+				setActiveUser(u);
 				return true;
 			}
 		}
+		setActiveUser(null);
 		return false;
+
 	}
-	public User whoIsLoggedIn () {
-		for (User i : usersList) {
-			if (i.isLoggedIn()) {
-				return i;
-			}
-		}
-		return null;
+	public void logOut(User a) {
+		active = null;
+		a.logout();
 	}
 }
