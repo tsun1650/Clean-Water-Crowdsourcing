@@ -41,11 +41,17 @@ public class RegistrationScreenController {
         String pass = passField.getText().trim();
         String email = emailField.getText().trim();
         Account a = new Account(user, pass, first, last, email);
+        /**
+         * Have to be able to add user to the global database
+         *
+         */
+
         //database.add(a);
         //a.login();
         //verifyUser();
 
     }
+
     public void cancelClicked() {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/MainScreen.fxml"));

@@ -12,6 +12,8 @@ public class Account {
     private String email;
     private String type;
     private String address;
+    //title could be a combobox?? also needs to be instantiated in account!
+    //private String title;
     private boolean isLoggedIn;
 
 
