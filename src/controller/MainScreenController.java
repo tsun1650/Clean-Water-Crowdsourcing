@@ -15,31 +15,20 @@ public class MainScreenController {
 
     @FXML
     private Button registerButton;
+
+    /**
+     * Ties controller to main app
+     * @param main main app
+     */
+    public void setApp(MainFXApplication main) {
+        mainApplication = main;
+    }
+
     public void loginClicked() {
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/LoginScreen.fxml"));
-            Parent root1 = (Parent) fxmlLoader.load();
-            Stage stage = (Stage) loginButton.getScene().getWindow();
-            stage.setScene(new Scene(root1));
-            stage.show();
-        } catch(Exception e) {
-
-            e.printStackTrace();
-
-        }
+        mainApplication.setLoginScene();
     }
 
     public void registerClicked() {
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/RegistrationScreen.fxml"));
-            Parent root1 = (Parent) fxmlLoader.load();
-            Stage stage = (Stage) registerButton.getScene().getWindow();
-            stage.setScene(new Scene(root1));
-            stage.show();
-        } catch(Exception e) {
-
-            e.printStackTrace();
-
-        }
+       mainApplication.setRegistrationScene();
     }
 }

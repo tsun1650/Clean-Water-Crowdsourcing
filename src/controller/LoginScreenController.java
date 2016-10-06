@@ -11,14 +11,14 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import model.User;
-import model.userDatabase;
+import model.UserDatabase;
 
 public class LoginScreenController {
     private String username = "user";
     private String password = "pass";
     private MainFXApplication mainApplication;
-    private userDatabase database = new userDatabase();
-
+    private UserDatabase database;
+    private User u;
     @FXML
     private TextField userField;
 
@@ -32,49 +32,34 @@ public class LoginScreenController {
     private Button loginButton;
 
 
-
+    /**
+     * Ties controller to main app
+     * @param main main app
+     */
+    public void setApp(MainFXApplication main) {
+        mainApplication = main;
+        database = mainApplication.getUsers();
+    }
 
     public void verifyUser() {
-        Parent root1;
 
-        // TO DO implement this (can be hard coded) so that
-        // if the username & password are right, go to application screen
-        // should be similar to the try catch in the mainscreen controller but with
-        // an if statement checking if what's passed equals the variables -David
-        User u = new User(userField.getText().trim(), passField.getText().trim());
-        if (database.contains(u)) {
-            u.login();
-
-            try {
-                //FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/ApplicationScreen.fxml"));
-                //root1 = fxmlLoader.load();
-                //root1 = FXMLLoader.load(getClass().getResource("../view/ApplicationScreen.fxml"));
-                root1 = FXMLLoader.load(getClass().getResource("../view/ApplicationScreen.fxml"));
-                Stage stage = (Stage) loginButton.getScene().getWindow();
-                stage.setScene(new Scene(root1));
-                stage.show();
-            } catch(Exception e) {
-                e.printStackTrace();
-            }
+        //u = new User(userField.getText().trim(), passField.getText().trim());
+        u = new User();
+        mainApplication.setActiveUser(u);
+        database.add(u);
+        if (database.login(u)) {
+            //mainApplication.setActiveUser(u);
+            mainApplication.setApplicationScene();
 
         } else {
             Alert alert = new Alert(Alert.AlertType.WARNING, "This is an incorrect login!", ButtonType.OK);
             alert.showAndWait();
-            //throw new IllegalArgumentException("Bruh ain't even in the system");
+
         }
     }
 
     public void backToMain() {
-        Parent root1;
-        // TO DO: implement this so that when cancel is pressed,
-        // go back to the main screen -idk if you can do it the same window 
-        try {
-            root1 = FXMLLoader.load(getClass().getResource("../view/MainScreen.fxml"));
-            Stage stage = (Stage) cancelButton.getScene().getWindow();
-            stage.setScene(new Scene(root1));
-            stage.show();
-        } catch(Exception e) {
-            e.printStackTrace();
-        }
+        mainApplication.setMainScene();
+        database.logOut(u);
     }
 }

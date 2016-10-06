@@ -1,5 +1,6 @@
 package controller;
 
+import fxapp.MainFXApplication;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,20 +12,21 @@ import javafx.stage.Stage;
  * Created by David on 9/27/2016.
  */
 public class RegistrationScreenController {
+    private MainFXApplication mainApplication;
     @FXML
     private Button cancelButton;
+
+    /**
+     * Ties controller to main app
+     * @param main main app
+     */
+    public void setApp(MainFXApplication main) {
+        mainApplication = main;
+    }
     public void submitClicked() {
 
     }
     public void cancelClicked() {
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/MainScreen.fxml"));
-            Parent mainScreen = (Parent) fxmlLoader.load();
-            Stage stage = (Stage) cancelButton.getScene().getWindow();
-            stage.setScene(new Scene(mainScreen));
-            stage.show();
-        } catch(Exception e) {
-            e.printStackTrace();
-        }
+        mainApplication.setMainScene();
     }
 }
