@@ -1,5 +1,10 @@
 package model;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
+import java.util.Observable;
+
 /**
  * User uses the app
  */
@@ -10,16 +15,16 @@ public class User {
 	private String first;
 	private String last;
 	private String email;
-	private String type;
 	private String address;
 	private String title;
+	private Type type;
 	private boolean isLoggedIn;
 
     /**
      * default constructor
      */
 	public User() {
-		this("User", "user", "pass", "Jon", "Snow", "jsnow@gatech.edu", "1 Techwood Dr Atlanta, Ga 30313", "Mr.");
+		this(Type.USR, "user", "pass", "Jon", "Snow", "jsnow@gatech.edu", "1 Techwood Dr Atlanta, Ga 30313", "Mr.");
 	}
 
     /**
@@ -33,7 +38,7 @@ public class User {
      * @param add address
      * @param t title
      */
-	public User(String type, String user, String pass, String first, String last, String email, String add,String t) {
+	public User(Type type, String user, String pass, String first, String last, String email, String add,String t) {
 		this.username = user;
         this.password = pass;
 		this.first = first;
@@ -56,7 +61,7 @@ public class User {
 		first = "bob";
 		last = "son";
 		email = "bobson@gmail.com";
-		type="user";
+		type= Type.USR;
 		address = "229 bob st";
 		title = "mr.";
 		isLoggedIn = false;
@@ -136,7 +141,7 @@ public class User {
      * set type
      * @param type type
      */
-	public void setType(String type) {
+	public void setType(Type type) {
 		this.type = type;
 	}
 
@@ -169,7 +174,7 @@ public class User {
      * get type
      * @return type type
      */
-	public String getType() {
+	public Type getType() {
 		return type;
 	}
 
@@ -221,5 +226,10 @@ public class User {
 	@Override
 	public String toString() {
 		return username + " : " + password;
+	}
+
+	public static ObservableList<Type> getTypes() {
+		ObservableList<Type> list = FXCollections.observableArrayList(Type.values());
+		return list;
 	}
 }

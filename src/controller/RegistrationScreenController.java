@@ -1,21 +1,13 @@
 package controller;
 
 import fxapp.MainFXApplication;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
+import model.Type;
 import model.User;
 import model.UserDatabase;
-
-import java.net.URL;
-import java.util.ResourceBundle;
 
 /**
  * controller for registration screen
@@ -35,7 +27,8 @@ public class RegistrationScreenController {
     @FXML
     private TextField passField;
     @FXML
-    private TextField typeField;
+    private ComboBox<Type> typeField;
+
 
     private UserDatabase database;
     private User u;
@@ -50,12 +43,22 @@ public class RegistrationScreenController {
 
 
     }
-
+    @FXML
+    private void initialize() {
+        //bring back the enum
+        typeField.setItems(u.getTypes());
+    }
     /**
      * register new user
      */
     public void submitClicked() {
-        u = new User(typeField.getText(), userField.getText(), passField.getText(), firstField.getText(), lastField.getText(), emailField.getText(), "address", "Mr.");
+        Type t = typeField.getSelectionModel().getSelectedItem();
+        u = new User(Type.USR, userField.getText(), passField.getText(), firstField.getText(), lastField.getText(), emailField.getText(), "address", "Mr.");
+        /*if (typeField.getText().equals("user") || typeField.getText().equals("manager") || typeField.getText().equals("worker") || typeField.getText().equals("admin")) {
+            System.out.println(typeField.getText());
+        } else {
+            System.out.println("not valid type");
+        }*/
 
         database.add(u);
         database.login(u);

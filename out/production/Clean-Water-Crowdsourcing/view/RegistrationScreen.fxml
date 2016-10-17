@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -38,7 +39,7 @@
             <Text layoutX="71.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account Type:" />
              <Text layoutX="78.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name:" />
             <TextField fx:id="firstField" layoutX="151.0" layoutY="94.0" />
-            <TextField fx:id="typeField" layoutX="151.0" layoutY="44.0" />
+            <ComboBox fx:id="typeField" layoutX="152.0" layoutY="42.0" prefWidth="150.0" />
          </children>
       </AnchorPane>
      <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">

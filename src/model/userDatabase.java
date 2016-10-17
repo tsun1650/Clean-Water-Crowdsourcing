@@ -16,7 +16,7 @@ public class UserDatabase {
 	}
 
     /**
-     * add users sto the list
+     * add users to the list
      * @param a user to add
      */
 	public void add(User a) {

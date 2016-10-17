@@ -104,6 +104,7 @@ public class ApplicationScreenController {
                     u.setAddress(text4.getText());
                     u.setTitle(text5.getText());
 
+
                 }
 
                 return null;
