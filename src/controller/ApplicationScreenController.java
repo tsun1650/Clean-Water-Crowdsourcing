@@ -5,10 +5,13 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.util.Callback;
+import model.Type;
 import model.User;
 import model.UserDatabase;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 /**
  * Controller class for application screen
@@ -18,6 +21,8 @@ public class ApplicationScreenController {
     private User u;
     @FXML
     private Button logoutButton;
+    @FXML
+    private Button reportButton;
     @FXML
     private Label firstNameField;
     @FXML
@@ -103,8 +108,6 @@ public class ApplicationScreenController {
                     u.setEmail(text3.getText());
                     u.setAddress(text4.getText());
                     u.setTitle(text5.getText());
-
-
                 }
 
                 return null;
@@ -112,6 +115,51 @@ public class ApplicationScreenController {
         });
         dialog.showAndWait();
         showProfile(u);
+
+    }
+
+    /**
+     * Decides whether to create a new type of report or view reports
+     */
+    public void report() {
+        u = database.getActiveUser();
+        List<String> options = new ArrayList<>();
+        options.add("View Reports");
+        options.add("Submit Water Source Report");
+        if (!u.getType().equals(Type.USR))
+            options.add("Submit Purity Report");
+        if (u.getType().equals(Type.MNGR))
+            options.add("Submit Historical Report");
+
+        ChoiceDialog<String> dialog = new ChoiceDialog<>("", options);
+        dialog.setTitle("Report");
+        dialog.setHeaderText("Report Options");
+        dialog.setContentText("Choose your Report");
+
+
+        Optional<String> result = dialog.showAndWait();
+        if (result.isPresent()){
+            /*
+             *copy edit profile dialog stuff, but with correct fields depending on result
+             *
+             */
+
+            if (result.get().equals("View Reports")) {
+
+            }
+            if (result.get().equals("Submit Water Source Report")) {
+
+            }
+            if (result.get().equals("Submit Purity Report")) {
+
+            }
+            if (result.get().equals("Submit Historical Report")) {
+
+            }
+        } else {
+
+        }
+
 
     }
 

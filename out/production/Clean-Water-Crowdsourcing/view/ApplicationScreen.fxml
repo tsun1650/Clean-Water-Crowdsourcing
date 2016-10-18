@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ApplicationScreenController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ApplicationScreenController">
    <children>
       <Text fill="#0813e1" layoutX="136.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login Successful, Welcome!">
          <font>
@@ -20,8 +20,8 @@
             <DropShadow color="#0b71d0" height="9.02" radius="3.9800000000000004" width="8.9" />
          </effect>
       </Text>
-      <Button fx:id="logoutButton" layoutX="355.0" layoutY="303.0" mnemonicParsing="false" onMouseClicked="#logout" text="Logout" />
-      <Button fx:id="editButton" layoutX="178.0" layoutY="303.0" mnemonicParsing="false" onMouseClicked="#editProfile" text="Edit Profile" />
+      <Button fx:id="logoutButton" layoutX="390.0" layoutY="303.0" mnemonicParsing="false" onMouseClicked="#logout" text="Logout" />
+      <Button fx:id="editButton" layoutX="130.0" layoutY="303.0" mnemonicParsing="false" onMouseClicked="#editProfile" text="Edit Profile" />
       <GridPane layoutX="130.0" layoutY="90.0" prefHeight="189.0" prefWidth="354.0">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -47,5 +47,6 @@
             <Label fx:id="titleField" GridPane.columnIndex="1" />
          </children>
       </GridPane>
+      <Button fx:id="reportButton" layoutX="264.0" layoutY="303.0" mnemonicParsing="false" onMouseClicked="#report" text="Reports" />
    </children>
 </AnchorPane>

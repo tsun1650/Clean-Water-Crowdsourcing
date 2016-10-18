@@ -66,6 +66,7 @@ public class MainFXApplication extends Application {
     @Override
     public void start(Stage primaryStage) {
         database = new UserDatabase();
+        database.add(new User());
         setLayout(primaryStage);
     }
 

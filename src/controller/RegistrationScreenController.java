@@ -53,7 +53,7 @@ public class RegistrationScreenController {
      */
     public void submitClicked() {
         Type t = typeField.getSelectionModel().getSelectedItem();
-        u = new User(Type.USR, userField.getText(), passField.getText(), firstField.getText(), lastField.getText(), emailField.getText(), "address", "Mr.");
+        u = new User(t, userField.getText(), passField.getText(), firstField.getText(), lastField.getText(), emailField.getText(), "address", "Mr.");
         /*if (typeField.getText().equals("user") || typeField.getText().equals("manager") || typeField.getText().equals("worker") || typeField.getText().equals("admin")) {
             System.out.println(typeField.getText());
         } else {

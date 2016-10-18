@@ -48,6 +48,7 @@ public class LoginScreenController {
      * try to log in user
      */
     public void verifyUser() {
+
         String user = userField.getText().trim();
         String pass = passField.getText().trim();
         //u = new User(userField.getText().trim(), passField.getText().trim());
