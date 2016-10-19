@@ -28,6 +28,7 @@ public class MainFXApplication extends Application {
     private UserDatabase database;
     private Scene mainScene;
     private Scene registrationScene;
+    private Scene waterSourceScene;
     private ApplicationScreenController applicationController;
 
     /**
@@ -122,28 +123,33 @@ public class MainFXApplication extends Application {
             FXMLLoader loginLoader = new FXMLLoader();
             FXMLLoader mainLoader = new FXMLLoader();
             FXMLLoader registrationLoader = new FXMLLoader();
+            FXMLLoader waterSourceLoader = new FXMLLoader();
             //tie loaders to fxmls
             applicationLoader.setLocation(MainFXApplication.class.getResource("../view/ApplicationScreen.fxml"));
             loginLoader.setLocation(MainFXApplication.class.getResource("../view/loginScreen.fxml"));
             mainLoader.setLocation(MainFXApplication.class.getResource("../view/mainScreen.fxml"));
             registrationLoader.setLocation(MainFXApplication.class.getResource("../view/registrationScreen.fxml"));
+            waterSourceLoader.setLocation((MainFXApplication.class.getResource("../view/WaterSourceReportScreen.fxml")));
             //load them in layouts
             AnchorPane applicationLayout = applicationLoader.load();
             BorderPane loginLayout = loginLoader.load();
             BorderPane mainLayout = mainLoader.load();
             GridPane registrationLayout = registrationLoader.load();
+            AnchorPane waterSourceLayout = waterSourceLoader.load();
 
             // attach layout to the scene
             applicationScene = new Scene(applicationLayout);
             loginScene = new Scene(loginLayout);
             mainScene = new Scene(mainLayout);
             registrationScene = new Scene(registrationLayout);
+            waterSourceScene = new Scene(waterSourceLayout);
 
             // Give the controller access to the main app.
             applicationController = applicationLoader.getController();
             LoginScreenController loginController = loginLoader.getController();
             MainScreenController mainController = mainLoader.getController();
             RegistrationScreenController registrationController = registrationLoader.getController();
+
             applicationController.setApp(this);
             loginController.setApp(this);
             mainController.setApp(this);

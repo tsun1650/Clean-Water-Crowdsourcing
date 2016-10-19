@@ -22,8 +22,8 @@
       <Text layoutX="165.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date &amp; Time" />
       <Text layoutX="165.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Report Number" />
       <Text layoutX="165.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reporter Name" />
-      <Button layoutX="230.0" layoutY="345.0" mnemonicParsing="false" text="Button" />
-      <Button layoutX="331.0" layoutY="345.0" mnemonicParsing="false" text="Button" />
+      <Button layoutX="240.0" layoutY="345.0" mnemonicParsing="false" onMouseClicked="#cancelClicked" text="Cancel" />
+      <Button layoutX="311.0" layoutY="345.0" mnemonicParsing="false" onMouseClicked="#submitClicked" text="Submit" />
       <Text layoutX="165.0" layoutY="247.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Water Location" />
       <Text layoutX="165.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type of Water" />
       <Text layoutX="165.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Water Condition" />

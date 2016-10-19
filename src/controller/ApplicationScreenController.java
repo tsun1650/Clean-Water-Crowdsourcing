@@ -148,7 +148,7 @@ public class ApplicationScreenController {
 
             }
             if (result.get().equals("Submit Water Source Report")) {
-
+                mainApplication.setMainScene();
             }
             if (result.get().equals("Submit Purity Report")) {
 
