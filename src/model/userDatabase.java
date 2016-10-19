@@ -4,14 +4,14 @@ import java.util.ArrayList;
 /**
  * Instance of userDatabase
  */
-public class userDatabase {
+public class UserDatabase {
 	private ArrayList<User> userList;
 	private User active;
 
 	/**
 	 * constructor to create the arraylsit
 	 */
-	public userDatabase() {
+	public UserDatabase() {
 		userList = new ArrayList<>();
 	}
 
