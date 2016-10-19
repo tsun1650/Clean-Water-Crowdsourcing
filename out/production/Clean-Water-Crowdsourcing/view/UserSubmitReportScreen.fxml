@@ -5,17 +5,19 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <TextFlow layoutX="29.0" layoutY="27.0" prefHeight="61.0" prefWidth="280.0">
-         <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Submit Report">
-               <font>
-                  <Font name="Segoe UI Light" size="37.0" />
-               </font>
-            </Text>
-         </children>
-      </TextFlow>
-   </children>
+    <children>
+        <TextFlow layoutX="29.0" layoutY="27.0" prefHeight="61.0" prefWidth="280.0">
+            <children>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Submit Report">
+                    <font>
+                        <Font name="Segoe UI Light" size="37.0" />
+                    </font>
+                </Text>
+            </children>
+        </TextFlow>
+      <Text layoutX="47.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Text layoutX="47.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Text layoutX="47.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+    </children>
 </AnchorPane>
