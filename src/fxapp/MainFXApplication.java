@@ -1,9 +1,6 @@
 package fxapp;
 
-import controller.ApplicationScreenController;
-import controller.LoginScreenController;
-import controller.MainScreenController;
-import controller.RegistrationScreenController;
+import controller.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -101,6 +98,8 @@ public class MainFXApplication extends Application {
         setScene(mainScene);
     }
 
+    public void setWaterSourceScene() { setScene(waterSourceScene);}
+
     /**
      * set scene
      * @param s scene to set it to
@@ -149,11 +148,13 @@ public class MainFXApplication extends Application {
             LoginScreenController loginController = loginLoader.getController();
             MainScreenController mainController = mainLoader.getController();
             RegistrationScreenController registrationController = registrationLoader.getController();
+            WaterSourceReportScreenController waterSourceController = waterSourceLoader.getController();
 
             applicationController.setApp(this);
             loginController.setApp(this);
             mainController.setApp(this);
             registrationController.setApp(this);
+            waterSourceController.setApp(this);
 
             setMainScene();
         } catch (IOException e) {

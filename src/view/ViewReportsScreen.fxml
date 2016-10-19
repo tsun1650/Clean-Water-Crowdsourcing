@@ -14,6 +14,6 @@
          </font>
       </Text>
       <ListView layoutX="125.0" layoutY="100.0" prefHeight="200.0" prefWidth="350.0" />
-      <Button layoutX="280.0" layoutY="324.0" mnemonicParsing="false" text="Back" />
+      <Button layoutX="280.0" layoutY="324.0" mnemonicParsing="false" onMouseClicked="#backClicked" text="Back" />
    </children>
 </AnchorPane>
