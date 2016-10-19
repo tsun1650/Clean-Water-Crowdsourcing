@@ -145,7 +145,7 @@ public class ApplicationScreenController {
              */
 
             if (result.get().equals("View Reports")) {
-
+                mainApplication.setViewReportsScene();
             }
             if (result.get().equals("Submit Water Source Report")) {
                 mainApplication.setWaterSourceScene();

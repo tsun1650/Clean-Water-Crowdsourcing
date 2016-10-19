@@ -1,11 +1,18 @@
 package controller;
 
-import javafx.scene.input.MouseEvent;
+import fxapp.MainFXApplication;
+import model.User;
 
-/**
- * Created by David on 10/19/2016.
- */
 public class ViewReportsScreenController {
-    public void backClicked(MouseEvent mouseEvent) {
+    private MainFXApplication mainApplication;
+    private User u;
+    /**
+     * Ties controller to main app
+     * @param main main app
+     */
+    public void setApp(MainFXApplication main) {
+        mainApplication = main;
+    }
+    public void backClicked() {
     }
 }
