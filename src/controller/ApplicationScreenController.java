@@ -353,7 +353,7 @@ public class ApplicationScreenController {
                             HistoricalReport r = new HistoricalReport(locationField.getText(),
                                     c, y);
                             ArrayList<Report> hReports = rDatabase.getReportYears(y);
-
+//comment
 
                         }
 
