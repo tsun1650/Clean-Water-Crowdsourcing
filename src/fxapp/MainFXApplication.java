@@ -1,9 +1,6 @@
 package fxapp;
 
-import controller.ApplicationScreenController;
-import controller.LoginScreenController;
-import controller.MainScreenController;
-import controller.RegistrationScreenController;
+import controller.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -11,8 +8,10 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+import model.ReportsDatabase;
 import model.User;
 import model.UserDatabase;
+import sun.applet.Main;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -26,9 +25,14 @@ public class MainFXApplication extends Application {
     private Scene loginScene;
     private Scene applicationScene;
     private UserDatabase database;
+    private ReportsDatabase rDatabase;
     private Scene mainScene;
     private Scene registrationScene;
+    private Scene waterSourceScene;
+    private Scene viewReportsScene;
     private ApplicationScreenController applicationController;
+    //private WaterSourceReportScreenController waterSourceController;
+    private ViewReportsScreenController viewReportsController;
 
     /**
      * get the logged in user
@@ -55,6 +59,13 @@ public class MainFXApplication extends Application {
         return database;
     }
     /**
+     * get the database
+     * @return database the userlist
+     */
+    public ReportsDatabase getReports() {
+        return rDatabase;
+    }
+    /**
      * Launch app
      *
      * @param args command line arguments
@@ -66,6 +77,7 @@ public class MainFXApplication extends Application {
     @Override
     public void start(Stage primaryStage) {
         database = new UserDatabase();
+        rDatabase = new ReportsDatabase();
         database.add(new User());
         setLayout(primaryStage);
     }
@@ -77,6 +89,7 @@ public class MainFXApplication extends Application {
         applicationController.showProfile(u);
         setScene(applicationScene);
     }
+
 
     /**
      * set scene to login
@@ -101,6 +114,22 @@ public class MainFXApplication extends Application {
     }
 
     /**
+     * sets scene to submit water source report screen
+     */
+    public void setWaterSourceScene() {
+        setScene(waterSourceScene);
+    }
+
+    /**
+     * sets scene to view reports
+     */
+    public void setViewReportsScene() {
+        viewReportsController.updateListView();
+        setScene(viewReportsScene);
+
+    }
+
+    /**
      * set scene
      * @param s scene to set it to
      */
@@ -122,32 +151,45 @@ public class MainFXApplication extends Application {
             FXMLLoader loginLoader = new FXMLLoader();
             FXMLLoader mainLoader = new FXMLLoader();
             FXMLLoader registrationLoader = new FXMLLoader();
+            //FXMLLoader waterSourceLoader = new FXMLLoader();
+            FXMLLoader viewReportsLoader = new FXMLLoader();
             //tie loaders to fxmls
             applicationLoader.setLocation(MainFXApplication.class.getResource("../view/ApplicationScreen.fxml"));
             loginLoader.setLocation(MainFXApplication.class.getResource("../view/loginScreen.fxml"));
             mainLoader.setLocation(MainFXApplication.class.getResource("../view/mainScreen.fxml"));
             registrationLoader.setLocation(MainFXApplication.class.getResource("../view/registrationScreen.fxml"));
+            //waterSourceLoader.setLocation((MainFXApplication.class.getResource("../view/WaterSourceReportScreen.fxml")));
+            viewReportsLoader.setLocation(MainFXApplication.class.getResource("../view/ViewReportsScreen.fxml"));
             //load them in layouts
             AnchorPane applicationLayout = applicationLoader.load();
             BorderPane loginLayout = loginLoader.load();
             BorderPane mainLayout = mainLoader.load();
             GridPane registrationLayout = registrationLoader.load();
+            //AnchorPane waterSourceLayout = waterSourceLoader.load();
+            AnchorPane viewReportsLayout = viewReportsLoader.load();
 
             // attach layout to the scene
             applicationScene = new Scene(applicationLayout);
             loginScene = new Scene(loginLayout);
             mainScene = new Scene(mainLayout);
             registrationScene = new Scene(registrationLayout);
+            //waterSourceScene = new Scene(waterSourceLayout);
+            viewReportsScene = new Scene(viewReportsLayout);
 
             // Give the controller access to the main app.
             applicationController = applicationLoader.getController();
             LoginScreenController loginController = loginLoader.getController();
             MainScreenController mainController = mainLoader.getController();
             RegistrationScreenController registrationController = registrationLoader.getController();
+            //WaterSourceReportScreenController waterSourceController = waterSourceLoader.getController();
+            viewReportsController = viewReportsLoader.getController();
+
             applicationController.setApp(this);
             loginController.setApp(this);
             mainController.setApp(this);
             registrationController.setApp(this);
+            //waterSourceController.setApp(this);
+            viewReportsController.setApp(this);
 
             setMainScene();
         } catch (IOException e) {
