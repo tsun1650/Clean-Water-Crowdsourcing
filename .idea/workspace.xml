@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7a55cfd4-e79e-47f2-8a87-ce0bc4d292cc" name="Default" comment="Fixed Google Maps API to show pins">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/com_google_code_gson_gson_2_7.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/GMapsFX_2_0_9.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/GMapsFX_2_0_91.xml" afterPath="" />
+    <list default="true" id="7a55cfd4-e79e-47f2-8a87-ce0bc4d292cc" name="Default" comment="">
       <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Clean-Water-Crowdsourcing/controller/MapController.class" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Clean-Water-Crowdsourcing/controller/ApplicationScreenController$2.class" afterPath="$PROJECT_DIR$/out/production/Clean-Water-Crowdsourcing/controller/ApplicationScreenController$2.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Clean-Water-Crowdsourcing/controller/ApplicationScreenController$3.class" afterPath="$PROJECT_DIR$/out/production/Clean-Water-Crowdsourcing/controller/ApplicationScreenController$3.class" />
@@ -12,45 +9,11 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Clean-Water-Crowdsourcing/model/Facade.class" afterPath="$PROJECT_DIR$/out/production/Clean-Water-Crowdsourcing/model/Facade.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Clean-Water-Crowdsourcing/model/PersistenceManager.class" afterPath="$PROJECT_DIR$/out/production/Clean-Water-Crowdsourcing/model/PersistenceManager.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Clean-Water-Crowdsourcing.iml" afterPath="$PROJECT_DIR$/Clean-Water-Crowdsourcing.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LogFile" afterPath="$PROJECT_DIR$/LogFile" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Clean-Water-Crowdsourcing/view/ApplicationScreen.fxml" afterPath="$PROJECT_DIR$/out/production/Clean-Water-Crowdsourcing/view/ApplicationScreen.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Clean-Water-Crowdsourcing/view/LoginScreen.fxml" afterPath="$PROJECT_DIR$/out/production/Clean-Water-Crowdsourcing/view/LoginScreen.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Clean-Water-Crowdsourcing/view/MainScreen.fxml" afterPath="$PROJECT_DIR$/out/production/Clean-Water-Crowdsourcing/view/MainScreen.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Clean-Water-Crowdsourcing/view/RegistrationScreen.fxml" afterPath="$PROJECT_DIR$/out/production/Clean-Water-Crowdsourcing/view/RegistrationScreen.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Clean-Water-Crowdsourcing/view/ViewReportsScreen.fxml" afterPath="$PROJECT_DIR$/out/production/Clean-Water-Crowdsourcing/view/ViewReportsScreen.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controller/ApplicationScreenController.java" afterPath="$PROJECT_DIR$/src/controller/ApplicationScreenController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controller/LoginScreenController.java" afterPath="$PROJECT_DIR$/src/controller/LoginScreenController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controller/MainScreenController.java" afterPath="$PROJECT_DIR$/src/controller/MainScreenController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controller/MapController.java" afterPath="$PROJECT_DIR$/src/controller/MapController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controller/RegistrationScreenController.java" afterPath="$PROJECT_DIR$/src/controller/RegistrationScreenController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controller/ViewReportsScreenController.java" afterPath="$PROJECT_DIR$/src/controller/ViewReportsScreenController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controller/WaterSourceReportScreenController.java" afterPath="$PROJECT_DIR$/src/controller/WaterSourceReportScreenController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fxapp/MainFXApplication.java" afterPath="$PROJECT_DIR$/src/fxapp/MainFXApplication.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Admin.java" afterPath="$PROJECT_DIR$/src/model/Admin.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Condition.java" afterPath="$PROJECT_DIR$/src/model/Condition.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Facade.java" afterPath="$PROJECT_DIR$/src/model/Facade.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/FileFormatException.java" afterPath="$PROJECT_DIR$/src/model/FileFormatException.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/HistoricalReport.java" afterPath="$PROJECT_DIR$/src/model/HistoricalReport.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Location.java" afterPath="$PROJECT_DIR$/src/model/Location.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Manager.java" afterPath="$PROJECT_DIR$/src/model/Manager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/PersistenceManager.java" afterPath="$PROJECT_DIR$/src/model/PersistenceManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/PurityCondition.java" afterPath="$PROJECT_DIR$/src/model/PurityCondition.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Report.java" afterPath="$PROJECT_DIR$/src/model/Report.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/ReportsDatabase.java" afterPath="$PROJECT_DIR$/src/model/ReportsDatabase.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Type.java" afterPath="$PROJECT_DIR$/src/model/Type.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/User.java" afterPath="$PROJECT_DIR$/src/model/User.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/UserDatabase.java" afterPath="$PROJECT_DIR$/src/model/UserDatabase.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/WaterPurityReport.java" afterPath="$PROJECT_DIR$/src/model/WaterPurityReport.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/WaterSourceReport.java" afterPath="$PROJECT_DIR$/src/model/WaterSourceReport.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/WaterType.java" afterPath="$PROJECT_DIR$/src/model/WaterType.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Worker.java" afterPath="$PROJECT_DIR$/src/model/Worker.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/view/ApplicationScreen.fxml" afterPath="$PROJECT_DIR$/src/view/ApplicationScreen.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/view/LoginScreen.fxml" afterPath="$PROJECT_DIR$/src/view/LoginScreen.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/view/MainScreen.fxml" afterPath="$PROJECT_DIR$/src/view/MainScreen.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/view/RegistrationScreen.fxml" afterPath="$PROJECT_DIR$/src/view/RegistrationScreen.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/view/ViewReportsScreen.fxml" afterPath="$PROJECT_DIR$/src/view/ViewReportsScreen.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/view/mapview.fxml" afterPath="$PROJECT_DIR$/src/view/mapview.fxml" />
     </list>
     <ignored path="Clean-Water-Crowdsourcing.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -726,7 +689,14 @@
       <option name="project" value="LOCAL" />
       <updated>1476882538832</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Fixed Google Maps API to show pins">
+      <created>1477964646381</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1477964646381</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
