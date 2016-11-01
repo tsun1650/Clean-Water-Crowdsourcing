@@ -24,24 +24,25 @@ public class ReportsDatabase {
      * return reports
      * @return reports string
      */
-    public ArrayList<String> getReportsAsString() {
+    public ArrayList<String> getSourceReports() {
         ArrayList<String> give = new ArrayList<>();
         for (Report r : reports) {
-            give.add(r.toString());
+            if (r instanceof WaterSourceReport) {
+                give.add(r.toString());
+            }
         }
         return give;
 
     }
-    public ArrayList<String> getUserReports() {
+
+    public ArrayList<String> getAllReports() {
         ArrayList<String> ur = new ArrayList<>();
         for (Report r: reports) {
-            if (r instanceof WaterPurityReport) {
                 ur.add(r.toString());
-            }
         }
         return ur;
-
     }
+
     public ArrayList<Report> getReportYears(Integer year) {
         ArrayList<Report> give = new ArrayList<>();
         for (Report r: reports) {

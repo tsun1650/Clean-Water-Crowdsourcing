@@ -34,7 +34,7 @@ public class WaterPurityReport extends Report {
 //    public double getContaminantPPM() { return contaminantPPM;}
 //
 //    public void setDate(String dateTime) { this.date = dateTime;}
-//    public void setNumber(int number) { this.number = number;}
+    public void setNumber(int number) { this.number = number;}
 //    public void setWorker(String worker) { this.worker = worker;}
 //    public void setLocation(String location) { this.location = location;}
 //    public void setCondition(String condition) { this.condition = condition;}
