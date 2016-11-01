@@ -8,10 +8,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-import model.Facade;
-import model.ReportsDatabase;
-import model.User;
-import model.UserDatabase;
+import model.*;
 import sun.applet.Main;
 import controller.MapController;
 
@@ -83,6 +80,7 @@ public class MainFXApplication extends Application {
         database = new UserDatabase();
         rDatabase = new ReportsDatabase();
         database.add(new User());
+        database.add(new Worker());
         setLayout(primaryStage);
     }
 

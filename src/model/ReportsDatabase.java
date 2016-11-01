@@ -32,6 +32,16 @@ public class ReportsDatabase {
         return give;
 
     }
+    public ArrayList<String> getUserReports() {
+        ArrayList<String> ur = new ArrayList<>();
+        for (Report r: reports) {
+            if (r instanceof WaterPurityReport) {
+                ur.add(r.toString());
+            }
+        }
+        return ur;
+
+    }
     public ArrayList<Report> getReportYears(Integer year) {
         ArrayList<Report> give = new ArrayList<>();
         for (Report r: reports) {

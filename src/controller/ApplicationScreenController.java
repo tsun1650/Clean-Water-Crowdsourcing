@@ -249,7 +249,7 @@ public class ApplicationScreenController {
                 Label contaminantPPM = new Label("Contaminant PPM");
 
                 Label purityCond = new Label("Purity Condition");
-                TextField locationField = new TextField("");
+                TextField locationField = new TextField("00.000, 00.000");
                 TextField dateTimeField = new TextField("MM/dd/yy HH:mm:ss");
 
                 TextField virusField = new TextField("0.0");

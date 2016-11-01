@@ -18,7 +18,6 @@ public class WaterPurityReport extends Report {
                              String location, PurityCondition condition,
                              double virusPPM, double contaminantPPM) {
         this.date = dateTime;
-        this.number = number;
         this.worker = worker;
         this.location = location;
         this.condition = condition;
@@ -45,12 +44,12 @@ public class WaterPurityReport extends Report {
     public String toString() {
         return "WaterPurityReport{" +
                 "date='" + date + '\'' +
-                ", number='" + number + '\'' +
                 ", worker='" + worker + '\'' +
-                ", location='" + location +
+                ", location='" + location + '\'' +
                 ", condition=" + condition +
                 ", Virus PPM=" + virusPPM +
                 ", Contaminant PPM=" + contaminantPPM +
+                ", number='" + number +
                 '}';
     }
     public Integer getYear() {

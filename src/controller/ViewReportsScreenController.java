@@ -7,10 +7,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
 import javafx.scene.control.cell.TextFieldListCell;
-import model.Report;
-import model.ReportsDatabase;
-import model.User;
-import model.UserDatabase;
+import model.*;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -37,7 +35,6 @@ public class ViewReportsScreenController {
      * Method that transitions to the mainApplicationScene
      */
     public void backClicked() {
-        u = database.getActiveUser();
         mainApplication.setApplicationScene(u);
     }
 
@@ -52,9 +49,14 @@ public class ViewReportsScreenController {
      * Adds new reports to the rDatabase
      */
     public void updateListView(){
-
+        u = database.getActiveUser();
         ObservableList<String> r = FXCollections.observableArrayList (rDatabase.getReportsAsString());
-        System.out.println(rDatabase.getReportsAsString());
+        if (u.getType() == Type.USR) {
+            r = FXCollections.observableArrayList (rDatabase.getUserReports());
+        }
+        if (r == null) {
+            throw new IllegalArgumentException("no reports");
+        }
         listReports.setItems(r);
 
     }
