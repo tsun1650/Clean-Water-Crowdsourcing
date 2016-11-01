@@ -17,6 +17,9 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
+import com.lynden.gmapsfx.GoogleMapView;
+import com.lynden.gmapsfx.MapComponentInitializedListener;
+
 /**
  * Controller class for application screen
  */
@@ -142,16 +145,15 @@ public class ApplicationScreenController {
         List<String> options = new ArrayList<>();
         options.add("View Reports");
         options.add("Submit Water Source Report");
-        options.add("View Available Water");
         if (!u.getType().equals(Type.USR))
             options.add("Submit Purity Report");
         if (u.getType().equals(Type.MNGR))
             options.add("Submit Historical Report");
 
-        ChoiceDialog<String> dialog = new ChoiceDialog<>("Submit Water Source Report", options);
+        ChoiceDialog<String> dialog = new ChoiceDialog<>("View Reports", options);
         dialog.setTitle("Report");
         dialog.setHeaderText("Report Options");
-        dialog.setContentText("Choose Your Action");
+        dialog.setContentText("Choose your Report");
 
 
         Optional<String> result = dialog.showAndWait();
@@ -179,7 +181,7 @@ public class ApplicationScreenController {
                 Label waterType = new Label("Type of Water");
                 Label waterCondition = new Label("Water Condition");
                 //Label reportNumber = new Label(reportNumber + "");
-                TextField locationField = new TextField();
+                TextField locationField = new TextField("00.000, 00.000");
 
                 TextField dateTimeField = new TextField("MM/dd/yy HH:mm:ss");
                 ObservableList<WaterType> wTypeList = FXCollections.observableArrayList(WaterType.values());
@@ -247,7 +249,7 @@ public class ApplicationScreenController {
                 Label contaminantPPM = new Label("Contaminant PPM");
 
                 Label purityCond = new Label("Purity Condition");
-                TextField locationField = new TextField();
+                TextField locationField = new TextField("");
                 TextField dateTimeField = new TextField("MM/dd/yy HH:mm:ss");
 
                 TextField virusField = new TextField("0.0");

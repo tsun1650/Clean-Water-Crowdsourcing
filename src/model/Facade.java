@@ -1,13 +1,9 @@
 package model;
 
 import java.io.File;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by robertwaters on 10/7/16.
- */
 public class Facade {
 
     private static final Facade instance = new Facade();
@@ -32,22 +28,22 @@ public class Facade {
         PersistenceManager pm = new PersistenceManager(locations);
         pm.saveToText(file);
     }
-//
-//    public void loadModelFromText(File file) {
-//        PersistenceManager pm = new PersistenceManager(locations);
-//        pm.loadFromText(file);
-//    }
-//
-//    public void saveModelToBinary(File file) {
-//        PersistenceManager pm = new PersistenceManager(locations);
-//        pm.saveToBinary(file);
-//    }
-//
-//    public void loadModelFromBinary(File file) {
-//        PersistenceManager pm = new PersistenceManager(locations);
-//        pm.loadFromBinary(file);
-//    }
-//
+
+    public void loadModelFromText(File file) {
+        PersistenceManager pm = new PersistenceManager(locations);
+        pm.loadFromText(file);
+    }
+
+    public void saveModelToBinary(File file) {
+        PersistenceManager pm = new PersistenceManager(locations);
+        pm.saveToBinary(file);
+    }
+
+    public void loadModelFromBinary(File file) {
+        PersistenceManager pm = new PersistenceManager(locations);
+        pm.loadFromBinary(file);
+    }
+
 //    public void loadModelFromJson(File file) {
 //        PersistenceManager pm = new PersistenceManager(locations);
 //        pm.loadFromJsonfile(file);

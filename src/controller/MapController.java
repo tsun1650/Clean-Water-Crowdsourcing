@@ -4,45 +4,61 @@ import com.lynden.gmapsfx.GoogleMapView;
 import com.lynden.gmapsfx.MapComponentInitializedListener;
 import com.lynden.gmapsfx.javascript.event.UIEventType;
 import com.lynden.gmapsfx.javascript.object.*;
-
 import fxapp.MainFXApplication;
-
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.stage.FileChooser;
 import javafx.stage.Window;
-
-import model.Facade;
-import model.Location;
-
+import model.*;
 import netscape.javascript.JSObject;
 
 import java.io.File;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import model.ReportsDatabase;
+import model.User;
+import model.UserDatabase;
 
-/**
- * Created by robertwaters on 10/12/16.
- */
+
 public class MapController implements Initializable, MapComponentInitializedListener {
     @FXML
     private GoogleMapView mapView;
-
     private GoogleMap map;
-
     private Window mainStage;
+    private MainFXApplication mainApplication;
+    private UserDatabase database;
+    private ReportsDatabase rDatabase;
+    private User u;
+    @FXML
+    public void setApp(MainFXApplication main) {
+        mainApplication = main;
+        database = mainApplication.getUsers();
+        rDatabase = mainApplication.getReports();
+    }
 
-    private MainFXApplication theApp;
+    /**
+     * method for when the back button is clicked
+     */
+    public void backClicked() {
+        u = database.getActiveUser();
+        mainApplication.setViewReportsScene();
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         mapView.addMapInializedListener(this);
     }
 
+    /**
+     *
+     * @param stage main stage
+     * @param app main app
+     */
     public void setCallbacks(Window stage, MainFXApplication app) {
         mainStage = stage;
-        theApp = app;
+        mainApplication = app;
     }
 
 
@@ -65,10 +81,31 @@ public class MapController implements Initializable, MapComponentInitializedList
 
         map = mapView.createMap(options);
 
+    }
 
+    /**
+     * Method that places markers on the map
+     * @param locations the list of locations that have been added to the rdatabase
+     */
+    public void placeMarkers(List<Location> locations) {
         /** now we communciate with the model to get all the locations for markers */
         Facade fc = Facade.getInstance();
-        List<Location> locations = fc.getLocations();
+        ReportsDatabase rD = ReportsDatabase.getInstance();
+//        List<Location> locations = rDatabase.getLocations();
+
+        List<String> locationStrings = new ArrayList<>();
+        for (Report r : rDatabase.getReports()) {
+            locationStrings.add(r.getLocation());
+        }
+
+//        List<Location> locations = new ArrayList<>();
+//        for (String s : locationStrings) {
+//            try {
+//                locations.add(Location.makeFromFileString(s));
+//            } catch (FileFormatException e) {
+//                e.printStackTrace();
+//            }
+//        }
 
         for (Location l: locations) {
             MarkerOptions markerOptions = new MarkerOptions();
@@ -92,67 +129,10 @@ public class MapController implements Initializable, MapComponentInitializedList
 
             map.addMarker(marker);
         }
-
-
     }
-//
-//    @FXML
-//    public void onOpenTextFileMenu() {
-//        FileChooser fc = new FileChooser();
-//        fc.setTitle("Open Text File");
-//        File file  = fc.showOpenDialog(mainStage);
-//        if (file != null)
-//            Facade.getInstance().loadModelFromText(file);
-//    }
-//
-//    @FXML
-//    public void onOpenBinaryFileMenu() {
-//        FileChooser fc = new FileChooser();
-//        fc.setTitle("Open Binary File");
-//        File file  = fc.showOpenDialog(mainStage);
-//        if (file != null)
-//            Facade.getInstance().loadModelFromBinary(file);
-//    }
-//
-//    @FXML
-//    public void onOpenJsonFileMenu() {
-//        FileChooser fc = new FileChooser();
-//        fc.setTitle("Open JSON File");
-//        File file  = fc.showOpenDialog(mainStage);
-//        if (file != null)
-//            Facade.getInstance().loadModelFromJson(file);
-//    }
-//
-//    @FXML
-//    public void onSaveTextFileMenu() {
-//        FileChooser fc = new FileChooser();
-//        fc.setTitle("Save Text File");
-//        File file  = fc.showSaveDialog(mainStage);
-//        if (file != null)
-//            Facade.getInstance().saveModelToText(file);
-//    }
-//
-//    @FXML
-//    public void onSaveBinaryFileMenu() {
-//        FileChooser fc = new FileChooser();
-//        fc.setTitle("Save Binary File");
-//        File file  = fc.showSaveDialog(mainStage);
-//        if (file != null)
-//            Facade.getInstance().saveModelToBinary(file);
-//    }
-//
-//    @FXML
-//    public void onSaveJsonMenu() {
-//        FileChooser fc = new FileChooser();
-//        fc.setTitle("Save JSON File");
-//        File file  = fc.showSaveDialog(mainStage);
-//        if (file != null)
-//            Facade.getInstance().saveModelToJson(file);
-//    }
-//
-//    @FXML
-//    public void onCloseMenu() {
-//        theApp.closeMapView();
-//    }
+    @FXML
+    public void onCloseMenu() {
+        mainApplication.closeMapView();
+    }
 
 }

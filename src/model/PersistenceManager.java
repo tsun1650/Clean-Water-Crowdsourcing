@@ -34,48 +34,48 @@ public class PersistenceManager {
         }
 
     }
-//
-//    public void loadFromText(File file) {
-//        String ct = null;
-//        model.clear();
-//        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
-//            ct = br.readLine();
-//            int count = Integer.parseInt(ct);
-//            for (int i = 0; i < count; ++i) {
-//                ct = br.readLine();
-//                Location loc = Location.makeFromFileString(ct);
-//                model.add(loc);
-//            }
-//            br.close();
-//        } catch(IOException ex) {
-//            LOGGER.log(Level.SEVERE, "Exception working with Text Load File", ex);
-//        } catch(NumberFormatException fe) {
-//            LOGGER.log(Level.SEVERE, "File Format problem with count of elements: " + ct, fe);
-//        } catch (FileFormatException e) {
-//            LOGGER.log(Level.SEVERE, "Format problem with individual line: " + e.getOriginalLine(), e);
-//        }
-//    }
-//
-//    public void saveToBinary(File file) {
-//        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file))){
-//            oos.writeObject(model);
-//            oos.close();
-//        } catch (IOException e) {
-//            LOGGER.log(Level.SEVERE, "Failed to make an output stream for Binary", e);
-//        }
-//    }
-//
-//    public void loadFromBinary(File file) {
-//       try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))) {
-//           model = (ArrayList<Location>) ois.readObject();
-//           ois.close();
-//       } catch (IOException ex) {
-//           LOGGER.log(Level.SEVERE, "Failed to make an input stream for Binary", ex);
-//       } catch (ClassNotFoundException ex) {
-//           LOGGER.log(Level.SEVERE, "Failed to find appropriate class in Binary", ex);
-//       }
-//    }
-//
+
+    public void loadFromText(File file) {
+        String ct = null;
+        model.clear();
+        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+            ct = br.readLine();
+            int count = Integer.parseInt(ct);
+            for (int i = 0; i < count; ++i) {
+                ct = br.readLine();
+                Location loc = Location.makeFromFileString(ct);
+                model.add(loc);
+            }
+            br.close();
+        } catch(IOException ex) {
+            LOGGER.log(Level.SEVERE, "Exception working with Text Load File", ex);
+        } catch(NumberFormatException fe) {
+            LOGGER.log(Level.SEVERE, "File Format problem with count of elements: " + ct, fe);
+        } catch (FileFormatException e) {
+            LOGGER.log(Level.SEVERE, "Format problem with individual line: " + e.getOriginalLine(), e);
+        }
+    }
+
+    public void saveToBinary(File file) {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file))){
+            oos.writeObject(model);
+            oos.close();
+        } catch (IOException e) {
+            LOGGER.log(Level.SEVERE, "Failed to make an output stream for Binary", e);
+        }
+    }
+
+    public void loadFromBinary(File file) {
+       try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))) {
+           model = (ArrayList<Location>) ois.readObject();
+           ois.close();
+       } catch (IOException ex) {
+           LOGGER.log(Level.SEVERE, "Failed to make an input stream for Binary", ex);
+       } catch (ClassNotFoundException ex) {
+           LOGGER.log(Level.SEVERE, "Failed to find appropriate class in Binary", ex);
+       }
+    }
+
 //    public void saveToJson(File file) {
 //        try (PrintWriter pw = new PrintWriter(new FileWriter(file))) {
 //            Gson gson = new Gson();

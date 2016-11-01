@@ -7,6 +7,8 @@ import java.util.ArrayList;
  */
 public class ReportsDatabase {
     private ArrayList<Report> reports;
+    private static final ReportsDatabase instance = new ReportsDatabase();
+    public static ReportsDatabase getInstance() { return instance; }
     public ReportsDatabase() {
         reports = new ArrayList<>();
     }
@@ -38,5 +40,15 @@ public class ReportsDatabase {
             }
         }
         return give;
+    }
+
+    public ArrayList<Location> getLocations() {
+        ArrayList<Location> locations = new ArrayList<>();
+        for (Report r : reports) {
+            int i = 0;
+            locations.add(new Location(r.getLatitude(), r.getLongitude(), "Report " + i , r.toString()));
+            i++;
+        }
+        return locations;
     }
 }

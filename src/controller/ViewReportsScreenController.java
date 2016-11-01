@@ -11,7 +11,6 @@ import model.Report;
 import model.ReportsDatabase;
 import model.User;
 import model.UserDatabase;
-
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -32,16 +31,26 @@ public class ViewReportsScreenController {
         mainApplication = main;
         database = mainApplication.getUsers();
         rDatabase = mainApplication.getReports();
-
-
     }
 
-
+    /**
+     * Method that transitions to the mainApplicationScene
+     */
     public void backClicked() {
         u = database.getActiveUser();
         mainApplication.setApplicationScene(u);
     }
 
+    /**
+     * transitions to the map Scene
+     */
+    public void viewMapClicked() {
+        mainApplication.setViewMapScene();
+    }
+
+    /**
+     * Adds new reports to the rDatabase
+     */
     public void updateListView(){
 
         ObservableList<String> r = FXCollections.observableArrayList (rDatabase.getReportsAsString());

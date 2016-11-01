@@ -42,6 +42,16 @@ public class WaterSourceReport extends Report{
         number = n;
     }
 
+    public double getLatitude() {
+        String[] latLong = location.split(",");
+        return Double.parseDouble(latLong[0]);
+    }
+
+    public double getLongitude() {
+        String[] latLong = location.split(",");
+        return Double.parseDouble(latLong[1]);
+    }
+
     @Override
     public String toString() {
         return "WaterSourceReport{" +

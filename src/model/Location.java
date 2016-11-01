@@ -54,7 +54,7 @@ public class Location implements Serializable {
     }
 
     public static Location makeFromFileString(String str) throws FileFormatException {
-        String[] tokens = str.split("\t");
+        String[] tokens = str.split(",");
 
 
         if (tokens.length < 3) {
