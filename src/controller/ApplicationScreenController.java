@@ -47,7 +47,8 @@ public class ApplicationScreenController {
     @FXML
     private ComboBox<PurityCondition> purityConditionComboBox = new ComboBox<>();
     @FXML
-    private ComboBox<String> ppmTypeComboBox = new ComboBox<>();
+    private ComboBox<VirusvContaminant> ppmTypeComboBox = new ComboBox<>();
+
     private UserDatabase database;
     private ReportsDatabase rDatabase;
     private int reportNumber = 0;
@@ -145,10 +146,9 @@ public class ApplicationScreenController {
         List<String> options = new ArrayList<>();
         options.add("View Reports");
         options.add("Submit Water Source Report");
+        options.add("Submit Historical Report");
         if (!u.getType().equals(Type.USR))
             options.add("Submit Purity Report");
-        if (u.getType().equals(Type.MNGR))
-            options.add("Submit Historical Report");
 
         ChoiceDialog<String> dialog = new ChoiceDialog<>("View Reports", options);
         dialog.setTitle("Report");
@@ -321,11 +321,13 @@ public class ApplicationScreenController {
                 Label which = new Label("Impurity");
                 Label yearLabel = new Label("Year");
                 TextField locationField = new TextField();
-                ArrayList<String> ppmtypes = new ArrayList<String>();
+                //ArrayList<String> ppmtypes = new ArrayList<String>();
                 TextField year = new TextField();
-                ppmtypes.add("Virus");
-                ppmtypes.add("Contaminant");
-                ppmTypeComboBox.setItems(FXCollections.observableArrayList(ppmtypes));
+
+                //ppmtypes.add("Virus");
+                //ppmtypes.add("Contaminant");
+                ppmTypeComboBox.setItems(FXCollections.observableArrayList(VirusvContaminant.values()));
+
 
 
                 //add it to gridpane
@@ -352,9 +354,10 @@ public class ApplicationScreenController {
                         //set new profile items
                         if (b == buttonTypeOk) {
                             Integer y = Integer.parseInt(year.getText());
-                            String c = ppmTypeComboBox.getSelectionModel().getSelectedItem();
+                            ObservableList<VirusvContaminant> conditionList = FXCollections.observableArrayList(VirusvContaminant.values());
+                            VirusvContaminant c = ppmTypeComboBox.getSelectionModel().getSelectedItem();
                             HistoricalReport r = new HistoricalReport(locationField.getText(),
-                                    c, y);
+                                    c.toString(), y);
                             ArrayList<Report> hReports = rDatabase.getReportYears(y);
 
 
