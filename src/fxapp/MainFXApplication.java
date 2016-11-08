@@ -27,6 +27,7 @@ public class MainFXApplication extends Application {
     private Scene loginScene;
     private Scene applicationScene;
     private Scene mapScene;
+    private Scene histScene;
     private UserDatabase database;
     private ReportsDatabase rDatabase;
     private Scene mainScene;
@@ -37,6 +38,7 @@ public class MainFXApplication extends Application {
     //private WaterSourceReportScreenController waterSourceController;
     private ViewReportsScreenController viewReportsController;
     private MapController mapController;
+    private HistoricalReportController histReportController;
 
     /**
      * get the logged in user
@@ -99,6 +101,10 @@ public class MainFXApplication extends Application {
         mapController.placeMarkers();
     }
 
+    public void setViewHistScene() {
+        setScene(histScene);
+        //histReportController.
+    }
 
     /**
      * set scene to login
@@ -162,6 +168,7 @@ public class MainFXApplication extends Application {
             FXMLLoader registrationLoader = new FXMLLoader();
             FXMLLoader viewReportsLoader = new FXMLLoader();
             FXMLLoader viewMapLoader = new FXMLLoader();
+            FXMLLoader viewHistReportsLoader = new FXMLLoader();
             //tie loaders to fxmls
             applicationLoader.setLocation(MainFXApplication.class.getResource("../view/ApplicationScreen.fxml"));
             loginLoader.setLocation(MainFXApplication.class.getResource("../view/loginScreen.fxml"));
@@ -169,6 +176,7 @@ public class MainFXApplication extends Application {
             registrationLoader.setLocation(MainFXApplication.class.getResource("../view/registrationScreen.fxml"));
             viewReportsLoader.setLocation(MainFXApplication.class.getResource("../view/ViewReportsScreen.fxml"));
             viewMapLoader.setLocation(MainFXApplication.class.getResource("../view/mapview.fxml"));
+            viewHistReportsLoader.setLocation(MainFXApplication.class.getResource("../view/ViewHistoricalReportsScreen.fxml"));
             //load them in layouts
             AnchorPane applicationLayout = applicationLoader.load();
             BorderPane loginLayout = loginLoader.load();
@@ -176,6 +184,7 @@ public class MainFXApplication extends Application {
             GridPane registrationLayout = registrationLoader.load();
             AnchorPane viewReportsLayout = viewReportsLoader.load();
             BorderPane viewMapsLayout = viewMapLoader.load();
+            AnchorPane viewHistReportsLayout = viewHistReportsLoader.load();
 
             // attach layout to the scene
             applicationScene = new Scene(applicationLayout);
@@ -185,6 +194,7 @@ public class MainFXApplication extends Application {
             //waterSourceScene = new Scene(waterSourceLayout);
             viewReportsScene = new Scene(viewReportsLayout);
             mapScene = new Scene(viewMapsLayout);
+            histScene = new Scene(viewHistReportsLayout);
 
             // Give the controller access to the main app.
             applicationController = applicationLoader.getController();
@@ -193,6 +203,7 @@ public class MainFXApplication extends Application {
             RegistrationScreenController registrationController = registrationLoader.getController();
             viewReportsController = viewReportsLoader.getController();
             mapController = viewMapLoader.getController();
+            histReportController = viewHistReportsLoader.getController();
 
             applicationController.setApp(this);
             loginController.setApp(this);
