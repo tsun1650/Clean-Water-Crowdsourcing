@@ -15,6 +15,7 @@
       </Text>
       <ListView fx:id="listReports" layoutX="125.0" layoutY="100.0" prefHeight="200.0" prefWidth="350.0" />
       <Button layoutX="280.0" layoutY="324.0" mnemonicParsing="false" onMouseClicked="#backClicked" text="Back" />
-      <Button fx:id="refreshButton" layoutX="50.0" layoutY="324.0" mnemonicParsing="false" onMouseClicked="#updateListView" text="Refresh" />
+      <Button fx:id="refreshButton" layoutX="199.0" layoutY="324.0" mnemonicParsing="false" onMouseClicked="#updateListView" text="Refresh" />
+      <Button fx:id="viewMapButton" layoutX="349.0" layoutY="324.0" mnemonicParsing="false" onMouseClicked="#viewMapClicked" text="View Map" />
    </children>
 </AnchorPane>

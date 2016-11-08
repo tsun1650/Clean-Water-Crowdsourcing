@@ -11,7 +11,6 @@ import model.Report;
 import model.ReportsDatabase;
 import model.User;
 import model.UserDatabase;
-
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -32,14 +31,16 @@ public class ViewReportsScreenController {
         mainApplication = main;
         database = mainApplication.getUsers();
         rDatabase = mainApplication.getReports();
-
-
     }
 
 
     public void backClicked() {
         u = database.getActiveUser();
         mainApplication.setApplicationScene(u);
+    }
+
+    public void viewMapClicked() {
+        mainApplication.setViewMapScene();
     }
 
     public void updateListView(){
