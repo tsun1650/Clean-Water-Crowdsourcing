@@ -50,11 +50,10 @@ public class ViewReportsScreenController {
      */
     public void updateListView(){
         u = database.getActiveUser();
-        ObservableList<String> r = FXCollections.observableArrayList (rDatabase.getAllReports());
+        ObservableList<String> r = FXCollections.observableArrayList (rDatabase.getReportsAsString());
         if (u.getType() == Type.USR) {
-            r = FXCollections.observableArrayList (rDatabase.getSourceReports());
+            r = FXCollections.observableArrayList (rDatabase.getUserReports());
         }
-
         if (r == null) {
             throw new IllegalArgumentException("no reports");
         }

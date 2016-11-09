@@ -34,12 +34,22 @@ public class WaterPurityReport extends Report {
 //    public double getContaminantPPM() { return contaminantPPM;}
 //
 //    public void setDate(String dateTime) { this.date = dateTime;}
-    public void setNumber(int number) { this.number = number;}
+//    public void setNumber(int number) { this.number = number;}
 //    public void setWorker(String worker) { this.worker = worker;}
 //    public void setLocation(String location) { this.location = location;}
 //    public void setCondition(String condition) { this.condition = condition;}
 //    public void setVirusPPM(double virusPPM) { this.virusPPM = virusPPM;}
 //    public void setContaminantPPM(double contaminantPPM) { this.contaminantPPM = contaminantPPM;}
+
+    public double getLatitude() {
+        String[] latLong = location.split(",");
+        return Double.parseDouble(latLong[0]);
+    }
+
+    public double getLongitude() {
+        String[] latLong = location.split(",");
+        return Double.parseDouble(latLong[1]);
+    }
 
     public String toString() {
         return "WaterPurityReport{" +

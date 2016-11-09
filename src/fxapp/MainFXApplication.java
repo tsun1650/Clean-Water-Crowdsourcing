@@ -81,6 +81,7 @@ public class MainFXApplication extends Application {
         rDatabase = new ReportsDatabase();
         database.add(new User());
         database.add(new Worker());
+        database.add(new Manager());
         setLayout(primaryStage);
     }
 
@@ -95,11 +96,16 @@ public class MainFXApplication extends Application {
     /**
      * Sets the scene to the google maps
      */
+
     public void setViewMapScene() {
         setScene(mapScene);
-        System.out.println("setViewMapScene");
-        mapController.placeMarkers(rDatabase.getLocations());
-        System.out.println("to here");
+        ArrayList<Location> locations = new ArrayList<>();
+        if (database.getActiveUser().getType() == Type.MNGR || database.getActiveUser().getType() == Type.ADMN) {
+            locations = rDatabase.getLocations();
+        } else {
+            locations = rDatabase.getSourceLocations();
+        }
+        mapController.placeMarkers(locations);
     }
 
 

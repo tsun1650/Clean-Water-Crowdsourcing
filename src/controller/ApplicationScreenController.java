@@ -225,6 +225,9 @@ public class ApplicationScreenController {
                             Condition c = conditionComboBox.getSelectionModel().getSelectedItem();
                             WaterType t = waterTypeComboBox.getSelectionModel().getSelectedItem();
                             WaterSourceReport r = new WaterSourceReport(date,locationField.getText(),u.getFirstName()+ " " + u.getLastName(), t, c);
+
+
+
                             rDatabase.add(r);
                             System.out.println(r);
                         }
@@ -298,7 +301,7 @@ public class ApplicationScreenController {
                                     locationField.getText(), c, Double.parseDouble(virusField.getText()),
                                     Double.parseDouble(contaminantField.getText()));
 
-
+                            System.out.println("added purity report" + r);
                             rDatabase.add(r);
                             System.out.println(r);
                         }

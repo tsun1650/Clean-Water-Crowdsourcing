@@ -24,25 +24,24 @@ public class ReportsDatabase {
      * return reports
      * @return reports string
      */
-    public ArrayList<String> getSourceReports() {
+    public ArrayList<String> getReportsAsString() {
         ArrayList<String> give = new ArrayList<>();
         for (Report r : reports) {
-            if (r instanceof WaterSourceReport) {
-                give.add(r.toString());
-            }
+            give.add(r.toString());
         }
         return give;
 
     }
-
-    public ArrayList<String> getAllReports() {
+    public ArrayList<String> getUserReports() {
         ArrayList<String> ur = new ArrayList<>();
         for (Report r: reports) {
+            if (r instanceof WaterPurityReport) {
                 ur.add(r.toString());
+            }
         }
         return ur;
-    }
 
+    }
     public ArrayList<Report> getReportYears(Integer year) {
         ArrayList<Report> give = new ArrayList<>();
         for (Report r: reports) {
@@ -59,6 +58,18 @@ public class ReportsDatabase {
             int i = 0;
             locations.add(new Location(r.getLatitude(), r.getLongitude(), "Report " + i , r.toString()));
             i++;
+        }
+        return locations;
+    }
+
+    public ArrayList<Location> getSourceLocations() {
+        ArrayList<Location> locations = new ArrayList<>();
+        for (Report r : reports) {
+            if (r instanceof WaterSourceReport) {
+                int i = 0;
+                locations.add(new Location(r.getLatitude(), r.getLongitude(), "Report " + i , r.toString()));
+                i++;
+            }
         }
         return locations;
     }
