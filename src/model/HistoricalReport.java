@@ -5,16 +5,16 @@ package model;
  */
 public class HistoricalReport extends Report {
     private String location;
-    private Double ppmCat;
-    private Integer year;
+    private Number ppmCat;
+    private Number year;
 
-    public HistoricalReport(String location, String ppmCat, Integer year) {
+    public HistoricalReport(String location, Number ppmCat, Number year) {
         this.location = location;
         this.ppmCat = ppmCat;
         this.year = year;
     }
 
-    public Integer getYear() {return year;}
+    public Number getYear() {return year;}
 
-    public Double getContaminantPPM() {return ppmCat;}
+    public Number getContaminantPPM() {return ppmCat;}
 }

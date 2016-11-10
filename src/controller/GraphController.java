@@ -49,9 +49,14 @@ public class GraphController {
         //yAxis.setLabel("Month");
         XYChart.Series<Number, Number> series = new XYChart.Series<>();
         for (HistoricalReport report : reportList) {
-            series.getData().add(new XYChart.Data<>(report.getContaminantPPM
+            series.getData().add(new XYChart.Data<Number, Number>(report.getContaminantPPM
                     (), report.getYear()));
         }
+        series.getData().add(new XYChart.Data<Number, Number>(1000, 100));
+        series.getData().add(new XYChart.Data<Number, Number>(880, 187));
+        series.getData().add(new XYChart.Data<Number, Number>(900, 120));
+        series.getData().add(new XYChart.Data<Number, Number>(850, 130));
+        series.getData().add(new XYChart.Data<Number, Number>(6700, 130));
         //historyChart.getData().add(series);
         List<XYChart.Series<Number, Number>> seriesList = new ArrayList<>();
         seriesList.add(series);

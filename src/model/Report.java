@@ -2,13 +2,13 @@ package model;
 
 public class Report {
     private int number;
-    private Integer year;
+    private Number year;
     private String location;
 
     public void setNumber(int number) {
         this.number = number;
     }
-    public Integer getYear() {
+    public Number getYear() {
         return year;
     }
     public String getLocation() { return location;}

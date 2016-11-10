@@ -24,10 +24,10 @@ public class Facade {
 
     public List<Location> getLocations() { return locations; }
 
-    public void saveModelToText(File file) {
-        PersistenceManager pm = new PersistenceManager(locations);
-        pm.saveToText(file);
-    }
+//    public void saveModelToText(File file) {
+//        PersistenceManager pm = new PersistenceManager(locations);
+//        pm.saveToText(file);
+//    }
 
 //    public void loadModelFromText(File file) {
  //       PersistenceManager pm = new PersistenceManager(locations);
