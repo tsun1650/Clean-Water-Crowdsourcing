@@ -7,6 +7,9 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
+import javafx.stage.FileChooser;
+import java.io.File;
+import java.io.IOException;
 import javafx.util.Callback;
 import model.*;
 
@@ -295,13 +298,13 @@ public class ApplicationScreenController {
                                 System.out.print("default");
                             }
 
-                            ObservableList<PurityCondition> vcTypeList = FXCollections.observableArrayList(PurityCondition.values());
+                            //ObservableList<PurityCondition> vcTypeList = FXCollections.observableArrayList(PurityCondition.values());
                             PurityCondition c = purityConditionComboBox.getSelectionModel().getSelectedItem();
                             WaterPurityReport r = new WaterPurityReport(date,u.getFirstName()+ " " + u.getLastName(),
                                     locationField.getText(), c, Double.parseDouble(virusField.getText()),
                                     Double.parseDouble(contaminantField.getText()));
 
-
+                            System.out.println("added purity report" + r);
                             rDatabase.add(r);
                             System.out.println(r);
                         }
@@ -387,5 +390,20 @@ public class ApplicationScreenController {
         database.logOut(u);
         mainApplication.setMainScene();
     }
+
+    public void saveClicked() {
+        FileChooser fc = new FileChooser();
+        fc.setTitle("Save JSON File");
+        File file  = fc.showSaveDialog(mainApplication.getStage());
+        if (file != null) {
+            PersistenceManager pm = new PersistenceManager(database.getUsers());
+            try {
+                pm.saveUsersToJson(file);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
 
 }

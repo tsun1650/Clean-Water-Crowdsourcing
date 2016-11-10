@@ -8,10 +8,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-import model.Facade;
-import model.ReportsDatabase;
-import model.User;
-import model.UserDatabase;
+import model.*;
 import sun.applet.Main;
 import controller.MapController;
 
@@ -40,6 +37,13 @@ public class MainFXApplication extends Application {
     private ViewReportsScreenController viewReportsController;
     private MapController mapController;
     private HistoricalReportController histReportController;
+    private GraphController graphController;
+
+
+    public Stage getStage() {
+        return stage;
+    }
+
 
     /**
      * get the logged in user
@@ -86,6 +90,8 @@ public class MainFXApplication extends Application {
         database = new UserDatabase();
         rDatabase = new ReportsDatabase();
         database.add(new User());
+        database.add(new Worker());
+        database.add(new Manager());
         setLayout(primaryStage);
     }
 
@@ -99,7 +105,14 @@ public class MainFXApplication extends Application {
 
     public void setViewMapScene() {
         setScene(mapScene);
-        mapController.placeMarkers();
+        ArrayList<Location> locations = new ArrayList<>();
+        if (database.getActiveUser().getType() == Type.MNGR || database.getActiveUser().getType() == Type.ADMN) {
+            locations = rDatabase.getLocations();
+        } else {
+            locations = rDatabase.getSourceLocations();
+        }
+        mapController.placeMarkers(locations);
+
     }
 
     public void setViewHistScene() {
@@ -146,7 +159,6 @@ public class MainFXApplication extends Application {
     }
 
     public void setViewGraphScene() {
-        viewReportsController.updateListView();
         setScene(graphScene);
     }
 
@@ -175,6 +187,8 @@ public class MainFXApplication extends Application {
             FXMLLoader viewReportsLoader = new FXMLLoader();
             FXMLLoader viewMapLoader = new FXMLLoader();
             FXMLLoader viewHistReportsLoader = new FXMLLoader();
+            FXMLLoader viewGraphLoader = new FXMLLoader();
+
             //tie loaders to fxmls
             applicationLoader.setLocation(MainFXApplication.class.getResource("../view/ApplicationScreen.fxml"));
             loginLoader.setLocation(MainFXApplication.class.getResource("../view/loginScreen.fxml"));
@@ -183,6 +197,8 @@ public class MainFXApplication extends Application {
             viewReportsLoader.setLocation(MainFXApplication.class.getResource("../view/ViewReportsScreen.fxml"));
             viewMapLoader.setLocation(MainFXApplication.class.getResource("../view/mapview.fxml"));
             viewHistReportsLoader.setLocation(MainFXApplication.class.getResource("../view/ViewHistoricalReportsScreen.fxml"));
+            viewGraphLoader.setLocation(MainFXApplication.class.getResource("../view/GraphView.fxml"));
+
             //load them in layouts
             AnchorPane applicationLayout = applicationLoader.load();
             BorderPane loginLayout = loginLoader.load();
@@ -191,6 +207,7 @@ public class MainFXApplication extends Application {
             AnchorPane viewReportsLayout = viewReportsLoader.load();
             BorderPane viewMapsLayout = viewMapLoader.load();
             AnchorPane viewHistReportsLayout = viewHistReportsLoader.load();
+            AnchorPane viewGraphLayout = viewGraphLoader.load();
 
             // attach layout to the scene
             applicationScene = new Scene(applicationLayout);
@@ -201,6 +218,7 @@ public class MainFXApplication extends Application {
             viewReportsScene = new Scene(viewReportsLayout);
             mapScene = new Scene(viewMapsLayout);
             histScene = new Scene(viewHistReportsLayout);
+            graphScene = new Scene(viewGraphLayout);
 
             // Give the controller access to the main app.
             applicationController = applicationLoader.getController();
@@ -210,6 +228,7 @@ public class MainFXApplication extends Application {
             viewReportsController = viewReportsLoader.getController();
             mapController = viewMapLoader.getController();
             histReportController = viewHistReportsLoader.getController();
+            graphController = viewGraphLoader.getController();
 
             applicationController.setApp(this);
             loginController.setApp(this);
@@ -219,6 +238,7 @@ public class MainFXApplication extends Application {
             mainController.setApp(this);
             mapController.setApp(this);
             histReportController.setApp(this);
+            graphController.setApp(this);
             //closeMapView();
 
             setMainScene();
