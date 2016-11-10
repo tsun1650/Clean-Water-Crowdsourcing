@@ -1,11 +1,16 @@
 package model;
 
+import java.io.PrintWriter;
+
 public class Report {
-    private int number;
-    private Integer year;
-    private String location;
+    protected int number;
+    protected Integer year;
+    protected String location;
 
-
+    public Report() {}
+    public Report(String location) {
+        this.location = location;
+    }
     public void setNumber(int number) {
         this.number = number;
     }
@@ -23,4 +28,5 @@ public class Report {
         String[] latLong = location.split(",");
         return Double.parseDouble(latLong[1]);
     }
+
 }

@@ -14,6 +14,7 @@ import controller.MapController;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * create the main application
@@ -70,6 +71,19 @@ public class MainFXApplication extends Application {
     public ReportsDatabase getReports() {
         return rDatabase;
     }
+
+    public void addSourceReports(List<WaterSourceReport> rList) {
+        for (int i = 0; i < rList.size(); i++) {
+            rDatabase.add(rList.get(i));
+        }
+    }
+
+    public void addPurityReports(List<WaterPurityReport> rList) {
+        for (int i = 0; i < rList.size(); i++) {
+            rDatabase.add(rList.get(i));
+        }
+    }
+
     /**
      * Launch app
      *
@@ -103,13 +117,16 @@ public class MainFXApplication extends Application {
      */
 
     public void setViewMapScene() {
+        System.out.println("setViewMapScene()");
         setScene(mapScene);
         ArrayList<Location> locations = new ArrayList<>();
         if (database.getActiveUser().getType() == Type.MNGR || database.getActiveUser().getType() == Type.ADMN) {
             locations = rDatabase.getLocations();
         } else {
             locations = rDatabase.getSourceLocations();
+            System.out.println("getSourceLocations");
         }
+        System.out.println(locations.get(0));
         mapController.placeMarkers(locations);
     }
 

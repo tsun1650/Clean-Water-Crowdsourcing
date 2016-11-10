@@ -1,25 +1,24 @@
 package model;
 
+import java.io.PrintWriter;
+
 /**
  * Created by David on 10/19/2016.
  */
 public class WaterPurityReport extends Report {
     private String date;
-    private int number;
     private String worker;
-    private String location;
     private PurityCondition condition;
     private double virusPPM;
     private double contaminantPPM;
-    private Integer year;
 
 
     public WaterPurityReport(String dateTime, String worker,
                              String location, PurityCondition condition,
                              double virusPPM, double contaminantPPM) {
+        super(location);
         this.date = dateTime;
         this.worker = worker;
-        this.location = location;
         this.condition = condition;
         this.virusPPM = virusPPM;
         this.contaminantPPM = contaminantPPM;
@@ -49,6 +48,10 @@ public class WaterPurityReport extends Report {
     public double getLongitude() {
         String[] latLong = location.split(",");
         return Double.parseDouble(latLong[1]);
+    }
+
+    public void saveToText(PrintWriter pw) {
+        pw.println(date + "\t" + worker + "\t" + location + "\t" + condition + "\t" + virusPPM + "\t" + contaminantPPM);
     }
 
     public String toString() {

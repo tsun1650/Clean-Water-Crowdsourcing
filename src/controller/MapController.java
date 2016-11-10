@@ -88,6 +88,10 @@ public class MapController implements Initializable, MapComponentInitializedList
      * @param locations the list of locations that have been added to the rdatabase
      */
     public void placeMarkers(List<Location> locations) {
+        System.out.println("PlaceMarkers");
+        if (locations != null && locations.get(0) != null) {
+            System.out.println(locations.get(0));
+        }
         /** now we communciate with the model to get all the locations for markers */
 //        Facade fc = Facade.getInstance();
 //        ReportsDatabase rD = ReportsDatabase.getInstance();
