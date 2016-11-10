@@ -34,6 +34,7 @@ public class MainFXApplication extends Application {
     private Scene registrationScene;
     private Scene waterSourceScene;
     private Scene viewReportsScene;
+    private Scene graphScene;
     private ApplicationScreenController applicationController;
     //private WaterSourceReportScreenController waterSourceController;
     private ViewReportsScreenController viewReportsController;
@@ -144,6 +145,11 @@ public class MainFXApplication extends Application {
 
     }
 
+    public void setViewGraphScene() {
+        viewReportsController.updateListView();
+        setScene(graphScene);
+    }
+
     /**
      * set scene
      * @param s scene to set it to
@@ -212,6 +218,7 @@ public class MainFXApplication extends Application {
             viewReportsController.setApp(this);
             mainController.setApp(this);
             mapController.setApp(this);
+            histReportController.setApp(this);
             //closeMapView();
 
             setMainScene();

@@ -145,6 +145,7 @@ public class ApplicationScreenController {
         u = database.getActiveUser();
         List<String> options = new ArrayList<>();
         options.add("View Reports");
+        options.add("View Historical Reports");
         options.add("Submit Water Source Report");
         options.add("Submit Historical Report");
         options.add("Submit Purity Report");
@@ -164,9 +165,12 @@ public class ApplicationScreenController {
 
             if (result.get().equals("View Reports")) {
                 mainApplication.setViewReportsScene();
-
-
             }
+
+            if (result.get().equals("View Historical Reports")) {
+                mainApplication.setViewHistScene();
+            }
+
             if (result.get().equals("Submit Water Source Report")) {
 
                 //create pop up dialog
