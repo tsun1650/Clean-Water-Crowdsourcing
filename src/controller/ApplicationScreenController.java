@@ -36,8 +36,6 @@ public class ApplicationScreenController {
     @FXML
     private Button save;
     @FXML
-    private Button load;
-    @FXML
     private Label firstNameField;
     @FXML
     private Label lastnameField;
@@ -408,22 +406,6 @@ public class ApplicationScreenController {
         }
     }
 
-    public void loadClicked() {
-        FileChooser fc = new FileChooser();
-        fc.setTitle("Save JSON File");
-        File file  = fc.showOpenDialog(mainApplication.getStage());
-        List<User> uList = new ArrayList<>();
-        if (file != null) {
-            PersistenceManager pm = new PersistenceManager(database.getUsers());
-            try {
-                uList = pm.loadUsersFromJson(file);
-                for (User u : uList) {
-                    database.add(u);
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }
+
 
 }

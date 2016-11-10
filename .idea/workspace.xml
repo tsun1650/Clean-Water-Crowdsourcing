@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e2a1e1c8-a5ae-4472-8c1e-3313004bff24" name="Default" comment="fixed manager capabilities">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Clean-Water-Crowdsourcing/controller/ApplicationScreenController$2.class" afterPath="$PROJECT_DIR$/out/production/Clean-Water-Crowdsourcing/controller/ApplicationScreenController$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Clean-Water-Crowdsourcing/controller/ApplicationScreenController$3.class" afterPath="$PROJECT_DIR$/out/production/Clean-Water-Crowdsourcing/controller/ApplicationScreenController$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Clean-Water-Crowdsourcing/controller/ApplicationScreenController$4.class" afterPath="$PROJECT_DIR$/out/production/Clean-Water-Crowdsourcing/controller/ApplicationScreenController$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Clean-Water-Crowdsourcing/model/Manager.class" afterPath="$PROJECT_DIR$/out/production/Clean-Water-Crowdsourcing/model/Manager.class" />
+    <list default="true" id="e2a1e1c8-a5ae-4472-8c1e-3313004bff24" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Clean-Water-Crowdsourcing/controller/ApplicationScreenController$1.class" afterPath="$PROJECT_DIR$/out/production/Clean-Water-Crowdsourcing/controller/ApplicationScreenController$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Clean-Water-Crowdsourcing/controller/MapController.class" afterPath="$PROJECT_DIR$/out/production/Clean-Water-Crowdsourcing/controller/MapController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Clean-Water-Crowdsourcing/model/Facade.class" afterPath="$PROJECT_DIR$/out/production/Clean-Water-Crowdsourcing/model/Facade.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Clean-Water-Crowdsourcing/model/PersistenceManager.class" afterPath="$PROJECT_DIR$/out/production/Clean-Water-Crowdsourcing/model/PersistenceManager.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LogFile" afterPath="$PROJECT_DIR$/LogFile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Clean-Water-Crowdsourcing/view/ApplicationScreen.fxml" afterPath="$PROJECT_DIR$/out/production/Clean-Water-Crowdsourcing/view/ApplicationScreen.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controller/ApplicationScreenController.java" afterPath="$PROJECT_DIR$/src/controller/ApplicationScreenController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controller/MapController.java" afterPath="$PROJECT_DIR$/src/controller/MapController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fxapp/MainFXApplication.java" afterPath="$PROJECT_DIR$/src/fxapp/MainFXApplication.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Facade.java" afterPath="$PROJECT_DIR$/src/model/Facade.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/PersistenceManager.java" afterPath="$PROJECT_DIR$/src/model/PersistenceManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controller/MainScreenController.java" afterPath="$PROJECT_DIR$/src/controller/MainScreenController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/view/ApplicationScreen.fxml" afterPath="$PROJECT_DIR$/src/view/ApplicationScreen.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/view/MainScreen.fxml" afterPath="$PROJECT_DIR$/src/view/MainScreen.fxml" />
     </list>
     <ignored path="Clean-Water-Crowdsourcing.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -54,26 +54,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HistoricalReportController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/controller/HistoricalReportController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MapController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/controller/MapController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="128">
-              <caret line="89" column="25" selection-start-line="89" selection-start-column="25" selection-end-line="89" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="PersistenceManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/model/PersistenceManager.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -84,6 +64,16 @@
                 <element signature="e#695#696#0" expanded="true" />
                 <element signature="e#735#736#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainScreenController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/controller/MainScreenController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="968">
+              <caret line="63" column="80" selection-start-line="63" selection-start-column="80" selection-end-line="63" selection-end-column="80" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -116,8 +106,21 @@
       <file leaf-file-name="ApplicationScreenController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/controller/ApplicationScreenController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="356">
-              <caret line="414" column="8" selection-start-line="414" selection-start-column="8" selection-end-line="414" selection-end-column="8" />
+            <state relative-caret-position="-7288">
+              <caret line="56" column="38" selection-start-line="56" selection-start-column="38" selection-end-line="56" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainScreen.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/view/MainScreen.fxml">
+          <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+            <state />
+          </provider>
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -149,8 +152,8 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-342">
-              <caret line="22" column="14" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
+            <state relative-caret-position="272">
+              <caret line="50" column="16" selection-start-line="50" selection-start-column="16" selection-end-line="50" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -175,12 +178,14 @@
         <option value="$PROJECT_DIR$/src/model/Manager.java" />
         <option value="$PROJECT_DIR$/src/model/WaterPurityReport.java" />
         <option value="$PROJECT_DIR$/src/model/ReportsDatabase.java" />
-        <option value="$PROJECT_DIR$/src/view/ApplicationScreen.fxml" />
         <option value="$PROJECT_DIR$/src/controller/MapController.java" />
         <option value="$PROJECT_DIR$/src/fxapp/MainFXApplication.java" />
         <option value="$PROJECT_DIR$/src/model/Facade.java" />
-        <option value="$PROJECT_DIR$/src/controller/ApplicationScreenController.java" />
         <option value="$PROJECT_DIR$/src/model/PersistenceManager.java" />
+        <option value="$PROJECT_DIR$/src/view/ApplicationScreen.fxml" />
+        <option value="$PROJECT_DIR$/src/view/MainScreen.fxml" />
+        <option value="$PROJECT_DIR$/src/controller/ApplicationScreenController.java" />
+        <option value="$PROJECT_DIR$/src/controller/MainScreenController.java" />
       </list>
     </option>
   </component>
@@ -620,7 +625,14 @@
       <option name="project" value="LOCAL" />
       <updated>1478675382896</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added User Persistence">
+      <created>1478759561303</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1478759561303</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -634,7 +646,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33182332" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33522084" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CheckStyle" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -694,7 +706,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fixed manager capabilities" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed manager capabilities" />
+    <MESSAGE value="Added User Persistence" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added User Persistence" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -837,14 +850,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/MainScreenController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/controller/ViewReportsScreenController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1188">
@@ -909,38 +914,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/ApplicationScreen.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-342">
-          <caret line="22" column="14" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/ReportsDatabase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1474">
-          <caret line="71" column="13" selection-start-line="71" selection-start-column="13" selection-end-line="71" selection-end-column="13" />
-          <folding>
-            <element signature="e#331#332#0" expanded="true" />
-            <element signature="e#374#375#0" expanded="true" />
-            <element signature="e#418#419#0" expanded="true" />
-            <element signature="e#448#449#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/WaterPurityReport.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1122">
-          <caret line="51" column="5" selection-start-line="51" selection-start-column="5" selection-end-line="51" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/model/UserDatabase.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
@@ -949,37 +922,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/Facade.java">
+    <entry file="file://$PROJECT_DIR$/src/controller/HistoricalReportController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="26" column="6" selection-start-line="26" selection-start-column="6" selection-end-line="28" selection-end-column="7" />
+        <state relative-caret-position="154">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/ApplicationScreenController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="414" column="8" selection-start-line="414" selection-start-column="8" selection-end-line="414" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/PersistenceManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1474">
-          <caret line="67" column="19" selection-start-line="67" selection-start-column="19" selection-end-line="67" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#695#696#0" expanded="true" />
-            <element signature="e#735#736#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/controller/MapController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
+        <state relative-caret-position="19">
           <caret line="89" column="25" selection-start-line="89" selection-start-column="25" selection-end-line="89" selection-end-column="25" />
           <folding />
         </state>
@@ -1004,10 +957,81 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/HistoricalReportController.java">
+    <entry file="file://$PROJECT_DIR$/src/model/PersistenceManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        <state relative-caret-position="1474">
+          <caret line="67" column="19" selection-start-line="67" selection-start-column="19" selection-end-line="67" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#695#696#0" expanded="true" />
+            <element signature="e#735#736#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/WaterPurityReport.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1122">
+          <caret line="51" column="5" selection-start-line="51" selection-start-column="5" selection-end-line="51" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/ReportsDatabase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1474">
+          <caret line="71" column="13" selection-start-line="71" selection-start-column="13" selection-end-line="71" selection-end-column="13" />
+          <folding>
+            <element signature="e#331#332#0" expanded="true" />
+            <element signature="e#374#375#0" expanded="true" />
+            <element signature="e#418#419#0" expanded="true" />
+            <element signature="e#448#449#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Facade.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="26" column="6" selection-start-line="26" selection-start-column="6" selection-end-line="28" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/ApplicationScreen.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="50" column="16" selection-start-line="50" selection-start-column="16" selection-end-line="50" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/MainScreen.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/ApplicationScreenController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7288">
+          <caret line="56" column="38" selection-start-line="56" selection-start-column="38" selection-end-line="56" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/MainScreenController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="968">
+          <caret line="63" column="80" selection-start-line="63" selection-start-column="80" selection-end-line="63" selection-end-column="80" />
           <folding />
         </state>
       </provider>
