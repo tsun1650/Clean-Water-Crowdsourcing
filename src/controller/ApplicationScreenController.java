@@ -147,8 +147,7 @@ public class ApplicationScreenController {
         options.add("View Reports");
         options.add("Submit Water Source Report");
         options.add("Submit Historical Report");
-        if (!u.getType().equals(Type.USR))
-            options.add("Submit Purity Report");
+        options.add("Submit Purity Report");
 
         ChoiceDialog<String> dialog = new ChoiceDialog<>("View Reports", options);
         dialog.setTitle("Report");
@@ -292,7 +291,7 @@ public class ApplicationScreenController {
                                 System.out.print("default");
                             }
 
-
+                            ObservableList<PurityCondition> vcTypeList = FXCollections.observableArrayList(PurityCondition.values());
                             PurityCondition c = purityConditionComboBox.getSelectionModel().getSelectedItem();
                             WaterPurityReport r = new WaterPurityReport(date,u.getFirstName()+ " " + u.getLastName(),
                                     locationField.getText(), c, Double.parseDouble(virusField.getText()),
@@ -329,7 +328,6 @@ public class ApplicationScreenController {
                 ppmTypeComboBox.setItems(FXCollections.observableArrayList(VirusvContaminant.values()));
 
 
-
                 //add it to gridpane
                 GridPane grid = new GridPane();
                 //column,row
@@ -356,11 +354,10 @@ public class ApplicationScreenController {
                             Integer y = Integer.parseInt(year.getText());
                             ObservableList<VirusvContaminant> conditionList = FXCollections.observableArrayList(VirusvContaminant.values());
                             VirusvContaminant c = ppmTypeComboBox.getSelectionModel().getSelectedItem();
-                            HistoricalReport r = new HistoricalReport(locationField.getText(),
-                                    c.toString(), y);
-                            ArrayList<Report> hReports = rDatabase.getReportYears(y);
-
-
+                            HistoricalReport r = new HistoricalReport(locationField.getText(), c.toString(), y);
+                            //ArrayList<Report> hReports = rDatabase.getReportYears(y);
+                            rDatabase.add(r);
+                            System.out.println(r);
                         }
 
                         return null;
