@@ -89,14 +89,14 @@ public class MapController implements Initializable, MapComponentInitializedList
      */
     public void placeMarkers(List<Location> locations) {
         /** now we communciate with the model to get all the locations for markers */
-        Facade fc = Facade.getInstance();
-        ReportsDatabase rD = ReportsDatabase.getInstance();
+//        Facade fc = Facade.getInstance();
+//        ReportsDatabase rD = ReportsDatabase.getInstance();
 //        List<Location> locations = rDatabase.getLocations();
 
-        List<String> locationStrings = new ArrayList<>();
-        for (Report r : rDatabase.getReports()) {
-            locationStrings.add(r.getLocation());
-        }
+//        List<String> locationStrings = new ArrayList<>();
+//        for (Report r : rDatabase.getReports()) {
+//            locationStrings.add(r.getLocation());
+//        }
 
 //        List<Location> locations = new ArrayList<>();
 //        for (String s : locationStrings) {
@@ -130,9 +130,9 @@ public class MapController implements Initializable, MapComponentInitializedList
             map.addMarker(marker);
         }
     }
-    @FXML
-    public void onCloseMenu() {
-        mainApplication.closeMapView();
-    }
+//    @FXML
+//    public void onCloseMenu() {
+//        mainApplication.closeMapView();
+//    }
 
 }

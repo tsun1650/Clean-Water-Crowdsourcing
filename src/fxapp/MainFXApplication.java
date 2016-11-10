@@ -35,6 +35,10 @@ public class MainFXApplication extends Application {
     private ViewReportsScreenController viewReportsController;
     private MapController mapController;
 
+    public Stage getStage() {
+        return stage;
+    }
+
     /**
      * get the logged in user
      * @return activeUser user logged in
@@ -92,6 +96,7 @@ public class MainFXApplication extends Application {
         applicationController.showProfile(u);
         setScene(applicationScene);
     }
+
 
     /**
      * Sets the scene to the google maps
@@ -225,12 +230,12 @@ public class MainFXApplication extends Application {
     /**
      * dummy method to simulate a callback from the map view
      */
-    public void closeMapView() {
-        Facade fc = Facade.getInstance();
-        fc.addLocations();
-        mapController.mapInitialized();
-        stage.setScene(mapScene);
-    }
+//    public void closeMapView() {
+//        Facade fc = Facade.getInstance();
+//        fc.addLocations();
+//        mapController.mapInitialized();
+//        stage.setScene(mapScene);
+//    }
 
 
 }

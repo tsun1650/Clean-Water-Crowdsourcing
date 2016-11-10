@@ -7,9 +7,12 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
+import javafx.stage.FileChooser;
 import javafx.util.Callback;
 import model.*;
 
+import java.io.File;
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -30,6 +33,10 @@ public class ApplicationScreenController {
     private Button logoutButton;
     @FXML
     private Button reportButton;
+    @FXML
+    private Button save;
+    @FXML
+    private Button load;
     @FXML
     private Label firstNameField;
     @FXML
@@ -385,6 +392,38 @@ public class ApplicationScreenController {
         u = database.getActiveUser();
         database.logOut(u);
         mainApplication.setMainScene();
+    }
+
+    public void saveClicked() {
+        FileChooser fc = new FileChooser();
+        fc.setTitle("Save JSON File");
+        File file  = fc.showSaveDialog(mainApplication.getStage());
+        if (file != null) {
+            PersistenceManager pm = new PersistenceManager(database.getUsers());
+            try {
+                pm.saveUsersToJson(file);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void loadClicked() {
+        FileChooser fc = new FileChooser();
+        fc.setTitle("Save JSON File");
+        File file  = fc.showOpenDialog(mainApplication.getStage());
+        List<User> uList = new ArrayList<>();
+        if (file != null) {
+            PersistenceManager pm = new PersistenceManager(database.getUsers());
+            try {
+                uList = pm.loadUsersFromJson(file);
+                for (User u : uList) {
+                    database.add(u);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
 }
