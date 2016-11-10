@@ -2,40 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7a55cfd4-e79e-47f2-8a87-ce0bc4d292cc" name="Default" comment="Choosing  View Reports takes you to the right screen">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Clean-Water-Crowdsourcing/controller/ApplicationScreenController$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Clean-Water-Crowdsourcing/controller/ApplicationScreenController$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Clean-Water-Crowdsourcing/controller/ApplicationScreenController$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Clean-Water-Crowdsourcing/controller/ApplicationScreenController$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Clean-Water-Crowdsourcing/controller/ApplicationScreenController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Clean-Water-Crowdsourcing/controller/GraphController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Clean-Water-Crowdsourcing/controller/HistoricalReportController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Clean-Water-Crowdsourcing/controller/LoginScreenController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Clean-Water-Crowdsourcing/controller/MainScreenController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Clean-Water-Crowdsourcing/controller/MapController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Clean-Water-Crowdsourcing/controller/RegistrationScreenController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Clean-Water-Crowdsourcing/controller/ViewReportsScreenController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Clean-Water-Crowdsourcing/controller/WaterSourceReportScreenController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Clean-Water-Crowdsourcing/model/Admin.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Clean-Water-Crowdsourcing/model/Condition.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Clean-Water-Crowdsourcing/model/Facade.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Clean-Water-Crowdsourcing/model/FileFormatException.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Clean-Water-Crowdsourcing/model/HistoricalReport.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Clean-Water-Crowdsourcing/model/Location.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Clean-Water-Crowdsourcing/model/Manager.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Clean-Water-Crowdsourcing/model/PersistenceManager.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Clean-Water-Crowdsourcing/model/PurityCondition.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Clean-Water-Crowdsourcing/model/Report.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Clean-Water-Crowdsourcing/model/VirusvContaminant.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Clean-Water-Crowdsourcing/model/WaterPurityReport.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Clean-Water-Crowdsourcing/model/WaterSourceReport.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Clean-Water-Crowdsourcing/model/WaterType.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Clean-Water-Crowdsourcing/fxapp/MainFXApplication.class" afterPath="$PROJECT_DIR$/out/production/Clean-Water-Crowdsourcing/fxapp/MainFXApplication.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Clean-Water-Crowdsourcing/model/ReportsDatabase.class" afterPath="$PROJECT_DIR$/out/production/Clean-Water-Crowdsourcing/model/ReportsDatabase.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controller/GraphController.java" afterPath="$PROJECT_DIR$/src/controller/GraphController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Facade.java" afterPath="$PROJECT_DIR$/src/model/Facade.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/HistoricalReport.java" afterPath="$PROJECT_DIR$/src/model/HistoricalReport.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Report.java" afterPath="$PROJECT_DIR$/src/model/Report.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/view/GraphView.fxml" afterPath="$PROJECT_DIR$/src/view/GraphView.fxml" />
     </list>
     <ignored path="Clean-Water-Crowdsourcing.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -84,8 +51,8 @@
       <file leaf-file-name="GraphController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/controller/GraphController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="54" column="70" selection-start-line="54" selection-start-column="70" selection-end-line="54" selection-end-column="70" />
+            <state relative-caret-position="68">
+              <caret line="52" column="43" selection-start-line="52" selection-start-column="43" selection-end-line="52" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -993,8 +960,8 @@
         <state relative-caret-position="1054">
           <caret line="69" column="16" selection-start-line="69" selection-start-column="16" selection-end-line="69" selection-end-column="16" />
           <folding>
-            <element signature="e#1571#1572#0" expanded="true" />
-            <element signature="e#1617#1618#0" expanded="true" />
+            <element signature="e#1571#1572#0" expanded="false" />
+            <element signature="e#1617#1618#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1015,7 +982,7 @@
         <state relative-caret-position="119">
           <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1036,7 +1003,7 @@
         <state relative-caret-position="-85">
           <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1092,9 +1059,9 @@
         <state relative-caret-position="2758">
           <caret line="177" column="7" selection-start-line="177" selection-start-column="7" selection-end-line="177" selection-end-column="7" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#695#696#0" expanded="true" />
-            <element signature="e#735#736#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#695#696#0" expanded="false" />
+            <element signature="e#735#736#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1190,8 +1157,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/controller/GraphController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="54" column="70" selection-start-line="54" selection-start-column="70" selection-end-line="54" selection-end-column="70" />
+        <state relative-caret-position="68">
+          <caret line="52" column="43" selection-start-line="52" selection-start-column="43" selection-end-line="52" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
