@@ -15,6 +15,27 @@ public class ReportsDatabase {
     public ArrayList<Report> getReports() {
         return reports;
     }
+
+    public ArrayList<WaterSourceReport> getSourceReports() {
+        ArrayList<WaterSourceReport> result = new ArrayList<>();
+        for (Report r : reports) {
+            if (r instanceof WaterSourceReport) {
+                result.add((WaterSourceReport) r);
+            }
+        }
+        return result;
+    }
+
+    public ArrayList<WaterPurityReport> getPurityReports() {
+        ArrayList<WaterPurityReport> result = new ArrayList<>();
+        for (Report r : reports) {
+            if (r instanceof WaterPurityReport) {
+                result.add((WaterPurityReport) r);
+            }
+        }
+        return result;
+    }
+
     public void add(Report r) {
         reports.add(r);
         r.setNumber(reports.size());
@@ -30,6 +51,16 @@ public class ReportsDatabase {
             give.add(r.toString());
         }
         return give;
+
+    }
+    public ArrayList<String> getUserReports() {
+        ArrayList<String> ur = new ArrayList<>();
+        for (Report r: reports) {
+            if (r instanceof WaterPurityReport) {
+                ur.add(r.toString());
+            }
+        }
+        return ur;
 
     }
     public ArrayList<Report> getReportYears(Integer year) {
@@ -48,6 +79,18 @@ public class ReportsDatabase {
             int i = 0;
             locations.add(new Location(r.getLatitude(), r.getLongitude(), "Report " + i , r.toString()));
             i++;
+        }
+        return locations;
+    }
+
+    public ArrayList<Location> getSourceLocations() {
+        ArrayList<Location> locations = new ArrayList<>();
+        for (Report r : reports) {
+            if (r instanceof WaterSourceReport) {
+                int i = 0;
+                locations.add(new Location(r.getLatitude(), r.getLongitude(), "Report " + i , r.toString()));
+                i++;
+            }
         }
         return locations;
     }

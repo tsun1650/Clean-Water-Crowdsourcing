@@ -7,9 +7,12 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
+import javafx.stage.FileChooser;
 import javafx.util.Callback;
 import model.*;
 
+import java.io.File;
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -30,6 +33,16 @@ public class ApplicationScreenController {
     private Button logoutButton;
     @FXML
     private Button reportButton;
+    @FXML
+    private Button saveUsers;
+    @FXML
+    private Button saveSourceReports;
+    @FXML
+    private Button savePurityReports;
+    @FXML
+    private Button loadSourceReports;
+    @FXML
+    private Button loadPurityReports;
     @FXML
     private Label firstNameField;
     @FXML
@@ -145,6 +158,7 @@ public class ApplicationScreenController {
         u = database.getActiveUser();
         List<String> options = new ArrayList<>();
         options.add("View Reports");
+        options.add("View Historical Reports");
         options.add("Submit Water Source Report");
         options.add("Submit Historical Report");
         options.add("Submit Purity Report");
@@ -164,9 +178,12 @@ public class ApplicationScreenController {
 
             if (result.get().equals("View Reports")) {
                 mainApplication.setViewReportsScene();
-
-
             }
+
+            if (result.get().equals("View Historical Reports")) {
+                mainApplication.setViewHistScene();
+            }
+
             if (result.get().equals("Submit Water Source Report")) {
 
                 //create pop up dialog
@@ -382,6 +399,93 @@ public class ApplicationScreenController {
         u = database.getActiveUser();
         database.logOut(u);
         mainApplication.setMainScene();
+    }
+
+    public void saveUsersClicked() {
+        FileChooser fc = new FileChooser();
+        fc.setTitle("Save JSON File");
+        File file  = fc.showSaveDialog(mainApplication.getStage());
+        if (file != null) {
+            PersistenceManager pm = new PersistenceManager(database.getUsers());
+            try {
+                pm.saveUsersToJson(file);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void saveSourceReportsClicked() {
+        FileChooser fc = new FileChooser();
+        fc.setTitle("Save JSON File");
+        File file  = fc.showSaveDialog(mainApplication.getStage());
+        if (file != null) {
+            PersistenceManager pm = new PersistenceManager(rDatabase.getSourceReports(), rDatabase.getPurityReports());
+            //pm.addReports(rDatabase.getReports(), 1);
+            try {
+                pm.saveSourceReportsToJson(file);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+
+    public void savePurityReportsClicked() {
+        FileChooser fc = new FileChooser();
+        fc.setTitle("Save Text File");
+        File file  = fc.showSaveDialog(mainApplication.getStage());
+        if (file != null) {
+            PersistenceManager pm = new PersistenceManager(rDatabase.getSourceReports(), rDatabase.getPurityReports());
+            try {
+                pm.savePurityReportsToJson(file);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+
+    public void loadSourceReportsClicked() {
+        FileChooser fc = new FileChooser();
+        fc.setTitle("Save JSON File");
+        File file  = fc.showOpenDialog(mainApplication.getStage());
+        List<WaterSourceReport> rList = new ArrayList<>();
+        if (file != null) {
+            PersistenceManager pm = new PersistenceManager(rDatabase.getSourceReports(), rDatabase.getPurityReports());
+            try {
+                rList = pm.loadSourceReportsFromJson(file);
+                System.out.println(rList.get(0));
+                mainApplication.addSourceReports(rList);
+                for (Report r : rList) {
+                    rDatabase.add(r);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+
+    public void loadPurityReportsClicked() {
+        FileChooser fc = new FileChooser();
+        fc.setTitle("Save JSON File");
+        File file  = fc.showOpenDialog(mainApplication.getStage());
+        List<WaterPurityReport> rList = new ArrayList<>();
+        if (file != null) {
+            PersistenceManager pm = new PersistenceManager(rDatabase.getSourceReports(), rDatabase.getPurityReports());
+            pm.addPurityReports(rDatabase.getPurityReports());
+            try {
+                rList = pm.loadPurityReportsFromJson(file);
+                System.out.println(rList.get(0));
+                mainApplication.addPurityReports(rList);
+                for (Report r : rList) {
+                    rDatabase.add(r);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
 }

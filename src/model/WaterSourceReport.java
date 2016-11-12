@@ -1,5 +1,6 @@
 package model;
 
+import java.io.PrintWriter;
 import java.sql.Time;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -11,11 +12,9 @@ import java.util.Date;
 public class WaterSourceReport extends Report{
 
     private String date;
-    private String location;
     private String reporter;
     private WaterType type;
     private Condition condition;
-    private int number;
 
     /**
      * constructor
@@ -26,8 +25,8 @@ public class WaterSourceReport extends Report{
      * @param condition
      */
     public WaterSourceReport(String date, String location, String reporter, WaterType type, Condition condition) {
+        super(location);
         this.date = date;
-        this.location = location;
         this.reporter = reporter;
         this.type = type;
         this.condition = condition;
@@ -50,6 +49,10 @@ public class WaterSourceReport extends Report{
     public double getLongitude() {
         String[] latLong = location.split(",");
         return Double.parseDouble(latLong[1]);
+    }
+
+    public void saveToText(PrintWriter pw) {
+        pw.println(date + "\t" + location + "\t" + reporter + "\t" + type + "\t" + condition + "\t" + number);
     }
 
     @Override

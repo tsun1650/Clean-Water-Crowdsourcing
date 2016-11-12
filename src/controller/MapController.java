@@ -10,9 +10,6 @@ import javafx.fxml.Initializable;
 import javafx.stage.FileChooser;
 import javafx.stage.Window;
 import model.*;
-import model.Facade;
-import model.Location;
-
 import netscape.javascript.JSObject;
 
 import java.io.File;
@@ -34,7 +31,6 @@ public class MapController implements Initializable, MapComponentInitializedList
     private UserDatabase database;
     private ReportsDatabase rDatabase;
     private User u;
-
     @FXML
     public void setApp(MainFXApplication main) {
         mainApplication = main;
@@ -56,8 +52,9 @@ public class MapController implements Initializable, MapComponentInitializedList
     }
 
     /**
+     *
      * @param stage main stage
-     * @param app   main app
+     * @param app main app
      */
     public void setCallbacks(Window stage, MainFXApplication app) {
         mainStage = stage;
@@ -84,27 +81,37 @@ public class MapController implements Initializable, MapComponentInitializedList
 
         map = mapView.createMap(options);
 
+    }
 
+    /**
+     * Method that places markers on the map
+     * @param locations the list of locations that have been added to the rdatabase
+     */
+    public void placeMarkers(List<Location> locations) {
+        System.out.println("PlaceMarkers");
+        if (locations != null && locations.get(0) != null) {
+            System.out.println(locations.get(0));
+        }
         /** now we communciate with the model to get all the locations for markers */
-        Facade fc = Facade.getInstance();
-        ReportsDatabase rD = ReportsDatabase.getInstance();
+//        Facade fc = Facade.getInstance();
+//        ReportsDatabase rD = ReportsDatabase.getInstance();
 //        List<Location> locations = rDatabase.getLocations();
 
-        List<String> locationStrings = new ArrayList<>();
-        for (Report r : rDatabase.getReports()) {
-            locationStrings.add(r.getLocation());
-        }
+//        List<String> locationStrings = new ArrayList<>();
+//        for (Report r : rDatabase.getReports()) {
+//            locationStrings.add(r.getLocation());
+//        }
 
-        List<Location> locations = new ArrayList<>();
-        for (String s : locationStrings) {
-            try {
-                locations.add(Location.makeFromFileString(s));
-            } catch (FileFormatException e) {
-                e.printStackTrace();
-            }
-        }
+//        List<Location> locations = new ArrayList<>();
+//        for (String s : locationStrings) {
+//            try {
+//                locations.add(Location.makeFromFileString(s));
+//            } catch (FileFormatException e) {
+//                e.printStackTrace();
+//            }
+//        }
 
-        for (Location l : rD.getLocations()) {
+        for (Location l: locations) {
             MarkerOptions markerOptions = new MarkerOptions();
             LatLong loc = new LatLong(l.getLatitude(), l.getLongitude());
 
@@ -114,16 +121,6 @@ public class MapController implements Initializable, MapComponentInitializedList
 
             Marker marker = new Marker(markerOptions);
 
-            Marker markerOptions2 = new Marker(markerOptions);
-            LatLong markerLatLong = new LatLong(47.606189, -122.335842);
-            markerOptions.position(markerLatLong)
-                    .title("My new Marker")
-                    .icon("mymarker.png")
-                    .animation(Animation.DROP)
-                    .visible(true);
-
-            Marker myMarker = new Marker(markerOptions);
-
             map.addUIEventHandler(marker,
                     UIEventType.click,
                     (JSObject obj) -> {
@@ -131,70 +128,15 @@ public class MapController implements Initializable, MapComponentInitializedList
                         infoWindowOptions.content(l.getDescription());
 
                         InfoWindow window = new InfoWindow(infoWindowOptions);
-                        window.open(map, myMarker);
+                        window.open(map, marker);
                     });
 
-            map.addMarker(markerOptions2);
+            map.addMarker(marker);
         }
     }
+//    @FXML
+//    public void onCloseMenu() {
+//        mainApplication.closeMapView();
+//    }
 
-    public void placeMarkers() {
-
-        /** now we communciate with the model to get all the locations for markers */
-        Facade fc = Facade.getInstance();
-        ReportsDatabase rD = ReportsDatabase.getInstance();
-//        List<Location> locations = rDatabase.getLocations();
-
-        List<String> locationStrings = new ArrayList<>();
-        for (Report r : rDatabase.getReports()) {
-            locationStrings.add(r.getLocation());
-        }
-
-        List<Location> locations = new ArrayList<>();
-        for (String s : locationStrings) {
-            try {
-                locations.add(Location.makeFromFileString(s));
-            } catch (FileFormatException e) {
-                e.printStackTrace();
-            }
-        }
-
-        for (Location l : rD.getLocations()) {
-            MarkerOptions markerOptions = new MarkerOptions();
-            LatLong loc = new LatLong(l.getLatitude(), l.getLongitude());
-
-            markerOptions.position(loc)
-                    .visible(Boolean.TRUE)
-                    .title(l.getTitle());
-
-            Marker marker = new Marker(markerOptions);
-
-            Marker markerOptions2 = new Marker(markerOptions);
-            LatLong markerLatLong = new LatLong(47.606189, -122.335842);
-            markerOptions.position(markerLatLong)
-                    .title("My new Marker")
-                    .icon("mymarker.png")
-                    .animation(Animation.DROP)
-                    .visible(true);
-
-            Marker myMarker = new Marker(markerOptions);
-
-            map.addUIEventHandler(marker,
-                    UIEventType.click,
-                    (JSObject obj) -> {
-                        InfoWindowOptions infoWindowOptions = new InfoWindowOptions();
-                        infoWindowOptions.content(l.getDescription());
-
-                        InfoWindow window = new InfoWindow(infoWindowOptions);
-                        window.open(map, myMarker);
-                    });
-
-            map.addMarker(markerOptions2);
-        }
-        //@FXML
-        //public void onCloseMenu() {
-        //  mainApplication.closeMapView();
-        //}
-
-    }
 }

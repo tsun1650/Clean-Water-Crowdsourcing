@@ -8,15 +8,13 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-import model.Facade;
-import model.ReportsDatabase;
-import model.User;
-import model.UserDatabase;
+import model.*;
 import sun.applet.Main;
 import controller.MapController;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * create the main application
@@ -34,11 +32,20 @@ public class MainFXApplication extends Application {
     private Scene registrationScene;
     private Scene waterSourceScene;
     private Scene viewReportsScene;
+    private Scene graphScene;
     private ApplicationScreenController applicationController;
     //private WaterSourceReportScreenController waterSourceController;
     private ViewReportsScreenController viewReportsController;
     private MapController mapController;
     private HistoricalReportController histReportController;
+
+    /**
+     *
+     * @return stage
+     */
+    public Stage getStage() {
+        return stage;
+    }
 
     /**
      * get the logged in user
@@ -71,6 +78,20 @@ public class MainFXApplication extends Application {
     public ReportsDatabase getReports() {
         return rDatabase;
     }
+
+    public void addSourceReports(List<WaterSourceReport> rList) {
+        for (int i = 0; i < rList.size(); i++) {
+            rDatabase.add(rList.get(i));
+        }
+    }
+
+    public void addPurityReports(List<WaterPurityReport> rList) {
+        for (int i = 0; i < rList.size(); i++) {
+            rDatabase.add(rList.get(i));
+        }
+    }
+
+
     /**
      * Launch app
      *
@@ -97,8 +118,17 @@ public class MainFXApplication extends Application {
     }
 
     public void setViewMapScene() {
+        System.out.println("setViewMapScene()");
         setScene(mapScene);
-        mapController.placeMarkers();
+        ArrayList<Location> locations = new ArrayList<>();
+        if (database.getActiveUser().getType() == Type.MNGR || database.getActiveUser().getType() == Type.ADMN) {
+            locations = rDatabase.getLocations();
+        } else {
+            locations = rDatabase.getSourceLocations();
+            System.out.println("getSourceLocations");
+        }
+        System.out.println(locations.get(0));
+        mapController.placeMarkers(locations);
     }
 
     public void setViewHistScene() {
@@ -142,6 +172,11 @@ public class MainFXApplication extends Application {
         viewReportsController.updateListView();
         setScene(viewReportsScene);
 
+    }
+
+    public void setViewGraphScene() {
+        viewReportsController.updateListView();
+        setScene(graphScene);
     }
 
     /**
@@ -212,6 +247,7 @@ public class MainFXApplication extends Application {
             viewReportsController.setApp(this);
             mainController.setApp(this);
             mapController.setApp(this);
+            histReportController.setApp(this);
             //closeMapView();
 
             setMainScene();
@@ -225,12 +261,12 @@ public class MainFXApplication extends Application {
     /**
      * dummy method to simulate a callback from the map view
      */
-    public void closeMapView() {
-        Facade fc = Facade.getInstance();
-        fc.addLocations();
-        mapController.mapInitialized();
-        stage.setScene(mapScene);
-    }
+//    public void closeMapView() {
+//        Facade fc = Facade.getInstance();
+//        fc.addLocations();
+//        mapController.mapInitialized();
+//        stage.setScene(mapScene);
+//    }
 
 
 }

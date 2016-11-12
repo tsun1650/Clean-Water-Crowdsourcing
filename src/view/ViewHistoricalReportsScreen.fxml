@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Text?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HistoricalReportController">
    <children>
       <Text layoutX="154.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Historical Report View">
          <font>
@@ -15,8 +15,11 @@
          </font>
       </Text>
       <ListView layoutX="147.0" layoutY="100.0" prefHeight="200.0" prefWidth="307.0" />
-      <Button layoutX="274.0" layoutY="321.0" mnemonicParsing="false" text="Back" />
-      <Button layoutX="351.0" layoutY="321.0" mnemonicParsing="false" text="View Graph" />
-      <Button layoutX="173.0" layoutY="321.0" mnemonicParsing="false" text="Refresh" />
+      <Button layoutX="274.0" layoutY="321.0" mnemonicParsing="false" onMouseClicked="#backClicked" text="Back" />
+
+
+
+      <Button layoutX="351.0" layoutY="321.0" mnemonicParsing="false" onMouseClicked="#viewGraphClicked" text="View Graph" />
+      <Button fx:id="refreshButton" layoutX="173.0" layoutY="321.0" mnemonicParsing="false" onMouseClicked="#updateListView" text="Refresh" />
    </children>
 </AnchorPane>

@@ -1,10 +1,16 @@
 package model;
 
-public class Report {
-    private int number;
-    private Integer year;
-    private String location;
+import java.io.PrintWriter;
 
+public class Report {
+    protected int number;
+    protected Integer year;
+    protected String location;
+
+    public Report() {}
+    public Report(String location) {
+        this.location = location;
+    }
     public void setNumber(int number) {
         this.number = number;
     }
