@@ -9,25 +9,22 @@
 <?import javafx.scene.text.Text?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainScreenController">
-  <center>
-    <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-      <children>
-        <Text fill="#0d00ff" fontSmoothingType="LCD" layoutX="53.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to Clean Water Crowd Sourcing" textAlignment="CENTER">
-          <font>
-            <Font name="Segoe UI Light" size="27.0" />
-          </font>
-               <effect>
-                  <DropShadow color="#57aab9d1" height="3.21" offsetX="1.0" offsetY="1.0" radius="1.8449999999999998" spread="0.1" width="6.17" />
-               </effect>
-        </Text>
-        <HBox layoutX="214.0" layoutY="216.0" prefHeight="40.0" prefWidth="75.0">
-               <children>
-            <Button fx:id="loginButton" mnemonicParsing="false" onMouseClicked="#loginClicked" prefHeight="15.0" prefWidth="75.0" text="Login" />
-               </children></HBox>
-            <HBox layoutX="300.0" layoutY="215.0" prefHeight="42.0" prefWidth="94.0">
-               <children>
-            <Button fx:id="registerButton" mnemonicParsing="false" onMouseClicked="#registerClicked" prefHeight="15.0" prefWidth="75.0" text="Register" />
-               </children></HBox>
-      </children></AnchorPane>
-  </center>
+    <center>
+        <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <children>
+                <Text fill="#0d00ff" fontSmoothingType="LCD" layoutX="53.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to Clean Water Crowd Sourcing" textAlignment="CENTER">
+                    <font>
+                        <Font name="Segoe UI Light" size="27.0" />
+                    </font>
+                    <effect>
+                        <DropShadow color="#57aab9d1" height="3.21" offsetX="1.0" offsetY="1.0" radius="1.8449999999999998" spread="0.1" width="6.17" />
+                    </effect>
+                </Text>
+                <HBox layoutX="214.0" layoutY="216.0" prefHeight="40.0" prefWidth="75.0" />
+                <HBox layoutX="300.0" layoutY="215.0" prefHeight="42.0" prefWidth="94.0" />
+                <Button fx:id="load" layoutX="348.0" layoutY="223.0" mnemonicParsing="false" onMouseClicked="#loadClicked" text="Load Users" />
+                <Button fx:id="loginButton" layoutX="165.0" layoutY="223.0" mnemonicParsing="false" onMouseClicked="#loginClicked" prefHeight="15.0" prefWidth="75.0" text="Login" />
+                <Button fx:id="registerButton" layoutX="257.0" layoutY="223.0" mnemonicParsing="false" onMouseClicked="#registerClicked" prefHeight="15.0" prefWidth="75.0" text="Register" />
+            </children></AnchorPane>
+    </center>
 </BorderPane>
