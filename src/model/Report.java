@@ -28,5 +28,4 @@ public class Report {
         String[] latLong = location.split(",");
         return Double.parseDouble(latLong[1]);
     }
-
 }

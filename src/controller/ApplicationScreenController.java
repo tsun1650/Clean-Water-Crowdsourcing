@@ -60,7 +60,8 @@ public class ApplicationScreenController {
     @FXML
     private ComboBox<PurityCondition> purityConditionComboBox = new ComboBox<>();
     @FXML
-    private ComboBox<String> ppmTypeComboBox = new ComboBox<>();
+    private ComboBox<VirusvContaminant> ppmTypeComboBox = new ComboBox<>();
+
     private UserDatabase database;
     private ReportsDatabase rDatabase;
     private int reportNumber = 0;
@@ -157,11 +158,10 @@ public class ApplicationScreenController {
         u = database.getActiveUser();
         List<String> options = new ArrayList<>();
         options.add("View Reports");
+        options.add("View Historical Reports");
         options.add("Submit Water Source Report");
-        if (!u.getType().equals(Type.USR))
-            options.add("Submit Purity Report");
-        if (u.getType().equals(Type.MNGR))
-            options.add("Submit Historical Report");
+        options.add("Submit Historical Report");
+        options.add("Submit Purity Report");
 
         ChoiceDialog<String> dialog = new ChoiceDialog<>("View Reports", options);
         dialog.setTitle("Report");
@@ -178,9 +178,12 @@ public class ApplicationScreenController {
 
             if (result.get().equals("View Reports")) {
                 mainApplication.setViewReportsScene();
-
-
             }
+
+            if (result.get().equals("View Historical Reports")) {
+                mainApplication.setViewHistScene();
+            }
+
             if (result.get().equals("Submit Water Source Report")) {
 
                 //create pop up dialog
@@ -238,9 +241,6 @@ public class ApplicationScreenController {
                             Condition c = conditionComboBox.getSelectionModel().getSelectedItem();
                             WaterType t = waterTypeComboBox.getSelectionModel().getSelectedItem();
                             WaterSourceReport r = new WaterSourceReport(date,locationField.getText(),u.getFirstName()+ " " + u.getLastName(), t, c);
-
-
-
                             rDatabase.add(r);
                             System.out.println(r);
                         }
@@ -265,7 +265,7 @@ public class ApplicationScreenController {
                 Label contaminantPPM = new Label("Contaminant PPM");
 
                 Label purityCond = new Label("Purity Condition");
-                TextField locationField = new TextField("00.000, 00.000");
+                TextField locationField = new TextField("");
                 TextField dateTimeField = new TextField("MM/dd/yy HH:mm:ss");
 
                 TextField virusField = new TextField("0.0");
@@ -308,13 +308,13 @@ public class ApplicationScreenController {
                                 System.out.print("default");
                             }
 
-
+                            ObservableList<PurityCondition> vcTypeList = FXCollections.observableArrayList(PurityCondition.values());
                             PurityCondition c = purityConditionComboBox.getSelectionModel().getSelectedItem();
                             WaterPurityReport r = new WaterPurityReport(date,u.getFirstName()+ " " + u.getLastName(),
                                     locationField.getText(), c, Double.parseDouble(virusField.getText()),
                                     Double.parseDouble(contaminantField.getText()));
 
-                            System.out.println("added purity report" + r);
+
                             rDatabase.add(r);
                             System.out.println(r);
                         }
@@ -337,11 +337,12 @@ public class ApplicationScreenController {
                 Label which = new Label("Impurity");
                 Label yearLabel = new Label("Year");
                 TextField locationField = new TextField();
-                ArrayList<String> ppmtypes = new ArrayList<String>();
+                //ArrayList<String> ppmtypes = new ArrayList<String>();
                 TextField year = new TextField();
-                ppmtypes.add("Virus");
-                ppmtypes.add("Contaminant");
-                ppmTypeComboBox.setItems(FXCollections.observableArrayList(ppmtypes));
+
+                //ppmtypes.add("Virus");
+                //ppmtypes.add("Contaminant");
+                ppmTypeComboBox.setItems(FXCollections.observableArrayList(VirusvContaminant.values()));
 
 
                 //add it to gridpane
@@ -368,12 +369,12 @@ public class ApplicationScreenController {
                         //set new profile items
                         if (b == buttonTypeOk) {
                             Integer y = Integer.parseInt(year.getText());
-                            String c = ppmTypeComboBox.getSelectionModel().getSelectedItem();
-                            HistoricalReport r = new HistoricalReport(locationField.getText(),
-                                    c, y);
-                            ArrayList<Report> hReports = rDatabase.getReportYears(y);
-
-
+                            ObservableList<VirusvContaminant> conditionList = FXCollections.observableArrayList(VirusvContaminant.values());
+                            VirusvContaminant c = ppmTypeComboBox.getSelectionModel().getSelectedItem();
+                            HistoricalReport r = new HistoricalReport(locationField.getText(), c.toString(), y);
+                            //ArrayList<Report> hReports = rDatabase.getReportYears(y);
+                            rDatabase.add(r);
+                            System.out.println(r);
                         }
 
                         return null;
@@ -414,7 +415,7 @@ public class ApplicationScreenController {
         }
     }
 
-        public void saveSourceReportsClicked() {
+    public void saveSourceReportsClicked() {
         FileChooser fc = new FileChooser();
         fc.setTitle("Save JSON File");
         File file  = fc.showSaveDialog(mainApplication.getStage());
@@ -486,6 +487,5 @@ public class ApplicationScreenController {
             }
         }
     }
-
 
 }

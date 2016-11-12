@@ -30,8 +30,8 @@ public class WaterSourceReport extends Report{
         this.reporter = reporter;
         this.type = type;
         this.condition = condition;
-    }
 
+    }
 
     /**
      * set report number

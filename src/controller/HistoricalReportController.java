@@ -4,43 +4,37 @@ import fxapp.MainFXApplication;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
-import javafx.scene.control.cell.TextFieldListCell;
-import model.Report;
 import model.ReportsDatabase;
 import model.User;
 import model.UserDatabase;
-import java.net.URL;
-import java.util.ResourceBundle;
 
-public class ViewReportsScreenController {
+/**
+ * Created by Kate on 11/8/2016.
+ */
+public class HistoricalReportController {
+
     private MainFXApplication mainApplication;
+    private User u;
     private UserDatabase database;
     private ReportsDatabase rDatabase;
-    private User u;
     @FXML
     private ListView<String> listReports;
 
-
-    /**
-     * Ties controller to main app
-     * @param main main app
-     */
     public void setApp(MainFXApplication main) {
         mainApplication = main;
         database = mainApplication.getUsers();
         rDatabase = mainApplication.getReports();
     }
 
-
     public void backClicked() {
         u = database.getActiveUser();
         mainApplication.setApplicationScene(u);
     }
 
-    public void viewMapClicked() {
-        mainApplication.setViewMapScene();
+    public void viewGraphClicked() {
+        mainApplication.setViewGraphScene();
     }
 
     public void updateListView(){
@@ -51,5 +45,8 @@ public class ViewReportsScreenController {
 
     }
 
+    public void cancelClicked() {
+        mainApplication.setApplicationScene(u);
+    }
 
 }

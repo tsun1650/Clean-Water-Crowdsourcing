@@ -52,7 +52,7 @@ public class MainScreenController {
      * set scene to register scene
      */
     public void registerClicked() {
-       mainApplication.setRegistrationScene();
+        mainApplication.setRegistrationScene();
     }
 
     public void loadClicked() {

@@ -13,4 +13,13 @@ public class HistoricalReport extends Report {
         this.ppmCat = ppmCat;
         this.year = year;
     }
+
+    @Override
+    public String toString() {
+        return "HistoricalReport{" +
+                "location='" + location + '\'' +
+                ", ppmCat='" + ppmCat + '\'' +
+                ", year=" + year +
+                '}';
+    }
 }

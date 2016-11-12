@@ -5,10 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import model.User;
 import model.UserDatabase;
@@ -26,7 +23,7 @@ public class LoginScreenController {
     private TextField userField;
 
     @FXML
-    private TextField passField;
+    private PasswordField passField;
 
     @FXML
     private Button cancelButton;
