@@ -2,23 +2,18 @@ package controller;
 
 import fxapp.MainFXApplication;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.stage.Stage;
 import model.User;
 import model.UserDatabase;
 
 /**
  * controller for login screen
  */
+@SuppressWarnings("ALL")
 public class LoginScreenController {
-    private String username = "user";
-    private String password = "pass";
+
     private MainFXApplication mainApplication;
     private UserDatabase database;
-    private User u;
     @FXML
     private TextField userField;
 
@@ -49,7 +44,7 @@ public class LoginScreenController {
         String user = userField.getText().trim();
         String pass = passField.getText().trim();
         //u = new User(userField.getText().trim(), passField.getText().trim());
-        u = database.getCredentials(user, pass);
+        User u = database.getCredentials(user, pass);
         if (u != null) {
             database.login(u);
             mainApplication.setActiveUser(u);
@@ -58,17 +53,7 @@ public class LoginScreenController {
             Alert alert = new Alert(Alert.AlertType.WARNING, "This is an incorrect login!", ButtonType.OK);
             alert.showAndWait();
         }
-        /*
-        if (database.login(userField.getText().trim(), passField.getText().trim())) {
-            u = mainApplication.getActiveUser();
-            mainApplication.setActiveUser(u);
-            mainApplication.setApplicationScene(u);
 
-        } else {
-            Alert alert = new Alert(Alert.AlertType.WARNING, "This is an incorrect login!", ButtonType.OK);
-            alert.showAndWait();
-
-        }*/
     }
 
     /**

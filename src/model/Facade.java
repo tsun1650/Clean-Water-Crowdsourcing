@@ -1,9 +1,6 @@
 package model;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-
+@SuppressWarnings("ALL")
 public class Facade {
 
     private static final Facade instance = new Facade();

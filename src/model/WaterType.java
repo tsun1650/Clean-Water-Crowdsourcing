@@ -3,6 +3,7 @@ package model;
 /**
  * Created by Kate on 10/19/2016.
  */
+@SuppressWarnings("ALL")
 public enum WaterType {
     BTL("Bottled"),
     WLL("Well"),
@@ -17,7 +18,7 @@ public enum WaterType {
      * constructor for water type enum
      * @param wType water type reported
      */
-    private WaterType(String wType) {
+    WaterType(String wType) {
         this.wType = wType;
     }
     @Override

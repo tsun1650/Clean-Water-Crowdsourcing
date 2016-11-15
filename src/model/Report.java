@@ -1,14 +1,13 @@
 package model;
 
-import java.io.PrintWriter;
-
+@SuppressWarnings("ALL")
 public class Report {
-    protected int number;
-    protected Integer year;
-    protected String location;
+    int number;
+    private Integer year;
+    String location;
 
-    public Report() {}
-    public Report(String location) {
+    Report() {}
+    Report(String location) {
         this.location = location;
     }
     public void setNumber(int number) {

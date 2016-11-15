@@ -4,7 +4,6 @@ import fxapp.MainFXApplication;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import model.ReportsDatabase;
 import model.User;
@@ -13,12 +12,14 @@ import model.UserDatabase;
 /**
  * Created by Kate on 11/8/2016.
  */
+@SuppressWarnings("ALL")
 public class HistoricalReportController {
 
     private MainFXApplication mainApplication;
     private User u;
     private UserDatabase database;
     private ReportsDatabase rDatabase;
+    @SuppressWarnings("unused")
     @FXML
     private ListView<String> listReports;
 
@@ -45,6 +46,7 @@ public class HistoricalReportController {
 
     }
 
+    @SuppressWarnings("unused")
     public void cancelClicked() {
         mainApplication.setApplicationScene(u);
     }

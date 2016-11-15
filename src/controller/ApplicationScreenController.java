@@ -1,14 +1,11 @@
 package controller;
 
-import com.sun.org.apache.bcel.internal.generic.NEW;
 import fxapp.MainFXApplication;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.stage.FileChooser;
-import javafx.util.Callback;
 import model.*;
 
 import java.io.File;
@@ -20,17 +17,13 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
-import com.lynden.gmapsfx.GoogleMapView;
-import com.lynden.gmapsfx.MapComponentInitializedListener;
-
 /**
  * Controller class for application screen
  */
+@SuppressWarnings("ALL")
 public class ApplicationScreenController {
     private MainFXApplication mainApplication;
     private User u;
-    @FXML
-    private Button logoutButton;
     @FXML
     private Button reportButton;
     @FXML
@@ -131,20 +124,17 @@ public class ApplicationScreenController {
         ButtonType buttonTypeOk = new ButtonType("Okay", ButtonBar.ButtonData.OK_DONE);
         dialog.getDialogPane().getButtonTypes().add(buttonTypeOk);
 
-        dialog.setResultConverter(new Callback<ButtonType, ArrayList>() {
-            @Override
-            public ArrayList call(ButtonType b) {
-                //set new profile items
-                if (b == buttonTypeOk) {
-                    u.setFirst(text1.getText());
-                    u.setLast(text2.getText());
-                    u.setEmail(text3.getText());
-                    u.setAddress(text4.getText());
-                    u.setTitle(text5.getText());
-                }
-
-                return null;
+        dialog.setResultConverter(b -> {
+            //set new profile items
+            if (b == buttonTypeOk) {
+                u.setFirst(text1.getText());
+                u.setLast(text2.getText());
+                u.setEmail(text3.getText());
+                u.setAddress(text4.getText());
+                u.setTitle(text5.getText());
             }
+
+            return null;
         });
         dialog.showAndWait();
         showProfile(u);
@@ -200,9 +190,9 @@ public class ApplicationScreenController {
                 TextField locationField = new TextField("00.000, 00.000");
 
                 TextField dateTimeField = new TextField("MM/dd/yy HH:mm:ss");
-                ObservableList<WaterType> wTypeList = FXCollections.observableArrayList(WaterType.values());
+                //ObservableList<WaterType> wTypeList = FXCollections.observableArrayList(WaterType.values());
                 waterTypeComboBox.setItems(FXCollections.observableArrayList(WaterType.values()));
-                ObservableList<Condition> conditionList = FXCollections.observableArrayList(Condition.values());
+                //ObservableList<Condition> conditionList = FXCollections.observableArrayList(Condition.values());
                 conditionComboBox.setItems(FXCollections.observableArrayList(Condition.values()));
 
                 //add it to gridpane
@@ -224,29 +214,26 @@ public class ApplicationScreenController {
                 ButtonType buttonTypeOk = new ButtonType("Okay", ButtonBar.ButtonData.OK_DONE);
                 dialog2.getDialogPane().getButtonTypes().add(buttonTypeOk);
 
-                dialog2.setResultConverter(new Callback<ButtonType, ArrayList>() {
-                    @Override
-                    public ArrayList call(ButtonType b) {
-                        //set new profile items
-                        if (b == buttonTypeOk) {
-                            String date;
-                            if(dateTimeField.getText().equals("MM/dd/yy HH:mm:ss")){
-                                DateFormat df = new SimpleDateFormat("MM/dd/yy HH:mm:ss");
-                                Date dateobj = new Date();
-                                date = df.format(dateobj);
-                            } else {
-                                date = dateTimeField.getText();
-                                System.out.print("default");
-                            }
-                            Condition c = conditionComboBox.getSelectionModel().getSelectedItem();
-                            WaterType t = waterTypeComboBox.getSelectionModel().getSelectedItem();
-                            WaterSourceReport r = new WaterSourceReport(date,locationField.getText(),u.getFirstName()+ " " + u.getLastName(), t, c);
-                            rDatabase.add(r);
-                            System.out.println(r);
+                dialog2.setResultConverter(b -> {
+                    //set new profile items
+                    if (b == buttonTypeOk) {
+                        String date;
+                        if(dateTimeField.getText().equals("MM/dd/yy HH:mm:ss")){
+                            DateFormat df = new SimpleDateFormat("MM/dd/yy HH:mm:ss");
+                            Date dateobj = new Date();
+                            date = df.format(dateobj);
+                        } else {
+                            date = dateTimeField.getText();
+                            System.out.print("default");
                         }
-
-                        return null;
+                        Condition c = conditionComboBox.getSelectionModel().getSelectedItem();
+                        WaterType t = waterTypeComboBox.getSelectionModel().getSelectedItem();
+                        WaterSourceReport r = new WaterSourceReport(date,locationField.getText(),u.getFirstName()+ " " + u.getLastName(), t, c);
+                        rDatabase.add(r);
+                        System.out.println(r);
                     }
+
+                    return null;
                 });
                 dialog2.showAndWait();
 
@@ -293,34 +280,31 @@ public class ApplicationScreenController {
                 ButtonType buttonTypeOk = new ButtonType("Okay", ButtonBar.ButtonData.OK_DONE);
                 dialog3.getDialogPane().getButtonTypes().add(buttonTypeOk);
 
-                dialog3.setResultConverter(new Callback<ButtonType, ArrayList>() {
-                    @Override
-                    public ArrayList call(ButtonType b) {
-                        //set new profile items
-                        if (b == buttonTypeOk) {
-                            String date;
-                            if (dateTimeField.getText().equals("MM/dd/yy HH:mm:ss")){
-                                DateFormat df = new SimpleDateFormat("MM/dd/yy HH:mm:ss");
-                                Date dateobj = new Date();
-                                date = df.format(dateobj);
-                            } else {
-                                date = dateTimeField.getText();
-                                System.out.print("default");
-                            }
-
-                            ObservableList<PurityCondition> vcTypeList = FXCollections.observableArrayList(PurityCondition.values());
-                            PurityCondition c = purityConditionComboBox.getSelectionModel().getSelectedItem();
-                            WaterPurityReport r = new WaterPurityReport(date,u.getFirstName()+ " " + u.getLastName(),
-                                    locationField.getText(), c, Double.parseDouble(virusField.getText()),
-                                    Double.parseDouble(contaminantField.getText()));
-
-
-                            rDatabase.add(r);
-                            System.out.println(r);
+                dialog3.setResultConverter(b -> {
+                    //set new profile items
+                    if (b == buttonTypeOk) {
+                        String date;
+                        if (dateTimeField.getText().equals("MM/dd/yy HH:mm:ss")){
+                            DateFormat df = new SimpleDateFormat("MM/dd/yy HH:mm:ss");
+                            Date dateobj = new Date();
+                            date = df.format(dateobj);
+                        } else {
+                            date = dateTimeField.getText();
+                            System.out.print("default");
                         }
 
-                        return null;
+                        //ObservableList<PurityCondition> vcTypeList = FXCollections.observableArrayList(PurityCondition.values());
+                        PurityCondition c = purityConditionComboBox.getSelectionModel().getSelectedItem();
+                        WaterPurityReport r = new WaterPurityReport(date,u.getFirstName()+ " " + u.getLastName(),
+                                locationField.getText(), c, Double.parseDouble(virusField.getText()),
+                                Double.parseDouble(contaminantField.getText()));
+
+
+                        rDatabase.add(r);
+                        System.out.println(r);
                     }
+
+                    return null;
                 });
                 dialog3.showAndWait();
 
@@ -363,22 +347,19 @@ public class ApplicationScreenController {
                 ButtonType buttonTypeOk = new ButtonType("Okay", ButtonBar.ButtonData.OK_DONE);
                 dialog4.getDialogPane().getButtonTypes().add(buttonTypeOk);
 
-                dialog4.setResultConverter(new Callback<ButtonType, ArrayList>() {
-                    @Override
-                    public ArrayList call(ButtonType b) {
-                        //set new profile items
-                        if (b == buttonTypeOk) {
-                            Integer y = Integer.parseInt(year.getText());
-                            ObservableList<VirusvContaminant> conditionList = FXCollections.observableArrayList(VirusvContaminant.values());
-                            VirusvContaminant c = ppmTypeComboBox.getSelectionModel().getSelectedItem();
-                            HistoricalReport r = new HistoricalReport(locationField.getText(), c.toString(), y);
-                            //ArrayList<Report> hReports = rDatabase.getReportYears(y);
-                            rDatabase.add(r);
-                            System.out.println(r);
-                        }
-
-                        return null;
+                dialog4.setResultConverter(b -> {
+                    //set new profile items
+                    if (b == buttonTypeOk) {
+                        Integer y = Integer.parseInt(year.getText());
+                        //ObservableList<VirusvContaminant> conditionList = FXCollections.observableArrayList(VirusvContaminant.values());
+                        VirusvContaminant c = ppmTypeComboBox.getSelectionModel().getSelectedItem();
+                        HistoricalReport r = new HistoricalReport(locationField.getText(), c.toString(), y);
+                        //ArrayList<Report> hReports = rDatabase.getReportYears(y);
+                        rDatabase.add(r);
+                        System.out.println(r);
                     }
+
+                    return null;
                 });
                 dialog4.showAndWait();
 
@@ -450,7 +431,7 @@ public class ApplicationScreenController {
         FileChooser fc = new FileChooser();
         fc.setTitle("Save JSON File");
         File file  = fc.showOpenDialog(mainApplication.getStage());
-        List<WaterSourceReport> rList = new ArrayList<>();
+        List<WaterSourceReport> rList;
         if (file != null) {
             PersistenceManager pm = new PersistenceManager(rDatabase.getSourceReports(), rDatabase.getPurityReports());
             try {
@@ -471,7 +452,7 @@ public class ApplicationScreenController {
         FileChooser fc = new FileChooser();
         fc.setTitle("Save JSON File");
         File file  = fc.showOpenDialog(mainApplication.getStage());
-        List<WaterPurityReport> rList = new ArrayList<>();
+        List<WaterPurityReport> rList;
         if (file != null) {
             PersistenceManager pm = new PersistenceManager(rDatabase.getSourceReports(), rDatabase.getPurityReports());
             pm.addPurityReports(rDatabase.getPurityReports());

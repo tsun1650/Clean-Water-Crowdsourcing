@@ -9,8 +9,6 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import model.*;
-import sun.applet.Main;
-import controller.MapController;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -19,6 +17,7 @@ import java.util.List;
 /**
  * create the main application
  */
+@SuppressWarnings("ALL")
 public class MainFXApplication extends Application {
     private User activeUser;
     private Stage stage;
@@ -34,10 +33,9 @@ public class MainFXApplication extends Application {
     private Scene viewReportsScene;
     private Scene graphScene;
     private ApplicationScreenController applicationController;
-    //private WaterSourceReportScreenController waterSourceController;
+
     private ViewReportsScreenController viewReportsController;
     private MapController mapController;
-    private HistoricalReportController histReportController;
 
     /**
      *
@@ -80,14 +78,14 @@ public class MainFXApplication extends Application {
     }
 
     public void addSourceReports(List<WaterSourceReport> rList) {
-        for (int i = 0; i < rList.size(); i++) {
-            rDatabase.add(rList.get(i));
+        for (WaterSourceReport aRList : rList) {
+            rDatabase.add(aRList);
         }
     }
 
     public void addPurityReports(List<WaterPurityReport> rList) {
-        for (int i = 0; i < rList.size(); i++) {
-            rDatabase.add(rList.get(i));
+        for (WaterPurityReport aRList : rList) {
+            rDatabase.add(aRList);
         }
     }
 
@@ -121,7 +119,7 @@ public class MainFXApplication extends Application {
     public void setViewMapScene() {
         System.out.println("setViewMapScene()");
         setScene(mapScene);
-        ArrayList<Location> locations = new ArrayList<>();
+        ArrayList<Location> locations;
         if (database.getActiveUser().getType() == Type.MNGR || database.getActiveUser().getType() == Type.ADMN) {
             locations = rDatabase.getLocations();
         } else {
@@ -239,7 +237,7 @@ public class MainFXApplication extends Application {
             RegistrationScreenController registrationController = registrationLoader.getController();
             viewReportsController = viewReportsLoader.getController();
             mapController = viewMapLoader.getController();
-            histReportController = viewHistReportsLoader.getController();
+            HistoricalReportController histReportController = viewHistReportsLoader.getController();
 
             applicationController.setApp(this);
             loginController.setApp(this);
@@ -259,10 +257,7 @@ public class MainFXApplication extends Application {
     }
 
 
-    /**
-     * dummy method to simulate a callback from the map view
-     */
-//    public void closeMapView() {
+    //    public void closeMapView() {
 //        Facade fc = Facade.getInstance();
 //        fc.addLocations();
 //        mapController.mapInitialized();

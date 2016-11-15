@@ -16,6 +16,11 @@ public class UserDatabase {
 	}
 
 	/**
+	 * constructor to accept an arraylist to add
+	 */
+	public UserDatabase(ArrayList<User> a) {userList = a;}
+
+	/**
 	 * add users to the list
 	 *
 	 * @param a user to add
@@ -29,7 +34,7 @@ public class UserDatabase {
 	 *
 	 * @return userlist
 	 */
-	public ArrayList getUsers() {
+	public ArrayList<User> getUsers() {
 		return userList;
 	}
 
@@ -55,22 +60,20 @@ public class UserDatabase {
 	 * check if user is in database
 	 *
 	 * @param u to log in
-	 * @return boolean if logged in
 	 */
-	public boolean login(User u) {
+	public void login(User u) {
 		if (u.getUser().equals("user") && u.getPass().equals("pass")) {
 			setActiveUser(u);
-			return true;
+			return;
 		}
 		for (User i : userList) {
 			if (i.equals(u)) {
 				u.login();
 				setActiveUser(u);
-				return true;
+				return;
 			}
 		}
 		setActiveUser(null);
-		return false;
 
 	}
 

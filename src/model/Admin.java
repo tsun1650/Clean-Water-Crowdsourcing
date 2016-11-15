@@ -3,5 +3,6 @@ package model;
 /**
  * Admin is an extension of Manager
  */
-public class Admin extends Manager {
+@SuppressWarnings("ALL")
+class Admin extends Manager {
 }

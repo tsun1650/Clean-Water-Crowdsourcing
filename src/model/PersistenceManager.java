@@ -2,24 +2,16 @@ package model;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import java.io.*;
-import java.lang.reflect.Type;
-import java.util.Set;
-import java.util.List;
-
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 
 import java.io.*;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * Created by jkatz35 on 11/09/16.
  */
+@SuppressWarnings("ALL")
 public class PersistenceManager {
 
     private List<User> userList;
@@ -36,13 +28,17 @@ public class PersistenceManager {
 //        this.reportList = reportList;
 //    }
 
-    public void addUsers(ArrayList<User> userList) {
-        this.userList = userList;
-    }
+// --Commented out by Inspection START (11/14/2016 10:01 PM):
+//    public void addUsers(ArrayList<User> userList) {
+//        this.userList = userList;
+//    }
+// --Commented out by Inspection STOP (11/14/2016 10:01 PM)
 
-    public void addSourceReports(ArrayList<WaterSourceReport> sourceReportList) {
-        this.sourceReportList = sourceReportList;
-    }
+// --Commented out by Inspection START (11/14/2016 10:01 PM):
+//    public void addSourceReports(ArrayList<WaterSourceReport> sourceReportList) {
+//        this.sourceReportList = sourceReportList;
+//    }
+// --Commented out by Inspection STOP (11/14/2016 10:01 PM)
 
     public void addPurityReports(ArrayList<WaterPurityReport> purityReportList) {
         this.purityReportList = purityReportList;

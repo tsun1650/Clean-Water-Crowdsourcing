@@ -1,10 +1,13 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 /**
  * Created by tonys on 10/19/2016.
  */
+@SuppressWarnings("ALL")
 public class ReportsDatabase {
     private ArrayList<Report> reports;
     private static final ReportsDatabase instance = new ReportsDatabase();
@@ -17,23 +20,11 @@ public class ReportsDatabase {
     }
 
     public ArrayList<WaterSourceReport> getSourceReports() {
-        ArrayList<WaterSourceReport> result = new ArrayList<>();
-        for (Report r : reports) {
-            if (r instanceof WaterSourceReport) {
-                result.add((WaterSourceReport) r);
-            }
-        }
-        return result;
+        return reports.stream().filter(r -> r instanceof WaterSourceReport).map(r -> (WaterSourceReport) r).collect(Collectors.toCollection(ArrayList::new));
     }
 
     public ArrayList<WaterPurityReport> getPurityReports() {
-        ArrayList<WaterPurityReport> result = new ArrayList<>();
-        for (Report r : reports) {
-            if (r instanceof WaterPurityReport) {
-                result.add((WaterPurityReport) r);
-            }
-        }
-        return result;
+        return reports.stream().filter(r -> r instanceof WaterPurityReport).map(r -> (WaterPurityReport) r).collect(Collectors.toCollection(ArrayList::new));
     }
 
     public void add(Report r) {
@@ -46,37 +37,22 @@ public class ReportsDatabase {
      * @return reports string
      */
     public ArrayList<String> getReportsAsString() {
-        ArrayList<String> give = new ArrayList<>();
-        for (Report r : reports) {
-            give.add(r.toString());
-        }
-        return give;
+        return reports.stream().map(Object::toString).collect(Collectors.toCollection(ArrayList::new));
 
     }
     public ArrayList<String> getUserReports() {
-        ArrayList<String> ur = new ArrayList<>();
-        for (Report r: reports) {
-            if (r instanceof WaterPurityReport) {
-                ur.add(r.toString());
-            }
-        }
-        return ur;
+        return reports.stream().filter(r -> r instanceof WaterPurityReport).map(Object::toString).collect(Collectors.toCollection(ArrayList::new));
 
     }
     public ArrayList<Report> getReportYears(Integer year) {
-        ArrayList<Report> give = new ArrayList<>();
-        for (Report r: reports) {
-            if (r.getYear() == year) {
-                give.add(r);
-            }
-        }
-        return give;
+        return reports.stream().filter(r -> Objects.equals(r.getYear(), year)).collect(Collectors.toCollection(ArrayList::new));
     }
 
     public ArrayList<Location> getLocations() {
         ArrayList<Location> locations = new ArrayList<>();
+        int i = 0;
         for (Report r : reports) {
-            int i = 0;
+
             locations.add(new Location(r.getLatitude(), r.getLongitude(), "Report " + i , r.toString()));
             i++;
         }
@@ -85,9 +61,10 @@ public class ReportsDatabase {
 
     public ArrayList<Location> getSourceLocations() {
         ArrayList<Location> locations = new ArrayList<>();
+        int i = 0;
         for (Report r : reports) {
             if (r instanceof WaterSourceReport) {
-                int i = 0;
+
                 locations.add(new Location(r.getLatitude(), r.getLongitude(), "Report " + i , r.toString()));
                 i++;
             }

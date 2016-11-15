@@ -2,24 +2,20 @@ package controller;
 
 import fxapp.MainFXApplication;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.FileChooser;
-import javafx.stage.Stage;
 import model.PersistenceManager;
 import model.User;
 import model.UserDatabase;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
  * controller for main screen
  */
+@SuppressWarnings("ALL")
 public class MainScreenController {
     private UserDatabase database;
     private MainFXApplication mainApplication;
@@ -59,7 +55,7 @@ public class MainScreenController {
         FileChooser fc = new FileChooser();
         fc.setTitle("Save JSON File");
         File file  = fc.showOpenDialog(mainApplication.getStage());
-        List<User> uList = new ArrayList<>();
+        List<User> uList;
         if (file != null) {
             PersistenceManager pm = new PersistenceManager(database.getUsers());
             try {

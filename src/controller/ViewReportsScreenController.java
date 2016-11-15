@@ -4,21 +4,16 @@ import fxapp.MainFXApplication;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
-import javafx.scene.control.cell.TextFieldListCell;
-import model.Report;
 import model.ReportsDatabase;
 import model.User;
 import model.UserDatabase;
-import java.net.URL;
-import java.util.ResourceBundle;
 
+@SuppressWarnings("ALL")
 public class ViewReportsScreenController {
     private MainFXApplication mainApplication;
     private UserDatabase database;
     private ReportsDatabase rDatabase;
-    private User u;
     @FXML
     private ListView<String> listReports;
 
@@ -35,7 +30,7 @@ public class ViewReportsScreenController {
 
 
     public void backClicked() {
-        u = database.getActiveUser();
+        User u = database.getActiveUser();
         mainApplication.setApplicationScene(u);
     }
 

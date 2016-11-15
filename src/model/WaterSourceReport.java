@@ -1,11 +1,5 @@
 package model;
 
-import java.io.PrintWriter;
-import java.sql.Time;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 /**
  * Created by tonys on 10/19/2016.
  */
@@ -18,11 +12,11 @@ public class WaterSourceReport extends Report{
 
     /**
      * constructor
-     * @param date
-     * @param location
-     * @param reporter
-     * @param type
-     * @param condition
+     * @param date date of report
+     * @param location location of report
+     * @param reporter reporter of report
+     * @param type type of water
+     * @param condition condition of water
      */
     public WaterSourceReport(String date, String location, String reporter, WaterType type, Condition condition) {
         super(location);
@@ -35,7 +29,7 @@ public class WaterSourceReport extends Report{
 
     /**
      * set report number
-     * @param n
+     * @param n number to set
      */
     public void setNumber(int n) {
         number = n;
@@ -51,9 +45,11 @@ public class WaterSourceReport extends Report{
         return Double.parseDouble(latLong[1]);
     }
 
-    public void saveToText(PrintWriter pw) {
-        pw.println(date + "\t" + location + "\t" + reporter + "\t" + type + "\t" + condition + "\t" + number);
-    }
+// --Commented out by Inspection START (11/14/2016 9:56 PM):
+//    public void saveToText(PrintWriter pw) {
+//        pw.println(date + "\t" + location + "\t" + reporter + "\t" + type + "\t" + condition + "\t" + number);
+//    }
+// --Commented out by Inspection STOP (11/14/2016 9:56 PM)
 
     @Override
     public String toString() {

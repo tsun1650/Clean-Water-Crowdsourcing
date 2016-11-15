@@ -3,6 +3,7 @@ package model;
 /**
  * Created by Kate on 11/8/2016.
  */
+@SuppressWarnings("ALL")
 public enum VirusvContaminant {
     V("Virus"),
     C("Contaminant");
@@ -14,7 +15,7 @@ public enum VirusvContaminant {
      * constructor for condition of water enum
      * @param vc condition of water
      */
-    private VirusvContaminant(String vc) {
+    VirusvContaminant(String vc) {
         this.vc = vc;
     }
     @Override

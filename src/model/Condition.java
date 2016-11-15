@@ -1,8 +1,9 @@
 package model;
 
 /**
- * Created by Kate on 10/19/2016.
+ * Condition Enum
  */
+@SuppressWarnings("ALL")
 public enum Condition {
     WST("Waste"),
     TC("Treatable-Clear"),
@@ -15,7 +16,7 @@ public enum Condition {
      * constructor for condition of water enum
      * @param cond condition of water
      */
-    private Condition(String cond) {
+    Condition(String cond) {
         this.cond = cond;
     }
     @Override

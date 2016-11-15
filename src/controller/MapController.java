@@ -7,42 +7,33 @@ import com.lynden.gmapsfx.javascript.object.*;
 import fxapp.MainFXApplication;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.stage.FileChooser;
-import javafx.stage.Window;
 import model.*;
 import netscape.javascript.JSObject;
 
-import java.io.File;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
-import model.ReportsDatabase;
-import model.User;
-import model.UserDatabase;
 
 
+@SuppressWarnings("ALL")
 public class MapController implements Initializable, MapComponentInitializedListener {
     @FXML
     private GoogleMapView mapView;
     private GoogleMap map;
-    private Window mainStage;
     private MainFXApplication mainApplication;
-    private UserDatabase database;
-    private ReportsDatabase rDatabase;
-    private User u;
+
     @FXML
     public void setApp(MainFXApplication main) {
         mainApplication = main;
-        database = mainApplication.getUsers();
-        rDatabase = mainApplication.getReports();
+        //UserDatabase database = mainApplication.getUsers();
+
     }
 
     /**
      * method for when the back button is clicked
      */
     public void backClicked() {
-        u = database.getActiveUser();
+
         mainApplication.setViewReportsScene();
     }
 
@@ -51,15 +42,15 @@ public class MapController implements Initializable, MapComponentInitializedList
         mapView.addMapInializedListener(this);
     }
 
-    /**
-     *
-     * @param stage main stage
-     * @param app main app
-     */
-    public void setCallbacks(Window stage, MainFXApplication app) {
-        mainStage = stage;
-        mainApplication = app;
-    }
+// --Commented out by Inspection START (11/14/2016 10:02 PM):
+//    /**
+//     *
+//     * @param app main app
+//     */
+//    public void setCallbacks(MainFXApplication app) {
+//        mainApplication = app;
+//    }
+// --Commented out by Inspection STOP (11/14/2016 10:02 PM)
 
 
     @Override
@@ -92,8 +83,7 @@ public class MapController implements Initializable, MapComponentInitializedList
         if (locations != null && locations.get(0) != null) {
             System.out.println(locations.get(0));
         }
-        /** now we communciate with the model to get all the locations for markers */
-//        Facade fc = Facade.getInstance();
+        //        Facade fc = Facade.getInstance();
 //        ReportsDatabase rD = ReportsDatabase.getInstance();
 //        List<Location> locations = rDatabase.getLocations();
 
@@ -111,6 +101,7 @@ public class MapController implements Initializable, MapComponentInitializedList
 //            }
 //        }
 
+        assert locations != null;
         for (Location l: locations) {
             MarkerOptions markerOptions = new MarkerOptions();
             LatLong loc = new LatLong(l.getLatitude(), l.getLongitude());

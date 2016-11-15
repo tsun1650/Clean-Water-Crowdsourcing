@@ -6,16 +6,18 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ViewReportsScreenController">
-   <children>
-      <Text layoutX="199.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="View Reports">
-         <font>
-            <Font name="Segoe UI Light" size="37.0" />
-         </font>
-      </Text>
-      <ListView fx:id="listReports" layoutX="125.0" layoutY="100.0" prefHeight="200.0" prefWidth="350.0" />
-      <Button layoutX="280.0" layoutY="324.0" mnemonicParsing="false" onMouseClicked="#backClicked" text="Back" />
-      <Button fx:id="refreshButton" layoutX="199.0" layoutY="324.0" mnemonicParsing="false" onMouseClicked="#updateListView" text="Refresh" />
-      <Button fx:id="viewMapButton" layoutX="349.0" layoutY="324.0" mnemonicParsing="false" onMouseClicked="#viewMapClicked" text="View Map" />
-   </children>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+            prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controller.ViewReportsScreenController">
+    <Text layoutX="199.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="View Reports">
+        <font>
+          <Font name="Segoe UI Light" size="37.0"/>
+        </font>
+    </Text>
+    <ListView fx:id="listReports" layoutX="125.0" layoutY="100.0" prefHeight="200.0" prefWidth="350.0"/>
+    <Button layoutX="280.0" layoutY="324.0" mnemonicParsing="false" onAction="#backClicked" text="Back"/>
+    <Button layoutX="199.0" layoutY="324.0" mnemonicParsing="false"
+            onAction="#updateListView" text="Refresh"/>
+    <Button layoutX="349.0" layoutY="324.0" mnemonicParsing="false"
+            onAction="#viewMapClicked" text="View Map"/>
 </AnchorPane>

@@ -11,63 +11,54 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RegistrationScreenController">
-  <columnConstraints>
-    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-  </columnConstraints>
-  <rowConstraints>
-    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-  </rowConstraints>
-   <children>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0">
-         <children>
-            <Text fill="#1804f2" layoutX="240.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Register">
-               <font>
-                  <Font name="Segoe UI Light" size="35.0" />
-               </font>
-               <effect>
-                  <DropShadow color="#00c3ff" height="3.21" radius="1.7824999999999998" width="5.92" />
-               </effect>
-            </Text>
-         </children>
-      </AnchorPane>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
-         <children>
-            <Text layoutX="71.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account Type:" />
-             <Text layoutX="78.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name:" />
-            <TextField fx:id="firstField" layoutX="151.0" layoutY="94.0" />
-            <ComboBox fx:id="typeField" layoutX="152.0" layoutY="42.0" prefWidth="150.0" />
-         </children>
-      </AnchorPane>
-     <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-         <children>
-            <Text layoutX="24.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username/ID:" />
-            <TextField fx:id="userField" layoutX="106.0" layoutY="94.0" />
-            <TextField fx:id="emailField" layoutX="106.0" layoutY="42.0" />
-            <Text layoutX="24.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email Address:" />
-         </children>
-      </AnchorPane>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
-         <children>
-            <Text layoutX="-79.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please complete the following" />
-         </children>
-      </AnchorPane>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
-         <children>
-            <Button fx:id="cancelButton" layoutX="234.0" layoutY="67.0" mnemonicParsing="false" onMouseClicked="#cancelClicked" text="Cancel" />
-            <Text layoutX="80.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name:" />
-            <TextField fx:id="lastField" layoutX="150.0" layoutY="10.0" />
-         </children>
-      </AnchorPane>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
-         <children>
-            <Button fx:id="submitButton" layoutX="15.0" layoutY="67.0" mnemonicParsing="false" onMouseClicked="#submitClicked" text="Submit" />
-            <TextField fx:id="passField" layoutX="106.0" layoutY="11.0" />
-            <Text layoutX="42.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" />
-         </children>
-      </AnchorPane>
-   </children>
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+          prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1"
+          fx:controller="controller.RegistrationScreenController">
+    <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+    </rowConstraints>
+    <AnchorPane prefHeight="200.0" prefWidth="200.0">
+        <Text fill="#1804f2" layoutX="240.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Register">
+            <font>
+                <Font name="Segoe UI Light" size="35.0"/>
+            </font>
+            <effect>
+                <DropShadow color="#00c3ff" height="3.21" radius="1.7824999999999998" width="5.92"/>
+            </effect>
+        </Text>
+    </AnchorPane>
+    <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+        <Text layoutX="71.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account Type:"/>
+        <Text layoutX="78.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name:"/>
+        <TextField fx:id="firstField" layoutX="151.0" layoutY="94.0"/>
+        <ComboBox fx:id="typeField" layoutX="152.0" layoutY="42.0" prefWidth="150.0"/>
+    </AnchorPane>
+    <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+        <Text layoutX="24.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username/ID:"/>
+        <TextField fx:id="userField" layoutX="106.0" layoutY="94.0"/>
+        <TextField fx:id="emailField" layoutX="106.0" layoutY="42.0"/>
+        <Text layoutX="24.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email Address:"/>
+    </AnchorPane>
+    <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+        <Text layoutX="-79.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0"
+              text="Please complete the following"/>
+    </AnchorPane>
+    <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
+        <Button fx:id="cancelButton" layoutX="234.0" layoutY="67.0" mnemonicParsing="false"
+                onAction="#cancelClicked" text="Cancel"/>
+        <Text layoutX="80.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name:"/>
+        <TextField fx:id="lastField" layoutX="150.0" layoutY="10.0"/>
+    </AnchorPane>
+    <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+        <Button layoutX="15.0" layoutY="67.0" mnemonicParsing="false"
+                onAction="#submitClicked" text="Submit"/>
+        <TextField fx:id="passField" layoutX="106.0" layoutY="11.0"/>
+        <Text layoutX="42.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:"/>
+    </AnchorPane>
 </GridPane>

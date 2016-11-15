@@ -9,6 +9,6 @@
       <GoogleMapView fx:id="mapView" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
    </center>
    <bottom>
-      <Button mnemonicParsing="false" onMouseClicked="#backClicked" text="Back" BorderPane.alignment="CENTER" />
+      <Button mnemonicParsing="false" onAction="#backClicked" text="Back" BorderPane.alignment="CENTER" />
    </bottom>
 </BorderPane>

@@ -3,11 +3,10 @@ package model;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-import java.util.Observable;
-
 /**
  * User uses the app
  */
+@SuppressWarnings("ALL")
 public class User {
 	//private AccountType type;
 	private String username;
@@ -24,7 +23,7 @@ public class User {
      * default constructor
      */
 	public User() {
-		this(Type.USR, "user", "pass", "Jon", "Snow", "jsnow@gatech.edu", "1 Techwood Dr Atlanta, Ga 30313", "Mr.");
+		this(Type.USR, "user", "pass", "Jon", "Snow", "jsnow@gatech.edu", "1 Techwood Dr Atlanta, Ga 30313");
 	}
 
     /**
@@ -36,9 +35,8 @@ public class User {
      * @param last lastname
      * @param email email
      * @param add address
-     * @param t title
      */
-	public User(Type type, String user, String pass, String first, String last, String email, String add,String t) {
+	public User(Type type, String user, String pass, String first, String last, String email, String add) {
 		this.username = user;
         this.password = pass;
 		this.first = first;
@@ -46,7 +44,7 @@ public class User {
 		this.email = email;
 		this.type = type;
 		this.address = add;
-        title = t;
+        title = "Mr.";
 		isLoggedIn = false;
 	}
 
@@ -55,6 +53,7 @@ public class User {
      * @param u username
      * @param p password
      */
+	@SuppressWarnings("unused")
 	public User(String u, String p) {
         username = u;
         password = p;
@@ -137,13 +136,7 @@ public class User {
 		this.email = email;
 	}
 
-    /**
-     * set type
-     * @param type type
-     */
-	public void setType(Type type) {
-		this.type = type;
-	}
+
 
     /**
      * set address
@@ -178,29 +171,18 @@ public class User {
 		return type;
 	}
 
-    /**
-     * set username
-     * @param s username
-     */
-	public void setUser(String s) {
-		username = s;
-	}
 
-    /**
-     * set password
-     * @param s password
-     */
-	public void setPass(String s) {
-		password = s;
-	}
+
 
     /**
      * check if users are the same
      * @param s user to check
      * @return if they are the same
      */
-	public boolean equals(User s) {
-		return username.equals(s.getUser()) && password.equals(s.getPass());
+    @Override
+	public boolean equals(Object s) {
+		User us = (User) s;
+    	return username.equals(us.getUser()) && password.equals(us.getPass());
 	}
 
     /**
@@ -222,6 +204,7 @@ public class User {
      * is user logged in?
      * @return isLoggedIn login status
      */
+	@SuppressWarnings("unused")
 	public boolean isLoggedIn() { return this.isLoggedIn;}
 	@Override
 	public String toString() {
@@ -229,7 +212,6 @@ public class User {
 	}
 
 	public static ObservableList<Type> getTypes() {
-		ObservableList<Type> list = FXCollections.observableArrayList(Type.values());
-		return list;
+		return FXCollections.observableArrayList(Type.values());
 	}
 }

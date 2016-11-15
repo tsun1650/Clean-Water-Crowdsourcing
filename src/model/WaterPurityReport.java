@@ -1,7 +1,5 @@
 package model;
 
-import java.io.PrintWriter;
-
 /**
  * Created by David on 10/19/2016.
  */
@@ -50,9 +48,11 @@ public class WaterPurityReport extends Report {
         return Double.parseDouble(latLong[1]);
     }
 
-    public void saveToText(PrintWriter pw) {
-        pw.println(date + "\t" + worker + "\t" + location + "\t" + condition + "\t" + virusPPM + "\t" + contaminantPPM);
-    }
+// --Commented out by Inspection START (11/14/2016 9:56 PM):
+//    public void saveToText(PrintWriter pw) {
+//        pw.println(date + "\t" + worker + "\t" + location + "\t" + condition + "\t" + virusPPM + "\t" + contaminantPPM);
+//    }
+// --Commented out by Inspection STOP (11/14/2016 9:56 PM)
 
     public String toString() {
         return "WaterPurityReport{" +

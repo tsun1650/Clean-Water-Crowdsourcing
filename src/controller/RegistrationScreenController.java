@@ -12,6 +12,7 @@ import model.UserDatabase;
 /**
  * controller for registration screen
  */
+@SuppressWarnings("ALL")
 public class RegistrationScreenController {
     private MainFXApplication mainApplication;
     @FXML
@@ -31,7 +32,7 @@ public class RegistrationScreenController {
 
 
     private UserDatabase database;
-    private User u;
+
     /**
      * Ties controller to main app
      * @param main main app
@@ -46,14 +47,14 @@ public class RegistrationScreenController {
     @FXML
     private void initialize() {
         //bring back the enum
-        typeField.setItems(u.getTypes());
+        typeField.setItems(User.getTypes());
     }
     /**
      * register new user
      */
     public void submitClicked() {
         Type t = typeField.getSelectionModel().getSelectedItem();
-        u = new User(t, userField.getText(), passField.getText(), firstField.getText(), lastField.getText(), emailField.getText(), "address", "Mr.");
+        User u = new User(t, userField.getText(), passField.getText(), firstField.getText(), lastField.getText(), emailField.getText(), "address");
 
 
         database.add(u);

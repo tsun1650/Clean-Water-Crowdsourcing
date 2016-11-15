@@ -11,14 +11,15 @@ import java.util.logging.Logger;
  * Created by robertwaters on 10/7/16.
  * Just a class to hold some data we might want to display on the map
  */
+@SuppressWarnings("ALL")
 public class Location implements Serializable {
 
     private static Logger LOGGER = Logger.getLogger("Location");
-    private static FileHandler logFileHandler;
+
     static {
         LOGGER.setLevel(Level.FINER);
         try {
-            logFileHandler = new FileHandler("LogFile");
+            FileHandler logFileHandler = new FileHandler("LogFile");
             logFileHandler.setLevel(Level.ALL);
             LOGGER.addHandler(logFileHandler);
         } catch (IOException ex) {
@@ -46,6 +47,7 @@ public class Location implements Serializable {
     public String getTitle() { return title; }
 
 
+    @SuppressWarnings("unused")
     public void saveToText(PrintWriter pw) {
         LOGGER.setLevel(Level.FINEST);
         LOGGER.entering("Location", "saveToText");
