@@ -87,6 +87,8 @@ public class UserDatabase {
 	public User getCredentials(String u, String p) {
 		for (User i : userList) {
 			if (i.getUser().equals(u) && i.getPass().equals(p)) {
+				setActiveUser(i);
+				login(i);
 				return i;
 			}
 		}

@@ -46,8 +46,8 @@ public class LoginScreenController {
         //u = new User(userField.getText().trim(), passField.getText().trim());
         User u = database.getCredentials(user, pass);
         if (u != null) {
-            database.login(u);
-            mainApplication.setActiveUser(u);
+            //database.login(u);
+           // mainApplication.setActiveUser(u);
             mainApplication.setApplicationScene(u);
         } else {
             Alert alert = new Alert(Alert.AlertType.WARNING, "This is an incorrect login!", ButtonType.OK);

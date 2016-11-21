@@ -120,6 +120,9 @@ public class MainFXApplication extends Application {
      * Set scene to logout controls
      */
     public void setApplicationScene(User u) {
+        if (u == null) {
+            throw new IllegalArgumentException("can't start scene with null user");
+        }
         applicationController.showProfile(u);
         setScene(applicationScene);
     }
@@ -146,7 +149,7 @@ public class MainFXApplication extends Application {
      */
     public void setViewHistScene() {
         setScene(histScene);
-        //histReportController.
+
     }
 
     /**
@@ -224,7 +227,7 @@ public class MainFXApplication extends Application {
             applicationLoader.setLocation(MainFXApplication.class.getResource("../view/ApplicationScreen.fxml"));
             loginLoader.setLocation(MainFXApplication.class.getResource("../view/loginScreen.fxml"));
             mainLoader.setLocation(MainFXApplication.class.getResource("../view/mainScreen.fxml"));
-            registrationLoader.setLocation(MainFXApplication.class.getResource("../view/registrationScreen.fxml"));
+            registrationLoader.setLocation(MainFXApplication.class.getResource("../view/RegistrationScreen.fxml"));
             viewReportsLoader.setLocation(MainFXApplication.class.getResource("../view/ViewReportsScreen.fxml"));
             viewMapLoader.setLocation(MainFXApplication.class.getResource("../view/mapview.fxml"));
             viewHistReportsLoader.setLocation(MainFXApplication.class.getResource("../view/ViewHistoricalReportsScreen.fxml"));

@@ -39,7 +39,7 @@ public class ApplicationScreenController {
     @FXML
     private Label firstNameField;
     @FXML
-    private Label lastnameField;
+    private Label lastNameField;
     @FXML
     private Label emailField;
     @FXML
@@ -79,7 +79,7 @@ public class ApplicationScreenController {
     public void showProfile(User u) {
 
         firstNameField.setText(u.getFirstName());
-        lastnameField.setText(u.getLastName());
+        lastNameField.setText(u.getLastName());
         emailField.setText(u.getEmail());
         addressField.setText(u.getAddress());
         titleField.setText(u.getTitle());
