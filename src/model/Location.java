@@ -32,6 +32,13 @@ public class Location implements Serializable {
     private final String description;
     private final String title;
 
+    /**
+     * constructor for location
+     * @param lat latitude
+     * @param lg longitude
+     * @param ti title
+     * @param desc description
+     */
     public Location(double lat, double lg, String ti, String desc) {
         LOGGER.entering("Location", "Constructor");
         longitude = lg;
@@ -55,6 +62,12 @@ public class Location implements Serializable {
         LOGGER.exiting("Location", "saveToText");
     }
 
+    /**
+     * make from file
+     * @param str string to make form
+     * @return location
+     * @throws FileFormatException
+     */
     public static Location makeFromFileString(String str) throws FileFormatException {
         String[] tokens = str.split(",");
 

@@ -40,14 +40,29 @@ public class PersistenceManager {
 //    }
 // --Commented out by Inspection STOP (11/14/2016 10:01 PM)
 
+    /**
+     * add purity reports
+     * @param purityReportList reports to add
+     */
     public void addPurityReports(ArrayList<WaterPurityReport> purityReportList) {
         this.purityReportList = purityReportList;
     }
 
+    /**
+     * constructor for persistance manager
+     * @param availabilityReports reports for availabilty
+     * @param qualityReports reports for quality
+     */
     public PersistenceManager(ArrayList<WaterSourceReport> availabilityReports, ArrayList<WaterPurityReport> qualityReports) {
         this.sourceReportList = availabilityReports;
         this.purityReportList = qualityReports;
     }
+
+    /**
+     * save to a json file
+     * @param file to save to
+     * @throws IOException
+     */
     public void saveUsersToJson(File file) throws IOException {
         try (PrintWriter pw = new PrintWriter(new FileWriter(file))) {
             Gson gson = new Gson();
@@ -59,6 +74,11 @@ public class PersistenceManager {
         }
     }
 
+    /**
+     * save reports to json
+     * @param file file to save to
+     * @throws IOException
+     */
     public void saveSourceReportsToJson(File file) throws IOException {
         try (PrintWriter pw = new PrintWriter(new FileWriter(file))) {
             Gson gson = new Gson();
@@ -70,6 +90,11 @@ public class PersistenceManager {
         }
     }
 
+    /**
+     * save purity reports
+     * @param file file to save to
+     * @throws IOException
+     */
     public void savePurityReportsToJson(File file) throws IOException {
         try (PrintWriter pw = new PrintWriter(new FileWriter(file))) {
             Gson gson = new Gson();
@@ -81,6 +106,12 @@ public class PersistenceManager {
         }
     }
 
+    /**
+     * load users
+     * @param file file to load from
+     * @return list of users
+     * @throws IOException
+     */
     public List<User> loadUsersFromJson(File file) throws IOException {
         BufferedReader br = new BufferedReader(new FileReader(file));
         Type collectionType = new TypeToken<List<User>>() {
@@ -92,6 +123,12 @@ public class PersistenceManager {
         return userList;
     }
 
+    /**
+     * load source reports
+     * @param file file to load from
+     * @return list of source reports
+     * @throws IOException
+     */
     public List<WaterSourceReport> loadSourceReportsFromJson(File file) throws IOException {
         BufferedReader br = new BufferedReader(new FileReader(file));
         Type collectionType = new TypeToken<List<WaterSourceReport>>() {
@@ -103,6 +140,12 @@ public class PersistenceManager {
         return sourceReportList;
     }
 
+    /**
+     * load purity reports
+     * @param file file to load from
+     * @return list of purity reports
+     * @throws IOException
+     */
     public List<WaterPurityReport> loadPurityReportsFromJson(File file) throws IOException {
         BufferedReader br = new BufferedReader(new FileReader(file));
         Type collectionType = new TypeToken<List<WaterPurityReport>>() {

@@ -77,12 +77,20 @@ public class MainFXApplication extends Application {
         return rDatabase;
     }
 
+    /**
+     * add source reports to database
+     * @param rList list of source reports
+     */
     public void addSourceReports(List<WaterSourceReport> rList) {
         for (WaterSourceReport aRList : rList) {
             rDatabase.add(aRList);
         }
     }
 
+    /**
+     * add purity reports to database
+     * @param rList list of purity reports
+     */
     public void addPurityReports(List<WaterPurityReport> rList) {
         for (WaterPurityReport aRList : rList) {
             rDatabase.add(aRList);
@@ -116,6 +124,9 @@ public class MainFXApplication extends Application {
         setScene(applicationScene);
     }
 
+    /**
+     * set map scene
+     */
     public void setViewMapScene() {
         System.out.println("setViewMapScene()");
         setScene(mapScene);
@@ -130,6 +141,9 @@ public class MainFXApplication extends Application {
         mapController.placeMarkers(locations);
     }
 
+    /**
+     * set view historical scene
+     */
     public void setViewHistScene() {
         setScene(histScene);
         //histReportController.
@@ -173,6 +187,9 @@ public class MainFXApplication extends Application {
 
     }
 
+    /**
+     * set scene to graph scene
+     */
     public void setViewGraphScene() {
         viewReportsController.updateListView();
         setScene(graphScene);

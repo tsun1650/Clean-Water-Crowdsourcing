@@ -28,16 +28,24 @@ public class ViewReportsScreenController {
         rDatabase = mainApplication.getReports();
     }
 
-
+    /**
+     * go back home
+     */
     public void backClicked() {
         User u = database.getActiveUser();
         mainApplication.setApplicationScene(u);
     }
 
+    /**
+     * go to map scene
+     */
     public void viewMapClicked() {
         mainApplication.setViewMapScene();
     }
 
+    /**
+     * update reports view
+     */
     public void updateListView(){
 
         ObservableList<String> r = FXCollections.observableArrayList (rDatabase.getReportsAsString());

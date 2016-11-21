@@ -9,14 +9,14 @@ public class UserDatabase {
 	private User active;
 
 	/**
-	 * constructor to create the arraylsit
+	 * constructor to create the arrayList
 	 */
 	public UserDatabase() {
 		userList = new ArrayList<>();
 	}
 
 	/**
-	 * constructor to accept an arraylist to add
+	 * constructor to accept an arrayList to add
 	 */
 	public UserDatabase(ArrayList<User> a) {userList = a;}
 
@@ -32,7 +32,7 @@ public class UserDatabase {
 	/**
 	 * get all the users
 	 *
-	 * @return userlist
+	 * @return userList
 	 */
 	public ArrayList<User> getUsers() {
 		return userList;

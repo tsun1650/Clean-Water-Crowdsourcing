@@ -43,7 +43,8 @@
         <Label text="Email" GridPane.rowIndex="3"/>
         <Label text="Address" GridPane.rowIndex="4"/>
         <Label fx:id="firstNameField" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
-        <Label fx:id="lastnameField" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+        <!--suppress JavaFxUnresolvedFxIdReference -->
+        <Label fx:id="lastNameField" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
         <Label fx:id="emailField" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
         <Label fx:id="addressField" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
         <Label text="Title"/>

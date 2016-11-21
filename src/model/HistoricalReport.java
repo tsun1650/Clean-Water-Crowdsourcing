@@ -8,6 +8,12 @@ public class HistoricalReport extends Report {
     private String ppmCat;
     private Integer year;
 
+    /**
+     * constructor for historical report
+     * @param location location
+     * @param ppmCat ppm count
+     * @param year year
+     */
     public HistoricalReport(String location, String ppmCat, Integer year) {
         this.location = location;
         this.ppmCat = ppmCat;

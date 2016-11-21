@@ -23,21 +23,34 @@ public class HistoricalReportController {
     @FXML
     private ListView<String> listReports;
 
+    /**
+     * set app to main
+     * @param main main screen
+     */
     public void setApp(MainFXApplication main) {
         mainApplication = main;
         database = mainApplication.getUsers();
         rDatabase = mainApplication.getReports();
     }
 
+    /**
+     * return to main
+     */
     public void backClicked() {
         u = database.getActiveUser();
         mainApplication.setApplicationScene(u);
     }
 
+    /**
+     * go to graph scene
+     */
     public void viewGraphClicked() {
         mainApplication.setViewGraphScene();
     }
 
+    /**
+     * update list of reports
+     */
     public void updateListView(){
 
         ObservableList<String> r = FXCollections.observableArrayList (rDatabase.getReportsAsString());
@@ -46,6 +59,9 @@ public class HistoricalReportController {
 
     }
 
+    /**
+     * cancel historical report
+     */
     @SuppressWarnings("unused")
     public void cancelClicked() {
         mainApplication.setApplicationScene(u);

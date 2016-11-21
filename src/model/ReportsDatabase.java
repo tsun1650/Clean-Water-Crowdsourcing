@@ -19,6 +19,7 @@ public class ReportsDatabase {
         return reports;
     }
 
+
     public ArrayList<WaterSourceReport> getSourceReports() {
         return reports.stream().filter(r -> r instanceof WaterSourceReport).map(r -> (WaterSourceReport) r).collect(Collectors.toCollection(ArrayList::new));
     }
@@ -27,6 +28,10 @@ public class ReportsDatabase {
         return reports.stream().filter(r -> r instanceof WaterPurityReport).map(r -> (WaterPurityReport) r).collect(Collectors.toCollection(ArrayList::new));
     }
 
+    /**
+     * add report into database
+     * @param r report to add
+     */
     public void add(Report r) {
         reports.add(r);
         r.setNumber(reports.size());

@@ -382,6 +382,9 @@ public class ApplicationScreenController {
         mainApplication.setMainScene();
     }
 
+    /**
+     * save Users to file
+     */
     public void saveUsersClicked() {
         FileChooser fc = new FileChooser();
         fc.setTitle("Save JSON File");
@@ -396,6 +399,9 @@ public class ApplicationScreenController {
         }
     }
 
+    /**
+     * save source reports to file
+     */
     public void saveSourceReportsClicked() {
         FileChooser fc = new FileChooser();
         fc.setTitle("Save JSON File");
@@ -411,7 +417,9 @@ public class ApplicationScreenController {
         }
     }
 
-
+    /**
+     * save purity reports
+     */
     public void savePurityReportsClicked() {
         FileChooser fc = new FileChooser();
         fc.setTitle("Save Text File");
@@ -426,7 +434,9 @@ public class ApplicationScreenController {
         }
     }
 
-
+    /**
+     * load source reports files
+     */
     public void loadSourceReportsClicked() {
         FileChooser fc = new FileChooser();
         fc.setTitle("Save JSON File");
@@ -447,7 +457,9 @@ public class ApplicationScreenController {
         }
     }
 
-
+    /**
+     * load purity reports
+     */
     public void loadPurityReportsClicked() {
         FileChooser fc = new FileChooser();
         fc.setTitle("Save JSON File");

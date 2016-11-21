@@ -23,6 +23,9 @@ public class MapController implements Initializable, MapComponentInitializedList
     private MainFXApplication mainApplication;
 
     @FXML
+    /**
+     * set app to main
+     */
     public void setApp(MainFXApplication main) {
         mainApplication = main;
         //UserDatabase database = mainApplication.getUsers();

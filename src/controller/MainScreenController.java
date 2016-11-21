@@ -51,6 +51,9 @@ public class MainScreenController {
         mainApplication.setRegistrationScene();
     }
 
+    /**
+     * load file
+     */
     public void loadClicked() {
         FileChooser fc = new FileChooser();
         fc.setTitle("Save JSON File");
