@@ -58,7 +58,7 @@ public class RegistrationScreenController {
 
 
         database.add(u);
-        database.login(u);
+        database.getCredentials(u.getUser(), u.getPass());
 
         mainApplication.setApplicationScene(u);
 

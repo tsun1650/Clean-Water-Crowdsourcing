@@ -56,26 +56,6 @@ public class UserDatabase {
 		active = u;
 	}
 
-	/**
-	 * check if user is in database
-	 *
-	 * @param u to log in
-	 */
-	public void login(User u) {
-		if (u.getUser().equals("user") && u.getPass().equals("pass")) {
-			setActiveUser(u);
-			return;
-		}
-		for (User i : userList) {
-			if (i.equals(u)) {
-				u.login();
-				setActiveUser(u);
-				return;
-			}
-		}
-		setActiveUser(null);
-
-	}
 
 	/**
 	 * Check if the user exists within database off its user and pass
@@ -88,7 +68,7 @@ public class UserDatabase {
 		for (User i : userList) {
 			if (i.getUser().equals(u) && i.getPass().equals(p)) {
 				setActiveUser(i);
-				login(i);
+				i.login();
 				return i;
 			}
 		}
