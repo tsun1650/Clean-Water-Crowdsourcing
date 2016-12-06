@@ -1,46 +1,64 @@
-apply plugin: "java"
-apply plugin: "application"
-apply plugin: "checkstyle"
-
-repositories {
-    mavenCentral()
-}
-
-dependencies {
-    compile group: 'com.lynden', name: 'GMapsFX', version: '2.0.9'
-    compile group: 'org.json', name: 'json', version: '20140107'
-    testCompile 'junit:junit:4.12'
-}
-
-version = "1.0"
-description = "Clean Water Crowdsourcing"
-mainClassName = "MainFXApplication"
-
-defaultTasks "buildFxApp"
-
-compileJava.mustRunAfter 'clean'
-
-
-
-
-jar {
-    manifest {
-        attributes(
-            "Implementation-Title": "CS 2340 Project",
-            "Implementation-Version": version,
-            "Main-Class": "MainFXApplication"
-        )
+buildscript {
+    repositories {
+        flatDir {
+            dirs 'lib/'
+        }
+        mavenCentral()
+    }
+    dependencies {
+        
+        classpath group: 'com.lynden', name: 'GMapsFX', version: '2.0.9'
+	classpath group: 'org.json', name: 'json', version: '20140107'
     }
 }
+plugins {
+    id 'jvm-component'
+    id 'java-lang'
+    id 'junit-test-suite'
+    id "org.gradle.java"
+   
+}
 
-task buildFxApp(dependsOn: [
+model {
+    testSuites {
+        test(JUnitTestSuiteSpec) {
+            jUnitVersion '4.12'
+        }
+    }
+}
+//Set a default task, so if I don't give a task, this (these) will be executed
+defaultTasks  'clean', 'jar', 'run'
+
+//Import a bunch of java related tasks like compileJava, compileJavaTest, clean, javadoc, jar
+apply plugin: 'java'
+apply plugin: 'application'
+apply plugin: 'idea'
+
+mainClassName = "fxapp.MainFXApplication"
+//Define the contents of the jar file
+jar {
+    manifest {
+        attributes 'Main-Class': 'fxapp.MainFXApplication'
+    }
+}
+dependencies {
+    repositories {
+        flatDir {
+            dirs 'lib/'
+        }
+        mavenCentral()
+    }
     
-    jar
-])
+    compile group: 'com.lynden', name: 'GMapsFX', version: '2.0.9'
+    compile group: 'org.json', name: 'json', version: '20140107'
+    testCompile "junit:junit:4.12"  // Or whatever version
+}
 
-task runClean(dependsOn: [
-        clean,
-        build,
-        buildFxApp,
-        run
-])
+sourceSets {
+  main {
+    resources {
+        srcDirs = ["src/fxapp"]
+        includes = ["**/*.fxml"]
+    }
+  }
+}

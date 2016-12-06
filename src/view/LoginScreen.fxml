@@ -10,6 +10,8 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginScreenController">
     <top>
         <AnchorPane prefHeight="341.0" prefWidth="600.0" BorderPane.alignment="CENTER">
@@ -36,6 +38,17 @@
                     <DropShadow color="#57aab9" height="9.69" offsetX="1.0" offsetY="1.0" radius="3.465" spread="0.1" width="6.17" />
                 </effect>
             </Text>
+
+            <ImageView fitHeight="183.0" fitWidth="151.0" layoutX="469.0" layoutY="211.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@/img/dropz.gif" />
+                </image>
+            </ImageView>
+            <ImageView fitHeight="99.0" fitWidth="76.0" layoutX="113.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@/img/dropz.gif" />
+                </image>
+            </ImageView>
         </AnchorPane>
     </top>
     <left>

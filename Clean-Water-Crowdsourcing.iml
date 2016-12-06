@@ -18,6 +18,7 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" name="com.google.code.gson:gson:2.8.0" level="project" />
+    <orderEntry type="library" name="java mail" level="project" />
+    <orderEntry type="library" name="org.simplejavamail:simple-java-mail:4.1.2" level="project" />
   </component>
 </module>
