@@ -113,6 +113,7 @@ public class MainFXApplication extends Application {
         rDatabase = new ReportsDatabase();
         database.add(new User());
         database.add(new Manager());
+        database.add(new Admin());
         setLayout(primaryStage);
     }
 
@@ -140,7 +141,7 @@ public class MainFXApplication extends Application {
             locations = rDatabase.getSourceLocations();
             System.out.println("getSourceLocations");
         }
-        System.out.println(locations.get(0));
+//        System.out.println(locations.get(0));
         mapController.placeMarkers(locations);
     }
 
