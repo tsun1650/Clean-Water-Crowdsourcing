@@ -54,7 +54,18 @@ public class LoginScreenController {
         }
 
     }
+    /*
+    public void recoverPW(User u) {
 
+        Email email = new Email();
+        email.setFromAddress("System", "tonysun996@gmail.com");
+        email.addRecipient(u.getFirstName(), u.getEmail(), RecipientType.TO);
+
+        email.setSubject("Password Recovery");
+        email.setText("Your password is " + u.getPass());
+
+        new Mailer("server", "25", "username", "password").sendMail(email);
+    }*/
     /**
      * after cancel, go home
      */

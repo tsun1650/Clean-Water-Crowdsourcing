@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import model.*;
 
@@ -31,11 +32,13 @@ public class MainFXApplication extends Application {
     private Scene registrationScene;
     private Scene waterSourceScene;
     private Scene viewReportsScene;
-    private Scene graphScene;
+    private Scene viewGraphScene;
+    private Scene deleteUsersScene;
     private ApplicationScreenController applicationController;
 
     private ViewReportsScreenController viewReportsController;
     private MapController mapController;
+    private DeleteUsersController deleteUsersController;
 
     /**
      *
@@ -111,8 +114,6 @@ public class MainFXApplication extends Application {
     public void start(Stage primaryStage) {
         database = new UserDatabase();
         rDatabase = new ReportsDatabase();
-        database.add(new User());
-        database.add(new Manager());
         setLayout(primaryStage);
     }
 
@@ -140,7 +141,7 @@ public class MainFXApplication extends Application {
             locations = rDatabase.getSourceLocations();
             System.out.println("getSourceLocations");
         }
-        System.out.println(locations.get(0));
+//        System.out.println(locations.get(0));
         mapController.placeMarkers(locations);
     }
 
@@ -150,6 +151,14 @@ public class MainFXApplication extends Application {
     public void setViewHistScene() {
         setScene(histScene);
 
+    }
+
+    /**
+     * set scene to delete reports scene
+     */
+    public void setDeleteUsersScene() {
+        setScene(deleteUsersScene);
+//        deleteUsersController.updateList();
     }
 
     /**
@@ -195,7 +204,7 @@ public class MainFXApplication extends Application {
      */
     public void setViewGraphScene() {
         viewReportsController.updateListView();
-        setScene(graphScene);
+        setScene(viewGraphScene);
     }
 
     /**
@@ -223,6 +232,8 @@ public class MainFXApplication extends Application {
             FXMLLoader viewReportsLoader = new FXMLLoader();
             FXMLLoader viewMapLoader = new FXMLLoader();
             FXMLLoader viewHistReportsLoader = new FXMLLoader();
+            FXMLLoader viewGraphSceneLoader = new FXMLLoader();
+            FXMLLoader deleteUsersLoader = new FXMLLoader();
             //tie loaders to fxmls
             applicationLoader.setLocation(MainFXApplication.class.getResource("../view/ApplicationScreen.fxml"));
             loginLoader.setLocation(MainFXApplication.class.getResource("../view/loginScreen.fxml"));
@@ -231,6 +242,8 @@ public class MainFXApplication extends Application {
             viewReportsLoader.setLocation(MainFXApplication.class.getResource("../view/ViewReportsScreen.fxml"));
             viewMapLoader.setLocation(MainFXApplication.class.getResource("../view/mapview.fxml"));
             viewHistReportsLoader.setLocation(MainFXApplication.class.getResource("../view/ViewHistoricalReportsScreen.fxml"));
+            viewGraphSceneLoader.setLocation(MainFXApplication.class.getResource("../view/GraphView.fxml"));
+            deleteUsersLoader.setLocation(MainFXApplication.class.getResource("../view/DeleteUsersScreen.fxml"));
             //load them in layouts
             AnchorPane applicationLayout = applicationLoader.load();
             BorderPane loginLayout = loginLoader.load();
@@ -239,6 +252,8 @@ public class MainFXApplication extends Application {
             AnchorPane viewReportsLayout = viewReportsLoader.load();
             BorderPane viewMapsLayout = viewMapLoader.load();
             AnchorPane viewHistReportsLayout = viewHistReportsLoader.load();
+            AnchorPane viewGraphSceneLayout = viewGraphSceneLoader.load();
+            VBox deleteUsersLayout = deleteUsersLoader.load();
 
             // attach layout to the scene
             applicationScene = new Scene(applicationLayout);
@@ -249,6 +264,8 @@ public class MainFXApplication extends Application {
             viewReportsScene = new Scene(viewReportsLayout);
             mapScene = new Scene(viewMapsLayout);
             histScene = new Scene(viewHistReportsLayout);
+            deleteUsersScene = new Scene(deleteUsersLayout);
+            viewGraphScene = new Scene(viewGraphSceneLayout);
 
             // Give the controller access to the main app.
             applicationController = applicationLoader.getController();
@@ -258,6 +275,8 @@ public class MainFXApplication extends Application {
             viewReportsController = viewReportsLoader.getController();
             mapController = viewMapLoader.getController();
             HistoricalReportController histReportController = viewHistReportsLoader.getController();
+            DeleteUsersController deleteUsersController = deleteUsersLoader.getController();
+            GraphController graphController = viewGraphSceneLoader.getController();
 
             applicationController.setApp(this);
             loginController.setApp(this);
@@ -267,6 +286,8 @@ public class MainFXApplication extends Application {
             mainController.setApp(this);
             mapController.setApp(this);
             histReportController.setApp(this);
+            deleteUsersController.setApp(this);
+            graphController.setApp(this);
             //closeMapView();
 
             setMainScene();
@@ -276,13 +297,6 @@ public class MainFXApplication extends Application {
         }
     }
 
-
-    //    public void closeMapView() {
-//        Facade fc = Facade.getInstance();
-//        fc.addLocations();
-//        mapController.mapInitialized();
-//        stage.setScene(mapScene);
-//    }
 
 
 }

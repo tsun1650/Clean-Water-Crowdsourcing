@@ -1,5 +1,6 @@
 package model;
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 /**
  * Instance of userDatabase
@@ -73,6 +74,35 @@ public class UserDatabase {
 			}
 		}
 		return null;
+	}
+	public String recoverPass(String e) {
+		if (e == null) {
+			throw new IllegalArgumentException("null email");
+		}
+		for (User u : userList) {
+			if (u.getEmail().equals(e)) {
+				return u.getPass();
+			}
+		}
+		return null;
+	}
+	public boolean removeUserWithUName(String u) {
+		User rUser = null;
+		for (User i : userList) {
+			if (i.getUser().equals(u)) {
+				rUser = i;
+				break;
+			}
+		}
+		if (rUser == null || rUser.getType() == Type.ADMN) {
+			return false;
+		}
+		userList.remove(rUser);
+		return true;
+	}
+
+	public ArrayList<String> getUsersAsString() {
+		return userList.stream().map(Object::toString).collect(Collectors.toCollection(ArrayList::new));
 	}
 
 	/**

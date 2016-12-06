@@ -5,6 +5,7 @@ package model;
  */
 public class WaterSourceReport extends Report{
 
+
     private String date;
     private String reporter;
     private WaterType type;
@@ -35,6 +36,22 @@ public class WaterSourceReport extends Report{
         number = n;
     }
 
+    public String getDate() {
+        return date;
+    }
+
+    public String getReporter() {
+        return reporter;
+    }
+
+    public WaterType getType() {
+        return type;
+    }
+
+    public Condition getCondition() {
+        return condition;
+    }
+
     public double getLatitude() {
         String[] latLong = location.split(",");
         return Double.parseDouble(latLong[0]);
@@ -53,7 +70,7 @@ public class WaterSourceReport extends Report{
 
     @Override
     public String toString() {
-        return "WaterSourceReport{" +
+        return "<h2>WaterSourceReport</h2>{" +
                 "date='" + date + '\'' +
                 ", location='" + location + '\'' +
                 ", reporter='" + reporter + '\'' +
@@ -61,6 +78,22 @@ public class WaterSourceReport extends Report{
                 ", condition=" + condition +
                 ", number=" + number +
                 '}';
+    }
+
+    public boolean equals(WaterSourceReport other) {
+        //number, location, year, date, reporter, type, condition
+        boolean numB = this.getNumber() == other.getNumber();
+        boolean locB = this.getLocation().equals(other.getLocation());
+//        boolean yearB = this.getYear().equals(other.getYear());
+        boolean dateB = date.equals(other.getDate());
+        boolean repB = reporter.equals(other.getReporter());
+        boolean typeB = type.equals(other.getType());
+        boolean conB = condition.equals(other.getCondition());
+        return numB && locB && dateB && repB && typeB && conB;
+    }
+
+    public int getNumber() {
+        return number;
     }
 }
 

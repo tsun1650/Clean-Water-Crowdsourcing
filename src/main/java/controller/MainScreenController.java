@@ -1,9 +1,19 @@
 package controller;
 
 import fxapp.MainFXApplication;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Hyperlink;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.VBox;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import model.PersistenceManager;
 import model.User;
 import model.UserDatabase;
@@ -70,5 +80,61 @@ public class MainScreenController {
                 e.printStackTrace();
             }
         }
+    }
+    public void linkClicked() {
+        Stage stage = new Stage();
+        VBox vbox = new VBox();
+        Scene scene = new Scene(vbox);
+        stage.setTitle("Where's My Water on Facebook");
+        stage.setWidth(570);
+        stage.setHeight(550);
+        final Hyperlink hpl = new Hyperlink();
+        hpl.setText("Like Us On Facebook!");
+        final String url = "https://www.facebook.com/WhereMyWaterAt/?view_public_for=1675867439371914";
+        final WebView browser = new WebView();
+        final WebEngine webEngine = browser.getEngine();
+        hpl.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                webEngine.load(url);
+            }
+        });
+        HBox hbox = new HBox();
+        hbox.getChildren().addAll(hpl);
+
+        vbox.getChildren().addAll(hbox, browser);
+        VBox.setVgrow(browser, Priority.ALWAYS);
+
+        stage.setScene(scene);
+        stage.showAndWait();
+    }
+
+
+    public void link2Clicked() {
+        Stage stage = new Stage();
+        VBox vbox = new VBox();
+        Scene scene = new Scene(vbox);
+        stage.setTitle("Where's My Water Homepage");
+        stage.setWidth(570);
+        stage.setHeight(550);
+        final Hyperlink hpl = new Hyperlink();
+        hpl.setText("Check Out Our Website!");
+        final String url = "http://www.wheresmywaterat.weebly.com";
+        final WebView browser = new WebView();
+        final WebEngine webEngine = browser.getEngine();
+        hpl.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                webEngine.load(url);
+            }
+        });
+        HBox hbox = new HBox();
+        hbox.getChildren().addAll(hpl);
+
+        vbox.getChildren().addAll(hbox, browser);
+        VBox.setVgrow(browser, Priority.ALWAYS);
+
+        stage.setScene(scene);
+        stage.showAndWait();
     }
 }

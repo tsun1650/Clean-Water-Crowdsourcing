@@ -1,6 +1,7 @@
 package controller;
 
 import fxapp.MainFXApplication;
+import model.ReportsDatabase;
 import model.User;
 import model.UserDatabase;
 
@@ -8,10 +9,11 @@ import model.UserDatabase;
  * Controller for the graph
  */
 @SuppressWarnings("ALL")
-class GraphController {
-
+public class GraphController {
     private MainFXApplication mainApplication;
     private UserDatabase database;
+    private ReportsDatabase rDatabase;
+
 
     /**
      * set app to main
@@ -20,7 +22,7 @@ class GraphController {
     public void setApp(MainFXApplication main) {
         mainApplication = main;
         database = mainApplication.getUsers();
-
+        rDatabase = mainApplication.getReports();
     }
 
     /**
