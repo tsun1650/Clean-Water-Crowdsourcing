@@ -13,10 +13,14 @@ public class Report {
     public void setNumber(int number) {
         this.number = number;
     }
+
     public Integer getYear() {
         return year;
     }
     public String getLocation() { return location;}
+    public int getNumber() {
+        return number;
+    }
 
     public double getLatitude() {
         String[] latLong = location.split(",");

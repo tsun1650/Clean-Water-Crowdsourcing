@@ -22,13 +22,11 @@ public class WaterPurityReport extends Report {
         this.contaminantPPM = contaminantPPM;
     }
 
-//    public String getDate() { return date; }
-//    public int getNumber() {return number;}
-//    public String getWorker() { return worker; }
-//    public String getLocation() { return location; }
-//    public String getCondition() { return condition; }
-//    public double getVirusPPM() { return virusPPM;}
-//    public double getContaminantPPM() { return contaminantPPM;}
+    public String getDate() { return date; }
+    public String getWorker() { return worker; }
+    public PurityCondition getCondition() { return condition; }
+    public double getVirusPPM() { return virusPPM;}
+    public double getContaminantPPM() { return contaminantPPM;}
 //
 //    public void setDate(String dateTime) { this.date = dateTime;}
 //    public void setNumber(int number) { this.number = number;}
@@ -55,7 +53,7 @@ public class WaterPurityReport extends Report {
 // --Commented out by Inspection STOP (11/14/2016 9:56 PM)
 
     public String toString() {
-        return "WaterPurityReport{" +
+        return "<h2>WaterPurityReport</h2>{" +
                 "date='" + date + '\'' +
                 ", worker='" + worker + '\'' +
                 ", location='" + location + '\'' +
@@ -68,5 +66,18 @@ public class WaterPurityReport extends Report {
     public Integer getYear() {
 
         return Integer.parseInt(date.substring(6,8));
+    }
+
+    public boolean equals(WaterPurityReport other) {
+        //number, location, year, date, worker, condition, virusPPM, containmentPPM
+        boolean numB = this.getNumber() == other.getNumber();
+        boolean locB = this.getLocation().equals(other.getLocation());
+        boolean yearB = this.getYear().equals(other.getYear());
+        boolean dateB = date.equals(other.getDate());
+        boolean workB = worker.equals(other.getWorker());
+        boolean condB = condition.equals(other.getCondition());
+        boolean virB = virusPPM == other.getVirusPPM();
+        boolean contB = contaminantPPM == other.getVirusPPM();
+        return numB && locB && yearB && dateB && workB && condB && virB && contB;
     }
 }
