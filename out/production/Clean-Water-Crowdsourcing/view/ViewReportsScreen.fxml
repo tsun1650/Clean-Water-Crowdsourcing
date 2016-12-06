@@ -2,22 +2,34 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
-            prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="controller.ViewReportsScreenController">
-    <Text layoutX="199.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="View Reports">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ViewReportsScreenController">
+    <Text fill="#1804f2" layoutX="199.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="View Reports">
         <font>
-          <Font name="Segoe UI Light" size="37.0"/>
+            <Font name="Segoe UI Light" size="37.0" />
         </font>
+        <effect>
+            <DropShadow color="#00c3ff" />
+        </effect>
     </Text>
-    <ListView fx:id="listReports" layoutX="125.0" layoutY="100.0" prefHeight="200.0" prefWidth="350.0"/>
-    <Button layoutX="280.0" layoutY="324.0" mnemonicParsing="false" onAction="#backClicked" text="Back"/>
-    <Button layoutX="199.0" layoutY="324.0" mnemonicParsing="false"
-            onAction="#updateListView" text="Refresh"/>
-    <Button layoutX="349.0" layoutY="324.0" mnemonicParsing="false"
-            onAction="#viewMapClicked" text="View Map"/>
+    <ListView fx:id="listReports" layoutX="125.0" layoutY="100.0" prefHeight="200.0" prefWidth="350.0" />
+    <Button layoutX="280.0" layoutY="324.0" mnemonicParsing="false" onAction="#backClicked" text="Back" />
+    <Button layoutX="199.0" layoutY="324.0" mnemonicParsing="false" onAction="#updateListView" text="Refresh" />
+    <Button layoutX="349.0" layoutY="324.0" mnemonicParsing="false" onAction="#viewMapClicked" text="View Map" />
+    <ImageView fitHeight="190.0" fitWidth="69.0" layoutX="66.0" layoutY="105.0" pickOnBounds="true" preserveRatio="true">
+        <image>
+            <Image url="@/img/water_w.gif" />
+        </image>
+    </ImageView>
+    <ImageView fitHeight="190.0" fitWidth="59.0" layoutX="475.0" layoutY="105.0" pickOnBounds="true" preserveRatio="true">
+        <image>
+            <Image url="@/img/water_w.gif" />
+        </image>
+    </ImageView>
 </AnchorPane>

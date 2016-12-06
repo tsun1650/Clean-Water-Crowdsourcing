@@ -8,8 +8,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="com.lynden:GMapsFX:2.0.9" level="project" />
-    <orderEntry type="library" name="com.google.code.gson:gson:2.7" level="project" />
-    <orderEntry type="library" name="com.lynden:GMapsFX:1.1.0" level="project" />
     <orderEntry type="module-library">
       <library name="JUnit4">
         <CLASSES>
@@ -20,5 +18,7 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="java mail" level="project" />
+    <orderEntry type="library" name="org.simplejavamail:simple-java-mail:4.1.2" level="project" />
   </component>
 </module>
