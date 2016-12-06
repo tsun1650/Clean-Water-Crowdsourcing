@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DeleteUsersController">
+   <children>
+      <Pane prefHeight="67.0" prefWidth="600.0">
+         <children>
+            <Label layoutX="220.0" layoutY="12.0" text="Remove Users" textFill="#2200ff">
+               <font>
+                  <Font name="Segoe UI Light" size="27.0" />
+               </font>
+               <effect>
+                  <DropShadow color="#0070ff" />
+               </effect>
+            </Label>
+         </children></Pane>
+      <ListView fx:id="userField" prefHeight="200.0" prefWidth="302.0" />
+      <GridPane prefHeight="116.0" prefWidth="600.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="292.0" minWidth="10.0" prefWidth="254.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="406.0" minWidth="10.0" prefWidth="346.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button fx:id="removeButton" mnemonicParsing="false" onMouseClicked="#removeButtonClicked" text="Remove" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="removeUserField" prefHeight="13.0" prefWidth="346.0" GridPane.columnIndex="1" />
+            <Label prefHeight="21.0" prefWidth="219.0" text="Username of User to Remove:" textAlignment="CENTER">
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+            </Label>
+            <Button fx:id="back" mnemonicParsing="false" onMouseClicked="#backClicked" text="Back" GridPane.rowIndex="1" />
+         </children>
+      </GridPane>
+   </children>
+</VBox>

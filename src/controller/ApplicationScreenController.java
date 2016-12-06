@@ -47,6 +47,8 @@ public class ApplicationScreenController {
     @FXML
     private Label titleField;
     @FXML
+    private Button deleteUsers;
+    @FXML
     private ComboBox<WaterType> waterTypeComboBox = new ComboBox<>();
     @FXML
     private ComboBox<Condition> conditionComboBox = new ComboBox<>();
@@ -478,6 +480,15 @@ public class ApplicationScreenController {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        }
+    }
+
+    public void deleteUsersClicked() {
+        if (!mainApplication.getUsers().getActiveUser().getType().equals(Type.ADMN)) {
+            Alert alert = new Alert(Alert.AlertType.WARNING, "Must have Admin authorization", ButtonType.OK);
+            alert.showAndWait();
+        } else {
+            mainApplication.setDeleteUsersScene();
         }
     }
 

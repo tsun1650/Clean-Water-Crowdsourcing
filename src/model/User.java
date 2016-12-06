@@ -136,8 +136,6 @@ public class User {
 		this.email = email;
 	}
 
-
-
     /**
      * set address
      * @param a address
