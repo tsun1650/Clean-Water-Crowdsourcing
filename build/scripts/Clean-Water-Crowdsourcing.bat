@@ -63,7 +63,7 @@ set CMD_LINE_ARGS=%*
 :execute
 @rem Setup the command line
 
-set CLASSPATH=%APP_HOME%\lib\Clean-Water-Crowdsourcing.jar;%APP_HOME%\lib\GMapsFX-2.0.9.jar;%APP_HOME%\lib\json-20140107.jar
+set CLASSPATH=%APP_HOME%\lib\Clean-Water-Crowdsourcing.jar;%APP_HOME%\lib\GMapsFX-2.0.9.jar;%APP_HOME%\lib\gson-2.8.0.jar;%APP_HOME%\lib\json-20140107.jar
 
 @rem Execute Clean-Water-Crowdsourcing
 "%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %CLEAN_WATER_CROWDSOURCING_OPTS%  -classpath "%CLASSPATH%" fxapp.MainFXApplication %CMD_LINE_ARGS%
